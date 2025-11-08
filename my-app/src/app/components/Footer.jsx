@@ -1,6 +1,6 @@
 import { Box, Divider, Typography } from "@mui/material";
 import { ContainerDivider } from "./components";
-import {Link} from "@mui/material";
+import { StyledLink } from "./components";
 
 const Footer = () => {
   return (
@@ -35,17 +35,17 @@ const Footer = () => {
             <Typography variant="h1" sx={{ fontSize: "1.2rem" }}>
               Policies
             </Typography>
-            <Link href="https://www.vridhamma.org/terms-and-conditions"
+            <StyledLink href="https://www.vridhamma.org/terms-and-conditions"
               target="_blank"
             >
               Terms Of Use
-            </Link>
-            <Link href="https://www.vridhamma.org/privacy-policy">
+            </StyledLink>
+            <StyledLink href="https://www.vridhamma.org/privacy-policy">
               Privacy Policy
-            </Link>
-            <Link href="https://www.vridhamma.org/shipping-and-returns">
+            </StyledLink>
+            <StyledLink href="https://www.vridhamma.org/shipping-and-returns">
               Shipping And Returns
-            </Link>
+            </StyledLink>
           </Box>
         </Box>
         <Box
@@ -58,12 +58,12 @@ const Footer = () => {
           }}
         >
           <Typography variant="body2">About </Typography>
-          <Link href="https://www.vridhamma.org/About-VRI" target="_blank">
+          <StyledLink href="https://www.vridhamma.org/About-VRI" target="_blank">
             About Us
-          </Link>
-          <Link href="https://www.vridhamma.org/Contact-Us" target="_blank">
+          </StyledLink>
+          <StyledLink href="https://www.vridhamma.org/Contact-Us" target="_blank">
             Contact Us
-          </Link>
+          </StyledLink>
         </Box>
         <Box
           sx={{
@@ -75,27 +75,27 @@ const Footer = () => {
           }}
         >
           <Typography variant="body2">Social Media:</Typography>
-          <Link
+          <StyledLink
             href="https://www.facebook.com/Vipassanaorganisation/"
             target="_blank"
           >
             Facebook
-          </Link>
-          <Link href="https://twitter.com/VipassanaOrg" target="_blank">
+          </StyledLink>
+          <StyledLink href="https://twitter.com/VipassanaOrg" target="_blank">
             Twitter
-          </Link>
-          <Link href="https://www.instagram.com/vipassanaorg/" target="_blank">
+          </StyledLink>
+          <StyledLink href="https://www.instagram.com/vipassanaorg/" target="_blank">
             Instagram
-          </Link>
-          <Link href="https://t.me/+lnwlmLBoP5ljZmNl" target="_blank">
+          </StyledLink>
+          <StyledLink href="https://t.me/+lnwlmLBoP5ljZmNl" target="_blank">
             Telegram
-          </Link>
-          <Link
+          </StyledLink>
+          <StyledLink
             href="https://www.youtube.com/user/VipassanaOrg"
             target="_blank"
           >
             Youtube
-          </Link>
+          </StyledLink>
         </Box>
         <Box
           sx={{
@@ -107,18 +107,18 @@ const Footer = () => {
           }}
         >
           <Typography variant="body2">Download </Typography>
-          <Link
+          <StyledLink
             href="https://play.google.com/store/apps/details?id=com.vipassanameditation"
             target="_blank"
           >
             Play Store
-          </Link>
-          <Link
+          </StyledLink>
+          <StyledLink
             href="https://apps.apple.com/in/app/vipassanameditation-vri/id1491766806"
             target="_blank"
           >
             App Store
-          </Link>
+          </StyledLink>
         </Box>
       </Box>
     </>

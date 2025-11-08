@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import { blue, blueGrey } from "@mui/material/colors";
 import { Button } from "@mui/material";
+import Link from "next/link";
 
 export const StyledButton = styled(Button)({
   color: blue,
@@ -20,7 +21,7 @@ export const Text = styled(Typography)({
   fontSize: "1.1rem",
   padding: "0 2rem",
   fontWeight: "300",
-  lineHeight:1.6,
+  lineHeight: 1.6,
 });
 
 export const TextBoxContainer = styled(Box)(({ theme }) => ({
@@ -89,3 +90,12 @@ export const Pali_verses = styled(Box)({
   flexDirection: "column",
   gap: "1rem",
 });
+
+export const StyledLink = styled(Link)(({ theme }) => ({
+  textDecoration: "none",
+  color: theme.palette.primary.light,
+  fontWeight: 500,
+  "&:hover": {
+    color: theme.palette.primary.dark,
+  },
+}));

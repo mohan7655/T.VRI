@@ -25,14 +25,14 @@ import DraftsIcon from "@mui/icons-material/Drafts";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { Grow, Link } from "@mui/material";
-import StorefrontIcon from '@mui/icons-material/Storefront';
-import MenuBookIcon from '@mui/icons-material/MenuBook';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import SelfImprovementIcon from '@mui/icons-material/SelfImprovement';
+import StorefrontIcon from "@mui/icons-material/Storefront";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import SelfImprovementIcon from "@mui/icons-material/SelfImprovement";
 import { DhammaIcon, VipassanaIcon } from "./customicons";
-import BookIcon from '@mui/icons-material/Book';
-import HouseIcon from '@mui/icons-material/House';
-import PaymentIcon from '@mui/icons-material/Payment';
+import BookIcon from "@mui/icons-material/Book";
+import HouseIcon from "@mui/icons-material/House";
+import PaymentIcon from "@mui/icons-material/Payment";
 // --- Configuration ---
 
 const drawerWidth = "6vw";
@@ -62,7 +62,7 @@ export default function PermanentDrawerWithTree({ menuData }) {
     }
     closeTimer.current = setTimeout(() => {
       setAnchorEl(null);
-    }, 100);
+    }, 50);
   };
 
   const onPopoverEnter = () => {
@@ -73,15 +73,15 @@ export default function PermanentDrawerWithTree({ menuData }) {
     inbox: <InboxIcon />,
     star: <StarIcon />,
     mail: <MailIcon />,
-    old: <MenuBookIcon/>,
+    old: <MenuBookIcon />,
     store: <StorefrontIcon />,
-    courses: <CalendarMonthIcon/>,
-    anapana: <SelfImprovementIcon/>,
+    courses: <CalendarMonthIcon />,
+    anapana: <SelfImprovementIcon />,
     vri: <DhammaIcon />,
-    vipassana:<VipassanaIcon sx={{strokeWidth: 4.5,}}/>,
-    resources: <BookIcon/>, 
-    centers: <HouseIcon/>,
-    donations: <PaymentIcon/>,
+    vipassana: <VipassanaIcon sx={{ strokeWidth: 4.5 }} />,
+    resources: <BookIcon />,
+    centers: <HouseIcon />,
+    donations: <PaymentIcon />,
   };
   // Recursive function to render tree items
   const renderTree = (nodes) => {
@@ -139,10 +139,12 @@ export default function PermanentDrawerWithTree({ menuData }) {
                 onMouseLeave={handleClose}
                 sx={{
                   display: "flex",
+                  
                   flexDirection: "column",
                   alignItems: "center",
                   justifyContent: "center",
-                  paddingY: 2,
+                  borderRadius: 3,
+                  py: 3,
                   height: "10.8vh",
                   "&:hover": {
                     "& .MuiSvgIcon-root": {
@@ -205,8 +207,8 @@ export default function PermanentDrawerWithTree({ menuData }) {
               padding: 2,
               top: "0 !important",
               minHeight: "100vh",
-              width:340,
-              
+              width: 340,
+
               boxShadow: "0 0 16px rgba(0,0,0,0.15)",
               overflow: "scroll",
             },
