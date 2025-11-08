@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, useCallback, useMemo } from "react";
+import { useEffect, useState, useCallback } from "react";
 import {
   Box,
   Typography,
@@ -11,49 +11,37 @@ import {
 import Link from "next/link";
 import { TextBoxContainer } from "./components";
 
-function getHeadingsFromDOM() {
-  if (typeof window === "undefined") return [];
-  
-  const elements = Array.from(document.querySelectorAll("h3, h4, h5, h6"));
-  return elements.map((elem) => ({
-    id: elem.id,
-    text: elem.textContent,
-    level: elem.tagName.toLowerCase(),
-  }));
-}
-
 export default function TableOfContents() {
-  const [headings, setHeadings] = useState(() => getHeadingsFromDOM());
+  const [headings, setHeadings] = useState([]);
   const [activeId, setActiveId] = useState("");
+  const [isMounted, setIsMounted] = useState(false);
 
+  // Only mount on client side
   useEffect(() => {
-    // Check if we're in the browser
-    if (typeof window === "undefined") return;
-
-    // Update headings after initial render
-    const initialHeadings = getHeadingsFromDOM();
-    if (initialHeadings.length > 0) {
-      setHeadings(initialHeadings);
-    }
-
-    // Set up MutationObserver to watch for DOM changes
-    const observer = new MutationObserver(() => {
-      const newHeadings = getHeadingsFromDOM();
-      setHeadings(newHeadings);
-    });
-
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
-    });
-
-    return () => observer.disconnect();
+    setIsMounted(true);
   }, []);
 
+  // Extract headings - this runs after mount
   useEffect(() => {
-    if (typeof window === "undefined" || headings.length === 0) return;
+    if (!isMounted) return;
 
-    // Intersection Observer to track active heading
+    const timer = setTimeout(() => {
+      const elements = Array.from(document.querySelectorAll("h3, h4, h5, h6"));
+      const headingData = elements.map((elem) => ({
+        id: elem.id,
+        text: elem.textContent,
+        level: elem.tagName.toLowerCase(),
+      }));
+      setHeadings(headingData);
+    }, 0);
+
+    return () => clearTimeout(timer);
+  }, [isMounted]);
+
+  // Set up intersection observer
+  useEffect(() => {
+    if (headings.length === 0) return;
+
     const elements = headings
       .map((h) => document.getElementById(h.id))
       .filter(Boolean);
@@ -73,7 +61,7 @@ export default function TableOfContents() {
     );
 
     elements.forEach((elem) => {
-      if (elem) intersectionObserver.observe(elem);
+      intersectionObserver.observe(elem);
     });
 
     return () => intersectionObserver.disconnect();
@@ -89,7 +77,7 @@ export default function TableOfContents() {
     }
   }, []);
 
-  if (headings.length === 0) return null;
+  if (!isMounted || headings.length === 0) return null;
 
   return (
     <TextBoxContainer
