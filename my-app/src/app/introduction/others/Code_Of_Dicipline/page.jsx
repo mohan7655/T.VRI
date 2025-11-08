@@ -1,0 +1,718 @@
+import {
+  ContainerDivider,
+  Text,
+  TextBoxContainer,
+} from "@/app/components/components";
+import {
+  Box,
+  Divider,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
+} from "@mui/material";
+import CircleIcon from "@mui/icons-material/Circle";
+import Link from "@mui/material/Link";
+export default function COD() {
+  return (
+    <Box>
+      <Typography variant="h1">Code Of Dicipline</Typography>
+      <Divider /> <br />
+      <br />
+      <br />
+      <TextBoxContainer>
+        <Text variant="body1" gutterBottom>
+          Vipassana is one of India's most ancient meditation techniques. Long
+          lost to humanity, it was rediscovered by Gotama the Buddha more than
+          2500 years ago. The word Vipassana means seeing things as they really
+          are. It is the process of self- purification by self-observation. One
+          begins by observing the natural breath to concentrate the mind. With a
+          sharpened awareness one proceeds to observe the changing nature of
+          body and mind and experiences the universal truths of impermanence,
+          suffering and egolessness. This truth-realization by direct experience
+          is the process of purification. The entire path (Dhamma) is a
+          universal remedy for universal problems and has nothing to do with any
+          organized religion or sectarianism. For this reason, it can be freely
+          practiced by everyone, at any time, in any place, without conflict due
+          to race, community or religion, and will prove equally beneficial to
+          one and all.
+        </Text>
+      </TextBoxContainer>
+      <TextBoxContainer>
+        <Typography variant="h3" gutterBottom>
+          What Vipassana is not:
+        </Typography>
+        <ContainerDivider />
+        <Text variant="body1" gutterBottom>
+          <List>
+            <ListItem>
+              <ListItemIcon sx={{ minWidth: 32 }}>
+                <CircleIcon sx={{ fontSize: 10 }} />
+              </ListItemIcon>
+              It is not a rite or ritual based on blind faith.
+            </ListItem>
+
+            <ListItem>
+              <ListItemIcon sx={{ minWidth: 32 }}>
+                <CircleIcon sx={{ fontSize: 10 }} />
+              </ListItemIcon>
+              It is neither an intellectual nor a philosophical entertainment.
+            </ListItem>
+            <ListItem>
+              <ListItemIcon sx={{ minWidth: 32 }}>
+                <CircleIcon sx={{ fontSize: 10 }} />
+              </ListItemIcon>
+              It is not a rest cure, a holiday, or an opportunity for
+              socializing.
+            </ListItem>
+            <ListItem>
+              <ListItemIcon sx={{ minWidth: 32 }}>
+                <CircleIcon sx={{ fontSize: 10 }} />
+              </ListItemIcon>
+              It is not an escape from the trials and tribulations of everyday
+              life.
+            </ListItem>
+          </List>
+        </Text>
+      </TextBoxContainer>
+      <TextBoxContainer>
+        <Typography variant="h3" gutterBottom>
+          What Vipassana is:
+        </Typography>
+        <ContainerDivider />
+        <Text variant="body1" gutterBottom>
+          <List>
+            <ListItem>
+              <ListItemIcon sx={{ minWidth: 32 }}>
+                <CircleIcon sx={{ fontSize: 10 }} />
+              </ListItemIcon>
+              It is a technique that will eradicate suffering.
+            </ListItem>
+
+            <ListItem>
+              <ListItemIcon sx={{ minWidth: 32 }}>
+                <CircleIcon sx={{ fontSize: 10 }} />
+              </ListItemIcon>
+              It is a method of mental purification which allows one to face
+              life's tensions and problems in a calm, balanced way.
+            </ListItem>
+            <ListItem>
+              <ListItemIcon sx={{ minWidth: 32 }}>
+                <CircleIcon sx={{ fontSize: 10 }} />
+              </ListItemIcon>
+              It is an art of living that one can use to make positive
+              contributions to society.
+            </ListItem>
+          </List>
+        </Text>
+        <Text variant="body1" gutterBottom>
+          Vipassana meditation aims at the highest spiritual goals of total
+          liberation and full enlightenment. Its purpose is never simply to cure
+          physical disease. However, as a by-product of mental purification,
+          many psychosomatic diseases are eradicated. In fact, Vipassana
+          eliminates the three causes of all unhappiness: craving, aversion and
+          ignorance. With continued practice, the meditation releases the
+          tensions developed in everyday life, opening the knots tied by the old
+          habit of reacting in an unbalanced way to pleasant and unpleasant
+          situations. <br /> <br />
+          Although Vipassana was developed as a technique by the Buddha, its
+          practice is not limited to Buddhists. There is absolutely no question
+          of conversion. The technique works on the simple basis that all human
+          beings share the same problems and a technique which can eradicate
+          these problems will have a universal application. People from many
+          religious denominations have experienced the benefits of Vipassana
+          meditation, and have found no conflict with their profession of faith.
+        </Text>
+      </TextBoxContainer>
+      <TextBoxContainer>
+        <Typography variant="h3" gutterBottom>
+          Meditation and Self-discipline
+        </Typography>
+        <ContainerDivider />
+        <Text variant="body1" gutterBottom>
+          The process of self-purification by introspection is certainly never
+          easy--students have to work very hard at it. By their own efforts
+          students arrive at their own realizations; no one else can do this for
+          them. Therefore, the meditation will suit only those willing to work
+          seriously and observe the discipline, which is there for the benefit
+          and protection of the meditators and is an integral part of the
+          meditation practice. <br /> <br /> Ten days is certainly a very short
+          time in which to penetrate the deepest levels of the unconscious mind
+          and learn how to eradicate the complexes lying there. Continuity of
+          the practice in seclusion is the secret of this technique's success.
+          Rules and regulations have been developed keeping this practical
+          aspect in mind. They are not primarily for the benefit of the teacher
+          or the course management, nor are they negative expressions of
+          tradition, orthodoxy or blind faith in some organized religion.
+          Rather, they are based on the practical experience of thousands of
+          meditators over the years and are both scientific and rational.
+          Abiding by the rules creates a very conducive atmosphere for
+          meditation; breaking them pollutes it. <br /> <br /> A student will
+          have to stay for the entire period of the course. The other rules
+          should also be carefully read and considered. Only those who feel that
+          they can honestly and scrupulously follow the discipline should apply
+          for admission. Those not prepared to make a determined effort will
+          waste their time and, moreover, will disturb others who wish to work
+          seriously. A prospective student should also understand that it would
+          be both disadvantageous and inadvisable to leave without finishing the
+          course upon finding the discipline too difficult. Likewise, it would
+          be most unfortunate if, in spite of repeated reminders, a student does
+          not follow the rules and has to be asked to leave.
+        </Text>
+      </TextBoxContainer>
+      <TextBoxContainer>
+        <Typography variant="h3" gutterBottom>
+          Persons With Serious Mental Disorders
+        </Typography>
+        <ContainerDivider />
+        <Text variant="body1" gutterBottom>
+          People with serious mental disorders have occasionally come to
+          Vipassana courses with the unrealistic expectation that the technique
+          will cure or alleviate their mental problems. Unstable interpersonal
+          relationships and a history of various treatments can be additional
+          factors which make it difficult for such people to benefit from, or
+          even complete, a ten-day course. Our capacity as a nonprofessional
+          volunteer organization makes it impossible for us to properly care for
+          people with these backgrounds. Although Vipassana meditation is
+          beneficial for most people, it is not a substitute for medical or
+          psychiatric treatment and we do not recommend it for people with
+          serious psychiatric disorders.
+        </Text>
+      </TextBoxContainer>
+      <TextBoxContainer>
+        <Typography variant="h3" gutterBottom>
+          The Code of Discipline
+        </Typography>
+
+        <Text variant="body1" gutterBottom sx={{ px: "2rem" }}>
+          The foundation of the practice is <b>sīla</b> — moral conduct.{" "}
+          <b>Sīla</b>
+          provides a basis for the development of <b>samādhi</b> — concentration
+          of mind; and purification of the mind is achieved through <b>paññā</b>{" "}
+          — the wisdom of insight.
+        </Text>
+        <ContainerDivider />
+        <Box
+          sx={{
+            p: "2rem",
+            my: "1rem",
+          }}
+        >
+          <Typography variant="h4" gutterBottom>
+            The Precepts
+          </Typography>
+          <Text variant="body1" gutterBottom sx={{ px: "2rem" }}>
+            <List
+              component="ol"
+              sx={{
+                listStyleType: "decimal", // This adds the numbers
+                pl: 4, // Adds the default left padding
+              }}
+            >
+              <ListItem sx={{ display: "list-item" }}>
+                to abstain from killing any being;
+              </ListItem>
+              <ListItem sx={{ display: "list-item" }}>
+                to abstain from stealing;
+              </ListItem>
+              <ListItem sx={{ display: "list-item" }}>
+                to abstain from all sexual activity;
+              </ListItem>
+              <ListItem sx={{ display: "list-item" }}>
+                to abstain from telling lies;
+              </ListItem>
+              <ListItem sx={{ display: "list-item" }}>
+                to abstain from all intoxicants.
+              </ListItem>{" "}
+              <br />
+              There are three additional precepts which old students (that is,
+              those who have completed a course with S.N. Goenka or one of his
+              assistant teachers) are expected to follow during the course:{" "}
+              <br />
+              <ListItem sx={{ display: "list-item" }}>
+                to abstain from eating after midday;
+              </ListItem>
+              <ListItem sx={{ display: "list-item" }}>
+                to abstain from sensual entertainment and bodily decorations;
+              </ListItem>
+              <ListItem sx={{ display: "list-item" }}>
+                to abstain from using high or luxurious beds.
+              </ListItem>
+            </List>
+          </Text>
+          <Divider
+            sx={{
+              borderBottomWidth: "0.2rem",
+              borderColor: "#FFFFFF",
+              mx: "-2rem",
+              my: "2rem",
+            }}
+          />
+          <Typography variant="h4" gutterBottom>
+            Acceptance of the Teacher and the Technique
+          </Typography>
+          <Text variant="body1" gutterBottom sx={{ px: "2rem" }}>
+            Students must declare themselves willing to comply fully and for the
+            duration of the course with the teacher's guidance and instructions;
+            that is, to observe the discipline and to meditate exactly as the
+            teacher asks, without ignoring any part of the instructions, nor
+            adding anything to them. This acceptance should be one of
+            discrimination and understanding, not blind submission. Only with an
+            attitude of trust can a student work diligently and thoroughly. Such
+            confidence in the teacher and the technique is essential for success
+            in meditation.
+          </Text>
+          <Divider
+            sx={{
+              borderBottomWidth: "0.2rem",
+              borderColor: "#FFFFFF",
+              mx: "-2rem",
+              my: "2rem",
+            }}
+          />
+          <Typography variant="h4" gutterBottom>
+            Other Techniques, Rites, and Forms of Worship
+          </Typography>
+          <Text variant="body1" gutterBottom sx={{ px: "2rem" }}>
+            During the course it is absolutely essential that all forms of
+            prayer, worship, or religious ceremony — fasting, burning incense,
+            counting beads, reciting mantras, singing and dancing, etc. — be
+            discontinued. All other meditation techniques and healing or
+            spiritual practices should also be suspended. This is not to condemn
+            any other technique or practice, but to give a fair trial to the
+            technique of Vipassana in its purity.
+            <br /> <br />
+            Students are strongly advised that deliberately mixing other
+            techniques of meditation with Vipassana will impede and even reverse
+            their progress. Despite repeated warnings by the teacher, there have
+            been cases in the past where students have intentionally mixed this
+            technique with a ritual or another practice, and have done
+            themselves a great disservice. Any doubts or confusion which may
+            arise should always be clarified by meeting with the teacher.
+          </Text>
+          <Divider
+            sx={{
+              borderBottomWidth: "0.2rem",
+              borderColor: "#FFFFFF",
+              mx: "-2rem",
+              my: "2rem",
+            }}
+          />
+          <Typography variant="h4" gutterBottom>
+            Interviews With the Teacher
+          </Typography>
+          <Text variant="body1" gutterBottom sx={{ px: "2rem" }}>
+            The teacher is available to meet students privately between 12 Noon
+            and 1:00 p.m. Questions may also be asked in public between 9:00 and
+            9:30 p.m. in the meditation hall. The interview and question times
+            are for clarifying the technique and for questions arising from the
+            evening discourses.
+          </Text>
+          <Divider
+            sx={{
+              borderBottomWidth: "0.2rem",
+              borderColor: "#FFFFFF",
+              mx: "-2rem",
+              my: "2rem",
+            }}
+          />
+          <Typography variant="h4" gutterBottom>
+            Noble Silence
+          </Typography>
+          <Text variant="body1" gutterBottom>
+            All students must observe Noble Silence from the beginning of the
+            course until the morning of the last full day. Noble Silence means
+            silence of body, speech, and mind. Any form of communication with
+            fellow student, whether by gestures, sign language, written notes,
+            etc., is prohibited. Students may, however, speak with the teacher
+            whenever necessary and they may approach the management with any
+            problems related to food, accommodation, health, etc. But even these
+            contacts should be kept to a minimum. Students should cultivate the
+            feeling that they are working in isolation.
+          </Text>
+          <Divider
+            sx={{
+              borderBottomWidth: "0.2rem",
+              borderColor: "#FFFFFF",
+              mx: "-2rem",
+              my: "2rem",
+            }}
+          />
+          <Typography variant="h4" gutterBottom>
+            Separation of Men and Women
+          </Typography>
+          <Text variant="body1" gutterBottom>
+            Complete segregation of men and women is to be maintained. Couples,
+            married or otherwise, should not contact each other in any way
+            during the course. The same applies to friends, members of the same
+            family, etc.
+          </Text>
+          <Divider
+            sx={{
+              borderBottomWidth: "0.2rem",
+              borderColor: "#FFFFFF",
+              mx: "-2rem",
+              my: "2rem",
+            }}
+          />
+          <Typography variant="h4" gutterBottom>
+            Physical Contact
+          </Typography>
+          <Text variant="body1" gutterBottom>
+            It is important that throughout the course there be no physical
+            contact whatsoever between persons of the same or opposite sex.
+          </Text>
+          <Divider
+            sx={{
+              borderBottomWidth: "0.2rem",
+              borderColor: "#FFFFFF",
+              mx: "-2rem",
+              my: "2rem",
+            }}
+          />
+          <Typography variant="h4" gutterBottom>
+            Yoga and Physical Exercise
+          </Typography>
+          <Text variant="body1" gutterBottom>
+            Although physical yoga and other exercises are compatible with
+            Vipassana, they should be suspended during the course because proper
+            secluded facilities are not available at the course site. Jogging is
+            also not permitted. Students may exercise during rest periods by
+            walking in the designated areas.
+          </Text>
+          <Divider
+            sx={{
+              borderBottomWidth: "0.2rem",
+              borderColor: "#FFFFFF",
+              mx: "-2rem",
+              my: "2rem",
+            }}
+          />
+          <Typography variant="h4" gutterBottom>
+            Religious Objects, Rosaries, Crystals, Talismans, etc.
+          </Typography>
+          <Text variant="body1" gutterBottom>
+            No such items should be brought to the course site. If brought
+            inadvertently they should be deposited with the management for the
+            duration of the course.
+          </Text>
+          <Divider
+            sx={{
+              borderBottomWidth: "0.2rem",
+              borderColor: "#FFFFFF",
+              mx: "-2rem",
+              my: "2rem",
+            }}
+          />
+          <Typography variant="h4" gutterBottom>
+            Intoxicants and Drugs
+          </Typography>
+          <Text variant="body1" gutterBottom>
+            No drugs, alcohol, or other intoxicants should be brought to the
+            site; this also applies to tranquilizers, sleeping pills, and all
+            other sedatives. Those taking medicines or drugs on a doctor's
+            prescription should notify the teacher.
+          </Text>
+          <Divider
+            sx={{
+              borderBottomWidth: "0.2rem",
+              borderColor: "#FFFFFF",
+              mx: "-2rem",
+              my: "2rem",
+            }}
+          />
+          <Typography variant="h4" gutterBottom>
+            Tobacco
+          </Typography>
+          <Text variant="body1" gutterBottom>
+            For the health and comfort of all students, smoking, chewing
+            tobacco, and taking snuff are not permitted at the course.
+          </Text>
+          <Divider
+            sx={{
+              borderBottomWidth: "0.2rem",
+              borderColor: "#FFFFFF",
+              mx: "-2rem",
+              my: "2rem",
+            }}
+          />
+          <Typography variant="h4" gutterBottom>
+            Food
+          </Typography>
+          <Text variant="body1" gutterBottom>
+            It is not possible to satisfy the special food preferences and
+            requirements of all the meditators. Students are therefore kindly
+            requested to make do with the simple vegetarian meals provided. The
+            course management endeavors to prepare a balanced, wholesome menu
+            suitable for meditation. If any students have been prescribed a
+            special diet because of ill-health, they should inform the
+            management at the time of application. Fasting is not permitted.
+          </Text>
+          <Divider
+            sx={{
+              borderBottomWidth: "0.2rem",
+              borderColor: "#FFFFFF",
+              mx: "-2rem",
+              my: "2rem",
+            }}
+          />
+          <Typography variant="h4" gutterBottom>
+            Clothing
+          </Typography>
+          <Text variant="body1" gutterBottom>
+            Dress should be simple, modest, and comfortable. Tight, transparent,
+            revealing, or otherwise striking clothing (such as shorts, short
+            skirts, tights and leggings, sleeveless or skimpy tops) should not
+            be worn. Sunbathing and partial nudity are not permitted. This is
+            important in order to minimize distraction to others.
+          </Text>
+          <Divider
+            sx={{
+              borderBottomWidth: "0.2rem",
+              borderColor: "#FFFFFF",
+              mx: "-2rem",
+              my: "2rem",
+            }}
+          />
+          <Typography variant="h4" gutterBottom>
+            Laundry and Bathing
+          </Typography>
+          <Text variant="body1" gutterBottom>
+            No washing machines or dryers are available, so students should
+            bring sufficient clothing. Small items can be hand-washed. Bathing
+            and laundry may be done only in the break periods and not during
+            meditation hours.
+          </Text>
+          <Divider
+            sx={{
+              borderBottomWidth: "0.2rem",
+              borderColor: "#FFFFFF",
+              mx: "-2rem",
+              my: "2rem",
+            }}
+          />
+          <Typography variant="h4" gutterBottom>
+            Outside Contacts
+          </Typography>
+          <Text variant="body1" gutterBottom>
+            Students must remain within the course boundaries throughout the
+            course. They may leave only with the specific consent of the
+            teacher. No outside communications is allowed before the course
+            ends. This includes letters, phone calls and visitors. Cell phones,
+            pagers, and other electronic devices must be deposited with the
+            management until the course ends. In case of an emergency, a friend
+            or relative may contact the management.
+          </Text>
+          <Divider
+            sx={{
+              borderBottomWidth: "0.2rem",
+              borderColor: "#FFFFFF",
+              mx: "-2rem",
+              my: "2rem",
+            }}
+          />
+          <Typography variant="h4" gutterBottom>
+            Music, Reading and Writing
+          </Typography>
+          <Text variant="body1" gutterBottom>
+            The playing of musical instruments, radios, etc. is not permitted.
+            No reading or writing materials should be brought to the course.
+            Students should not distract themselves by taking notes. The
+            restriction on reading and writing is to emphasize the strictly
+            practical nature of this meditation. Recording Devices and Cameras
+            These may not be used except with the express permission of the
+            teacher.
+          </Text>
+        </Box>
+      </TextBoxContainer>
+      <TextBoxContainer>
+        <Typography variant="h3" gutterBottom>
+          Course Finances
+        </Typography>
+        <ContainerDivider />
+        <Text variant="body1" gutterBottom>
+          According to the tradition of pure Vipassana, courses are run solely
+          on a donation basis. Donations are accepted only from those who have
+          completed at least one ten-day course with S.N. Goenka or one of his
+          assisting teachers. Someone taking the course for the first time may
+          give a donation on the last day of the course or any time thereafter.
+          In this way courses are supported by those who have realized for
+          themselves the benefits of the practice. Wishing to share these
+          benefits with others, one gives a donation according to one's means
+          and volition. Such donations are the only source of funding for course
+          in this tradition around the world. There is no wealthy foundation or
+          individual sponsoring them. Neither the teachers nor the organizers
+          receive any kind of payment for their service. Thus, the spread of
+          Vipassana is carried out with purity of purpose, free from any
+          commercialism. Whether a donation is large or small, it should be
+          given with the wish to help others: 'The course I have taken has been
+          paid for through the generosity of past students; now let me give
+          something towards the cost of a future course, so that others may also
+          benefit by this technique.'
+        </Text>
+      </TextBoxContainer>
+      <TextBoxContainer>
+        <Typography variant="h3" gutterBottom>
+          Summary
+        </Typography>
+        <ContainerDivider />
+        <Text variant="body1" gutterBottom>
+          To clarify the spirit behind the discipline and rules, they may be
+          summarized as follows:
+          <List>
+            <ListItem>
+              <ListItemIcon sx={{ minWidth: 32 }}>
+                <CircleIcon sx={{ fontSize: 10 }} />
+              </ListItemIcon>
+              Take great care that your actions do not disturb anyone. Take no
+              notice of distractions caused by others.
+            </ListItem>
+
+            <ListItem>
+              <ListItemIcon sx={{ minWidth: 32 }}>
+                <CircleIcon sx={{ fontSize: 10 }} />
+              </ListItemIcon>
+              It may be that a student cannot understand the practical reasons
+              for one or several of the above rules. Rather than allow
+              negativity and doubt to develop, immediate clarification should be
+              sought from the teacher.
+            </ListItem>
+            <ListItem>
+              <ListItemIcon sx={{ minWidth: 32 }}>
+                <CircleIcon sx={{ fontSize: 10 }} />
+              </ListItemIcon>
+              It is only by taking a disciplined approach and by making maximum
+              effort that a student can fully grasp the practice and benefit
+              from it. The emphasis during the course is on work. A golden rule
+              is to meditate as if one were alone, with one's mind turned
+              inward, ignoring any inconveniences and distractions that one may
+              encounter.
+            </ListItem>
+            <ListItem>
+              <ListItemIcon sx={{ minWidth: 32 }}>
+                <CircleIcon sx={{ fontSize: 10 }} />
+              </ListItemIcon>
+              Finally, students should note that their progress in Vipassana
+              depends solely on their own good qualities and personal
+              development and on five factors: earnest efforts, confidence,
+              sincerity, health and wisdom.
+            </ListItem>
+          </List>
+          May the above information help you to obtain maximum benefit from your
+          meditation course. We are happy to have the opportunity to serve, and
+          wish you peace and harmony from your experience of Vipassana.
+        </Text>
+      </TextBoxContainer>
+      <TextBoxContainer>
+        <Typography variant="h3" gutterBottom>
+          THE COURSE TIMETABLE
+        </Typography>
+        <ContainerDivider />
+        <Text variant="body1" gutterBottom>
+          The following timetable for the course has been designed to maintain
+          the continuity of practice. For best results students are advised to
+          follow it as closely as possible.
+        </Text>
+
+        <TableContainer gutterBottom>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>Timing</TableCell>
+                <TableCell>Time-Table</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              <TableCell>4:00 am </TableCell>
+              <TableCell>Morning wake-up bell </TableCell>
+            </TableBody>
+            <TableBody>
+              <TableCell>4:30-6:30 am </TableCell>
+              <TableCell>Meditate in the hall or in your room </TableCell>
+            </TableBody>
+            <TableBody>
+              <TableCell>6:30-8:00 am</TableCell>
+              <TableCell>Breakfast break </TableCell>
+            </TableBody>{" "}
+            <TableBody>
+              <TableCell>8:00-9:00 am</TableCell>
+              <TableCell>Group meditation in the hall </TableCell>
+            </TableBody>{" "}
+            <TableBody>
+              <TableCell>9:00-11:00 am</TableCell>
+              <TableCell>
+                Meditate in the hall or in your room according to the teacher's
+                instructions{" "}
+              </TableCell>
+            </TableBody>{" "}
+            <TableBody>
+              <TableCell>11:00-12:00 noon</TableCell>
+              <TableCell>Lunch break</TableCell>
+            </TableBody>{" "}
+            <TableBody>
+              <TableCell>12 noon-1:00 pm</TableCell>
+              <TableCell>Rest and interviews with the teacher</TableCell>
+            </TableBody>{" "}
+            <TableBody>
+              <TableCell>1:00-2:30 pm </TableCell>
+              <TableCell>Meditate in the hall or in your room </TableCell>
+            </TableBody>{" "}
+            <TableBody>
+              <TableCell>2:30-3:30 pm</TableCell>
+              <TableCell>Group meditation in the hall</TableCell>
+            </TableBody>{" "}
+            <TableBody>
+              <TableCell>3:30-5:00 pm</TableCell>
+              <TableCell>
+                Meditate in the hall or in your own room according to the
+                teacher's instructions
+              </TableCell>
+            </TableBody>{" "}
+            <TableBody>
+              <TableCell>5:00-6:00 pm </TableCell>
+              <TableCell> Tea break</TableCell>
+            </TableBody>{" "}
+            <TableBody>
+              <TableCell>6:00-7:00 pm </TableCell>
+              <TableCell>Group meditation in the hall </TableCell>
+            </TableBody>{" "}
+            <TableBody>
+              <TableCell>7:00-8:15 pm</TableCell>
+              <TableCell>Teacher's Discourse in the hall</TableCell>
+            </TableBody>{" "}
+            <TableBody>
+              <TableCell>8:15-9:00 pm</TableCell>
+              <TableCell>Group meditation in the hall</TableCell>
+            </TableBody>{" "}
+            <TableBody>
+              <TableCell>9:00-9:30 pm</TableCell>
+              <TableCell>Question time in the hall</TableCell>
+            </TableBody>{" "}
+            <TableBody>
+              <TableCell>9:30 pm </TableCell>
+              <TableCell>Retire to your own room--Lights out</TableCell>
+            </TableBody>
+          </Table>
+        </TableContainer>
+
+        <Text variant="body1" gutterBottom>
+          You may download a copy of the above Code of Discipline in Adobe
+          Acrobat format{" "}
+          <Link href="https://www.dhamma.org/en/docs/core/code-en.pdf">
+            here
+          </Link>{" "}
+          for careful reading and review before you register for a course. You
+          may apply for a Vipassana meditation course by completing and
+          submitting an application for a scheduled course.
+        </Text>
+      </TextBoxContainer>
+    </Box>
+  );
+}
