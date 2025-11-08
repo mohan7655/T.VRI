@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useMemo } from "react";
 import {
   Box,
   Typography,
@@ -11,35 +11,54 @@ import {
 import Link from "next/link";
 import { TextBoxContainer } from "./components";
 
+function getHeadingsFromDOM() {
+  if (typeof window === "undefined") return [];
+  
+  const elements = Array.from(document.querySelectorAll("h3, h4, h5, h6"));
+  return elements.map((elem) => ({
+    id: elem.id,
+    text: elem.textContent,
+    level: elem.tagName.toLowerCase(),
+  }));
+}
+
 export default function TableOfContents() {
-  const [headings, setHeadings] = useState([]);
+  const [headings, setHeadings] = useState(() => getHeadingsFromDOM());
   const [activeId, setActiveId] = useState("");
 
   useEffect(() => {
     // Check if we're in the browser
     if (typeof window === "undefined") return;
 
-    // Extract all h2 and h3 headings from the page
-    const elements = Array.from(document.querySelectorAll("h3, h4, h5, h6"));
-    const headingData = elements.map((elem) => ({
-      id: elem.id,
-      text: elem.textContent,
-      level: elem.tagName.toLowerCase(),
-    }));
-    
-    // Only update state if headings have changed
-    setHeadings((prev) => {
-      if (JSON.stringify(prev) === JSON.stringify(headingData)) {
-        return prev;
-      }
-      return headingData;
+    // Update headings after initial render
+    const initialHeadings = getHeadingsFromDOM();
+    if (initialHeadings.length > 0) {
+      setHeadings(initialHeadings);
+    }
+
+    // Set up MutationObserver to watch for DOM changes
+    const observer = new MutationObserver(() => {
+      const newHeadings = getHeadingsFromDOM();
+      setHeadings(newHeadings);
     });
 
-    // Don't set up observer if no headings
-    if (elements.length === 0) return;
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || headings.length === 0) return;
 
     // Intersection Observer to track active heading
-    const observer = new IntersectionObserver(
+    const elements = headings
+      .map((h) => document.getElementById(h.id))
+      .filter(Boolean);
+
+    const intersectionObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -54,11 +73,11 @@ export default function TableOfContents() {
     );
 
     elements.forEach((elem) => {
-      if (elem.id) observer.observe(elem);
+      if (elem) intersectionObserver.observe(elem);
     });
 
-    return () => observer.disconnect();
-  }, []); // Empty dependency array - only run once on mount
+    return () => intersectionObserver.disconnect();
+  }, [headings]);
 
   const scrollToHeading = useCallback((id) => {
     const element = document.getElementById(id);
