@@ -81,12 +81,11 @@ export default function TableOfContents() {
 
   return (
     <TextBoxContainer
-      elevation={2}
       sx={{
         p: 2,
         position: "sticky",
-        top: 100,
-        maxHeight: "calc(100vh - 120px)",
+        top: "10vh",
+        maxHeight: "calc(100vh - 150px)",
         overflowY: "auto",
         minWidth: "20vw",
       }}
@@ -100,7 +99,16 @@ export default function TableOfContents() {
             key={heading.id}
             disablePadding
             sx={{
-              pl: heading.level === "h4" ? 2 : 0,
+              paddingLeft:
+                heading.level === "h3"
+                  ? 0
+                  : heading.level === "h4"
+                  ? "1rem" // 1 rem indent
+                  : heading.level === "h5"
+                  ? "2rem" // 2 rem indent (1rem + 1rem)
+                  : heading.level === "h6"
+                  ? "3rem" // 3 rem indent
+                  : 0,
             }}
           >
             <ListItemButton
@@ -109,7 +117,7 @@ export default function TableOfContents() {
                 py: 0.5,
                 px: 1,
                 borderRadius: 1,
-                borderLeft: activeId === heading.id ? "3px solid" : "none",
+                borderLeft: activeId === heading.id ? "4px solid" : "none",
                 borderColor: "primary.main",
                 bgcolor:
                   activeId === heading.id ? "action.selected" : "transparent",
@@ -124,7 +132,7 @@ export default function TableOfContents() {
                 sx={{
                   color:
                     activeId === heading.id ? "primary.main" : "text.secondary",
-                  fontWeight: activeId === heading.id ? 600 : 400,
+                  fontWeight: activeId === heading.id ? 500 : 300,
                 }}
               >
                 {heading.text}

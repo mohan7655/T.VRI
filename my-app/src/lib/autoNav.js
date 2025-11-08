@@ -64,7 +64,7 @@ export function getNavigationTree() {
     {
       id: "vri",
       text: "VRI",
-      icon: "inbox",
+      icon: "vri",
       tree: buildTreeRecursive(
         path.join(contentDirectory, "vri"),
         "/vri"
@@ -73,7 +73,7 @@ export function getNavigationTree() {
     {
       id: "vipassana-meditation",
       text: "Vipassana Meditation",
-      icon: "inbox",
+      icon: "vipassana",
       tree: buildTreeRecursive(
         path.join(contentDirectory, "introduction"),
         "/introduction"
@@ -82,7 +82,7 @@ export function getNavigationTree() {
     {
       id: "anapana",
       text: "Anapana",
-      icon: "inbox",
+      icon: "anapana",
       tree: buildTreeRecursive(
         path.join(contentDirectory, "anapana"),
         "/anapana"
@@ -91,25 +91,25 @@ export function getNavigationTree() {
     {
       id: "Courses",
       text: "Courses",
-      icon: "inbox",
+      icon: "courses",
       tree: buildTreeRecursive(
-        path.join(contentDirectory, "introduction"),
-        "/introduction"
+        path.join(contentDirectory, "courses"),
+        "/courses"
       ),
     },
     {
       id: "centers",
       text: "Centers",
-      icon: "inbox",
+      icon: "centers",
       tree: buildTreeRecursive(
-        path.join(contentDirectory, "introduction"),
-        "/introduction"
+        path.join(contentDirectory, "centers"),
+        "/centers"
       ),
     },
     {
       id: "resources",
       text: "Resources",
-      icon: "inbox",
+      icon: "resources",
       tree: buildTreeRecursive(
         path.join(contentDirectory, "resources"),
         "/resources"
@@ -118,7 +118,7 @@ export function getNavigationTree() {
     {
       id: "oldstudent",
       text: "Old Students",
-      icon: "inbox",
+      icon: "old",
       tree: buildTreeRecursive(
         path.join(contentDirectory, "oldstudents"),
         "/oldstudents"
@@ -127,19 +127,19 @@ export function getNavigationTree() {
     {
       id: "donations",
       text: "Donations",
-      icon: "inbox",
+      icon: "donations",
       tree: buildTreeRecursive(
-        path.join(contentDirectory, "introduction"),
-        "/introduction"
+        path.join(contentDirectory, "donations"),
+        "/donations"
       ),
     },
     {
       id: "books",
       text: "Books",
-      icon: "inbox",
+      icon: "store",
       tree: buildTreeRecursive(
-        path.join(contentDirectory, "introduction"),
-        "/introduction"
+        path.join(contentDirectory, "books"),
+        "/books"
       ),
     },
     

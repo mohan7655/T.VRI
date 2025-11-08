@@ -20,7 +20,7 @@ export const Text = styled(Typography)({
   fontSize: "1.1rem",
   padding: "0 2rem",
   fontWeight: "300",
-  lineHeight:1.7,
+  lineHeight:1.6,
 });
 
 export const TextBoxContainer = styled(Box)(({ theme }) => ({
@@ -28,7 +28,7 @@ export const TextBoxContainer = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
   borderRadius: "2rem",
   padding: "2rem",
-  margin: "2rem 0",
+  margin: "1rem 0",
 }));
 
 export const ContainerDivider = styled(Divider)(({ theme }) => ({
@@ -44,7 +44,7 @@ export const HeadBar = styled(Box)({
   gap: "1rem",
   justifyContent: "center",
   alignItems: "center",
-  minHeight: "40vh",
+  minHeight: "35vh",
   minWidth: "100%",
 });
 

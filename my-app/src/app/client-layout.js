@@ -6,6 +6,7 @@ import ThemeRegistry from "./themeregistry";
 import Header from "./components/Header";
 import { Box } from "@mui/material";
 import PermanentDrawerWithTree from "./components/gemini";
+import Footer from "./components/Footer";
 
 export default function ClientLayout({ children, menuData }) {
   const [mounted, setMounted] = useState(false);
@@ -30,6 +31,7 @@ export default function ClientLayout({ children, menuData }) {
         >
           <Header />
           {children}
+          <Footer />
         </Box>
       </Box>
     </ThemeRegistry>

@@ -35,7 +35,7 @@ export default async function PostPage({ params }) {
       <Typography
         variant="h1"
         gutterBottom
-        sx={{ fontSize: "2.7rem", mt: "1rem" }}
+        sx={{ fontSize: "3.7rem", m: "2rem 0 0 4rem" }}
       >
         {frontmatter.description}
       </Typography>

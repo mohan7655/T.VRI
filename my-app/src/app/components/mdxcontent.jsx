@@ -61,7 +61,7 @@ const muiComponents = {
         variant="h2"
         gutterBottom
         id={id}
-        sx={{ scrollMarginTop: "100px" }}
+        sx={{ scrollMarginTop: "100px",pl:"1rem" }}
         {...props}
       />
     );
@@ -73,7 +73,7 @@ const muiComponents = {
         variant="h3"
         gutterBottom
         id={id}
-        sx={{ scrollMarginTop: "100px" }}
+        sx={{ scrollMarginTop: "100px",pl:"2rem" }}
         {...props}
       />
     );
@@ -85,7 +85,7 @@ const muiComponents = {
         variant="h4"
         gutterBottom
         id={id}
-        sx={{ scrollMarginTop: "100px" }}
+        sx={{ scrollMarginTop: "100px",pl:"3.5rem" }}
         {...props}
       />
     );
@@ -97,7 +97,7 @@ const muiComponents = {
         variant="h5"
         gutterBottom
         id={id}
-        sx={{ scrollMarginTop: "100px" }}
+        sx={{ scrollMarginTop: "100px",pl:"4.7rem" }}
         {...props}
       />
     );
@@ -109,7 +109,7 @@ const muiComponents = {
         variant="h6"
         gutterBottom
         id={id}
-        sx={{ scrollMarginTop: "100px" }}
+        sx={{ scrollMarginTop: "100px" ,pl:"6rem"}}
         {...props}
       />
     );

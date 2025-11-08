@@ -29,7 +29,7 @@ export default async function PostPage({ params }) {
   const showtoc = frontmatter.showToc !== false;
   return (
     <>
-      <Typography variant="h2" gutterBottom>
+      <Typography variant="h1" gutterBottom sx={{ fontSize: "3.7rem", m: "2rem 0 0 4rem" }}>
         {frontmatter.description}
       </Typography>
       <Box
@@ -42,7 +42,8 @@ export default async function PostPage({ params }) {
           sx={{
             flexGrow: 1,
             minWidth: 0,
-            p: 2, // A common flexbox fix to prevent content overflow
+            // backgroundColor:"primary.main",
+            // p: 2, // A common flexbox fix to prevent content overflow
           }}
         >
           {hasContent ? (

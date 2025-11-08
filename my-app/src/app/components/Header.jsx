@@ -1,9 +1,5 @@
-"use client";
 import { Box, Typography } from "@mui/material";
-import * as React from "react";
-import { HeadBar, HeadText, Image, Pali_verses, Wheel } from "./components";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import wheel from "../../../public/wheel.png";
+import { HeadBar, HeadText, Image, Pali_verses } from "./components";
 
 const Header = () => {
   return (
@@ -33,15 +29,15 @@ const Header = () => {
       </HeadBar>
       <Pali_verses>
         <Box
-            component="img"
-            src="/top.png" // This is the correct path in Next.js
-            alt="top"
-            sx={{
-              // Use 'width' and 'height', not 'fontSize'
-              width: 325,
-              height: 50,
-            }}
-          />
+          component="img"
+          src="/top.png" // This is the correct path in Next.js
+          alt="top"
+          sx={{
+            // Use 'width' and 'height', not 'fontSize'
+            width: 325,
+            height: 50,
+          }}
+        />
         <Typography variant="h1" sx={{ fontSize: "1.5rem" }}>
           वयधम्मा सङ्खारा, अप्पमादेन सम्पादेथ
         </Typography>
@@ -50,15 +46,15 @@ const Header = () => {
           SALVATION WITH DILIGENCE
         </Typography>
         <Box
-            component="img"
-            src="/bottom.png" // This is the correct path in Next.js
-            alt="bottom"
-            sx={{
-              // Use 'width' and 'height', not 'fontSize'
-              width: 325,
-              height: 40,
-            }}
-          />
+          component="img"
+          src="/bottom.png" // This is the correct path in Next.js
+          alt="bottom"
+          sx={{
+            // Use 'width' and 'height', not 'fontSize'
+            width: 325,
+            height: 40,
+          }}
+        />
       </Pali_verses>
     </>
   );

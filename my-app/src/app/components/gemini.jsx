@@ -25,7 +25,14 @@ import DraftsIcon from "@mui/icons-material/Drafts";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { Grow, Link } from "@mui/material";
-
+import StorefrontIcon from '@mui/icons-material/Storefront';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import SelfImprovementIcon from '@mui/icons-material/SelfImprovement';
+import { DhammaIcon, VipassanaIcon } from "./customicons";
+import BookIcon from '@mui/icons-material/Book';
+import HouseIcon from '@mui/icons-material/House';
+import PaymentIcon from '@mui/icons-material/Payment';
 // --- Configuration ---
 
 const drawerWidth = "6vw";
@@ -45,7 +52,6 @@ export default function PermanentDrawerWithTree({ menuData }) {
     }
 
     openTimer.current = setTimeout(() => {
-      
       setHoveredItemData(itemData);
     }, 100);
   };
@@ -66,7 +72,16 @@ export default function PermanentDrawerWithTree({ menuData }) {
   const iconMap = {
     inbox: <InboxIcon />,
     star: <StarIcon />,
-    mail: <MailIcon />, // <-- ADDITION
+    mail: <MailIcon />,
+    old: <MenuBookIcon/>,
+    store: <StorefrontIcon />,
+    courses: <CalendarMonthIcon/>,
+    anapana: <SelfImprovementIcon/>,
+    vri: <DhammaIcon />,
+    vipassana:<VipassanaIcon sx={{strokeWidth: 4.5,}}/>,
+    resources: <BookIcon/>, 
+    centers: <HouseIcon/>,
+    donations: <PaymentIcon/>,
   };
   // Recursive function to render tree items
   const renderTree = (nodes) => {
@@ -132,19 +147,27 @@ export default function PermanentDrawerWithTree({ menuData }) {
                   "&:hover": {
                     "& .MuiSvgIcon-root": {
                       transform: "scale(1.2)",
-                      color: "primary.light",
+                      color: "primary.main",
                     },
-                    "& .MuiListItemText-secondary": {
-                      fontWeight: 500,
-                      color: "text.primary",
+                    "& .MuiListItemText-primary": {
+                      fontWeight: 550,
+                      color: "primary.main",
                     },
                   },
                 }}
               >
-                <ListItemIcon sx={{ minWidth: 0, scale: 1.5 }}>
+                <ListItemIcon sx={{ minWidth: 0, scale: 1.2 }}>
                   {iconMap[item.icon] || <InboxIcon />}
                 </ListItemIcon>
-                <ListItemText secondary={item.text} />
+                <ListItemText
+                  primary={item.text}
+                  sx={{
+                    textAlign: "center",
+                    "& .MuiListItemText-primary": {
+                      fontSize: "0.8rem",
+                    },
+                  }}
+                />
               </ListItemButton>
             </ListItem>
           ))}
@@ -182,8 +205,8 @@ export default function PermanentDrawerWithTree({ menuData }) {
               padding: 2,
               top: "0 !important",
               minHeight: "100vh",
-              minWidth: 240,
-              maxWidth: 340,
+              width:340,
+              
               boxShadow: "0 0 16px rgba(0,0,0,0.15)",
               overflow: "scroll",
             },

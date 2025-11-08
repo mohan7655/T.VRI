@@ -1,4 +1,3 @@
-
 import { getPostData } from "@/lib/posts";
 import { getAllPostPaths } from "@/lib/autoNav";
 import MdxContent from "@/app/components/mdxcontent";
@@ -29,7 +28,11 @@ export default async function PostPage({ params }) {
   const showtoc = frontmatter.showToc !== false;
   return (
     <>
-      <Typography variant="h2" gutterBottom>
+      <Typography
+        variant="h1"
+        gutterBottom
+        sx={{ fontSize: "3.7rem", m: "2rem 0 0 4rem" }}
+      >
         {frontmatter.description}
       </Typography>
       <Box
