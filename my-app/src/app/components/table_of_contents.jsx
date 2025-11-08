@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import {
   Box,
   Typography,
@@ -14,14 +14,10 @@ import { TextBoxContainer } from "./components";
 export default function TableOfContents() {
   const [headings, setHeadings] = useState([]);
   const [activeId, setActiveId] = useState("");
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!mounted) return;
+    // Check if we're in the browser
+    if (typeof window === "undefined") return;
 
     // Extract all h2 and h3 headings from the page
     const elements = Array.from(document.querySelectorAll("h3, h4, h5, h6"));
@@ -30,7 +26,17 @@ export default function TableOfContents() {
       text: elem.textContent,
       level: elem.tagName.toLowerCase(),
     }));
-    setHeadings(headingData);
+    
+    // Only update state if headings have changed
+    setHeadings((prev) => {
+      if (JSON.stringify(prev) === JSON.stringify(headingData)) {
+        return prev;
+      }
+      return headingData;
+    });
+
+    // Don't set up observer if no headings
+    if (elements.length === 0) return;
 
     // Intersection Observer to track active heading
     const observer = new IntersectionObserver(
@@ -52,9 +58,9 @@ export default function TableOfContents() {
     });
 
     return () => observer.disconnect();
-  }, [mounted]);
+  }, []); // Empty dependency array - only run once on mount
 
-  const scrollToHeading = (id) => {
+  const scrollToHeading = useCallback((id) => {
     const element = document.getElementById(id);
     if (element) {
       const yOffset = -80;
@@ -62,9 +68,9 @@ export default function TableOfContents() {
         element.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
     }
-  };
+  }, []);
 
-  if (!mounted || headings.length === 0) return null;
+  if (headings.length === 0) return null;
 
   return (
     <TextBoxContainer
