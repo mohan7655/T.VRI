@@ -1,5 +1,6 @@
 import * as React from "react";
-import { Pali_verses, Text } from "../components/components";
+import { Pali_verses,Text } from "@/app/components/components";
+
 import {
   Box,
   Link,
