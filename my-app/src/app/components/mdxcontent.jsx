@@ -181,6 +181,6 @@ const muiComponents = {
 };
 
 export default function MdxContent({ source }) {
-  console.log(source);
+  
   return <MDXRemote {...source} components={muiComponents} />;
 }
