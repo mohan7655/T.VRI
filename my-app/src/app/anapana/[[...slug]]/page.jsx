@@ -1,4 +1,4 @@
-"use client";
+
 import { getPostData } from "@/lib/posts";
 import { getAllPostPaths } from "@/lib/autoNav";
 import MdxContent from "@/app/components/mdxcontent";

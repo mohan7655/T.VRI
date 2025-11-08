@@ -1,4 +1,3 @@
-"use client";
 import { getPostData } from "@/lib/posts";
 import { getAllPostPaths } from "@/lib/autoNav";
 import MdxContent from "@/app/components/mdxcontent";
@@ -11,6 +10,7 @@ export default async function PostPage({ params }) {
   // Your 'await' here is unnecessary, 'params' is a standard object
 
   const resolvedParams = await params;
+  console.log("Resolved Params:", resolvedParams);
   const slugArray = ["oldstudents", ...resolvedParams.slug];
 
   const { content, frontmatter } = await getPostData(slugArray);
@@ -32,7 +32,11 @@ export default async function PostPage({ params }) {
   const showtoc = frontmatter.showToc !== false;
   return (
     <>
-      <Typography variant="h1" gutterBottom sx={{fontSize:"2.7rem", mt: "1rem" }}>
+      <Typography
+        variant="h1"
+        gutterBottom
+        sx={{ fontSize: "2.7rem", mt: "1rem" }}
+      >
         {frontmatter.description}
       </Typography>
       <Box
@@ -61,9 +65,9 @@ export default async function PostPage({ params }) {
 }
 
 export async function generateStaticParams() {
-  const paths = await getAllPostPaths("vri");
+  const paths = await getAllPostPaths("oldstudents");
 
   return paths.map((p) => ({
-    slug: [ ...p.slug.map((segment) => segment.replace(/\.mdx$/, ""))],
+    slug: p.slug.map((segment) => segment.replace(/\.mdx$/, "")),
   }));
 }
