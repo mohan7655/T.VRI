@@ -1,3 +1,4 @@
+"use client";
 import { getPostData } from "@/lib/posts";
 import { getAllPostPaths } from "@/lib/autoNav";
 import MdxContent from "@/app/components/mdxcontent";
@@ -60,9 +61,6 @@ export async function generateStaticParams() {
   const paths = await getAllPostPaths("introduction");
 
   return paths.map((p) => ({
-    slug: [
-      
-      ...p.slug.map((segment) => segment.replace(/\.mdx$/, "")),
-    ],
+    slug: [...p.slug.map((segment) => segment.replace(/\.mdx$/, ""))],
   }));
 }

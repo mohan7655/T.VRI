@@ -1,3 +1,4 @@
+"use client";
 import { Box, Typography } from "@mui/material";
 import * as React from "react";
 import { HeadBar, HeadText, Image, Pali_verses, Wheel } from "./components";
