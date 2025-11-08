@@ -63,6 +63,6 @@ export async function generateStaticParams() {
   const paths = await getAllPostPaths("vri");
 
   return paths.map((p) => ({
-    slug: ["oldstudents", ...p.slug.map((segment) => segment.replace(/\.mdx$/, ""))],
+    slug: [ ...p.slug.map((segment) => segment.replace(/\.mdx$/, ""))],
   }));
 }

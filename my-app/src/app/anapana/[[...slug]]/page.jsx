@@ -61,7 +61,7 @@ export async function generateStaticParams() {
 
   return paths.map((p) => ({
     slug: [
-      "anapana",
+      
       ...p.slug.map((segment) => segment.replace(/\.mdx$/, "")),
     ],
   }));

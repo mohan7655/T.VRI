@@ -31,7 +31,11 @@ export default async function PostPage({ params }) {
   const showtoc = frontmatter.showToc !== false;
   return (
     <>
-      <Typography variant="h1" gutterBottom sx={{fontSize:"2.7rem", mt: "1rem" }}>
+      <Typography
+        variant="h1"
+        gutterBottom
+        sx={{ fontSize: "2.7rem", mt: "1rem" }}
+      >
         {frontmatter.description}
       </Typography>
       <Box
@@ -63,6 +67,6 @@ export async function generateStaticParams() {
   const paths = await getAllPostPaths("vri");
 
   return paths.map((p) => ({
-    slug: ["vri", ...p.slug.map((segment) => segment.replace(/\.mdx$/, ""))],
+    slug: [...p.slug.map((segment) => segment.replace(/\.mdx$/, ""))],
   }));
 }
