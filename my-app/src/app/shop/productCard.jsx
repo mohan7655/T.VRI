@@ -1,10 +1,12 @@
 import { Box, Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
 import * as React from "react";
 
+
+
 const ProductCard= ()=>{
   return (
     <Card sx={{ width: "22vw", height: "25rem", borderRadius: "2rem" }}>
-      <CardActionArea onClick={"/ProductPage"}>
+      <CardActionArea >
         <CardMedia
           component="img"
           height="200"

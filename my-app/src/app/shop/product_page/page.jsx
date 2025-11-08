@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import * as React from "react";
+
 import { Text, TextBoxContainer } from "../../components/components";
 
 const ProductPage = () => {
