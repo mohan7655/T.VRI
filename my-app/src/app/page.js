@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <Typography variant="h1" gutterBottom>
+        <Typography variant="h2" gutterBottom>
           What is Vipassana
         </Typography>
         <Divider />

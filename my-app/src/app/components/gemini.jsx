@@ -29,7 +29,7 @@ import StorefrontIcon from "@mui/icons-material/Storefront";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import SelfImprovementIcon from "@mui/icons-material/SelfImprovement";
-import { DhammaIcon, VipassanaIcon } from "./customicons";
+import { CenterIcon, DhammaIcon, VipassanaIcon } from "./customicons";
 import BookIcon from "@mui/icons-material/Book";
 import HouseIcon from "@mui/icons-material/House";
 import PaymentIcon from "@mui/icons-material/Payment";
@@ -80,7 +80,7 @@ export default function PermanentDrawerWithTree({ menuData }) {
     vri: <DhammaIcon />,
     vipassana: <VipassanaIcon sx={{ strokeWidth: 4.5 }} />,
     resources: <BookIcon />,
-    centers: <HouseIcon />,
+    centers: <CenterIcon sx={{ scale:1.7}}/>,
     donations: <PaymentIcon />,
   };
   // Recursive function to render tree items
@@ -139,7 +139,7 @@ export default function PermanentDrawerWithTree({ menuData }) {
                 onMouseLeave={handleClose}
                 sx={{
                   display: "flex",
-                  
+
                   flexDirection: "column",
                   alignItems: "center",
                   justifyContent: "center",
