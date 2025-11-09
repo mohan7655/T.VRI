@@ -82,7 +82,7 @@ export default function TableOfContents() {
   return (
     <TextBoxContainer
       sx={{
-        p: 2,
+        py: 1,
         position: "sticky",
         top: "10vh",
         maxHeight: "calc(100vh - 150px)",

@@ -165,7 +165,7 @@ export default function PermanentDrawerWithTree({ menuData }) {
                   primary={item.text}
                   sx={{
                     textAlign: "center",
-                    pt:1,
+                    
                     "& .MuiListItemText-primary": {
                       fontSize: "0.8rem",
                     },
@@ -208,10 +208,11 @@ export default function PermanentDrawerWithTree({ menuData }) {
               padding: 2,
               top: "0 !important",
               minHeight: "100vh",
+              maxHeight:"99vh",
               width: 340,
 
               boxShadow: "0 0 16px rgba(0,0,0,0.15)",
-              overflow: "scroll",
+              overflowY: "auto",
             },
           },
         }}
