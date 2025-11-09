@@ -10,7 +10,8 @@ const Footer = () => {
         sx={{
           display: "flex",
           height: "30vh",
-          p: 4,
+          py: 2,
+          px:4,
           gap: 8,
           backgroundColor: "background.paper",
         }}
