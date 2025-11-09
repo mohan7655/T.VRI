@@ -27,8 +27,8 @@ const Footer = () => {
         >
           <Box>
             <Typography variant="h1" sx={{ fontSize: "1.2rem" }}>
-              © {new Date().getFullYear()} VIPASSANA RESEARCH INSTITUTE. All
-              rights reserved.
+              © {new Date().getFullYear()} VIPASSANA RESEARCH INSTITUTE
+              <br /> All Rights Reserved
             </Typography>
           </Box>
           <Box sx={{ display: "flex", gap: 4, alignItems: "center", mt: 6 }}>

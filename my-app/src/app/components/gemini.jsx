@@ -195,7 +195,7 @@ export default function PermanentDrawerWithTree({ menuData }) {
         slotProps={{
           transition: {
             direction: "right",
-            timeout: 200,
+            timeout: 150,
           },
           paper: {
             onMouseEnter: onPopoverEnter,

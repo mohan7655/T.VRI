@@ -15,7 +15,12 @@ import {
   TableBody,
   TableContainer,
 } from "@mui/material";
-import { ContainerDivider, Text, TextBoxContainer } from "./components";
+import {
+  ContainerDivider,
+  StyledLink,
+  Text,
+  TextBoxContainer,
+} from "./components";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import React from "react";
@@ -61,7 +66,7 @@ const muiComponents = {
         variant="h2"
         gutterBottom
         id={id}
-        sx={{ scrollMarginTop: "100px",pl:"1rem" }}
+        sx={{ scrollMarginTop: "100px", pl: "1rem" }}
         {...props}
       />
     );
@@ -73,7 +78,7 @@ const muiComponents = {
         variant="h3"
         gutterBottom
         id={id}
-        sx={{ scrollMarginTop: "100px",pl:"2rem" }}
+        sx={{ scrollMarginTop: "100px", pl: "2rem" }}
         {...props}
       />
     );
@@ -85,7 +90,7 @@ const muiComponents = {
         variant="h4"
         gutterBottom
         id={id}
-        sx={{ scrollMarginTop: "100px",pl:"3.5rem" }}
+        sx={{ scrollMarginTop: "100px", pl: "3.5rem" }}
         {...props}
       />
     );
@@ -97,7 +102,7 @@ const muiComponents = {
         variant="h5"
         gutterBottom
         id={id}
-        sx={{ scrollMarginTop: "100px",pl:"4.7rem" }}
+        sx={{ scrollMarginTop: "100px", pl: "4.7rem" }}
         {...props}
       />
     );
@@ -109,13 +114,13 @@ const muiComponents = {
         variant="h6"
         gutterBottom
         id={id}
-        sx={{ scrollMarginTop: "100px" ,pl:"6rem"}}
+        sx={{ scrollMarginTop: "100px", pl: "6rem" }}
         {...props}
       />
     );
   },
   p: (props) => <Text variant="body1" {...props} />,
-  a: (props) => <Link target="_blank" {...props} />,
+  a: (props) => <StyledLink target="_blank" {...props} />,
 
   ul: (props) => (
     <ul
@@ -181,6 +186,5 @@ const muiComponents = {
 };
 
 export default function MdxContent({ source }) {
-  
   return <MDXRemote {...source} components={muiComponents} />;
 }
