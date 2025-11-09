@@ -27,7 +27,7 @@ const Footer = () => {
         >
           <Box>
             <Typography variant="h1" sx={{ fontSize: "1.2rem" }}>
-              © {new Date().getFullYear()} Vipassana Meditation Center. All
+              © {new Date().getFullYear()} VIPASSANA RESEARCH INSTITUTE. All
               rights reserved.
             </Typography>
           </Box>
@@ -35,7 +35,8 @@ const Footer = () => {
             <Typography variant="h1" sx={{ fontSize: "1.2rem" }}>
               Policies
             </Typography>
-            <StyledLink href="https://www.vridhamma.org/terms-and-conditions"
+            <StyledLink
+              href="https://www.vridhamma.org/terms-and-conditions"
               target="_blank"
             >
               Terms Of Use
@@ -58,10 +59,16 @@ const Footer = () => {
           }}
         >
           <Typography variant="body2">About </Typography>
-          <StyledLink href="https://www.vridhamma.org/About-VRI" target="_blank">
+          <StyledLink
+            href="https://www.vridhamma.org/About-VRI"
+            target="_blank"
+          >
             About Us
           </StyledLink>
-          <StyledLink href="https://www.vridhamma.org/Contact-Us" target="_blank">
+          <StyledLink
+            href="https://www.vridhamma.org/Contact-Us"
+            target="_blank"
+          >
             Contact Us
           </StyledLink>
         </Box>
@@ -84,7 +91,10 @@ const Footer = () => {
           <StyledLink href="https://twitter.com/VipassanaOrg" target="_blank">
             Twitter
           </StyledLink>
-          <StyledLink href="https://www.instagram.com/vipassanaorg/" target="_blank">
+          <StyledLink
+            href="https://www.instagram.com/vipassanaorg/"
+            target="_blank"
+          >
             Instagram
           </StyledLink>
           <StyledLink href="https://t.me/+lnwlmLBoP5ljZmNl" target="_blank">
