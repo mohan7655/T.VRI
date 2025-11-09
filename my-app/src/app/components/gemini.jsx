@@ -33,7 +33,6 @@ import { CenterIcon, DhammaIcon, VipassanaIcon } from "./customicons";
 import BookIcon from "@mui/icons-material/Book";
 import HouseIcon from "@mui/icons-material/House";
 import PaymentIcon from "@mui/icons-material/Payment";
-// --- Configuration ---
 
 const drawerWidth = "6vw";
 
@@ -70,9 +69,6 @@ export default function PermanentDrawerWithTree({ menuData }) {
   };
 
   const iconMap = {
-    inbox: <InboxIcon />,
-    star: <StarIcon />,
-    mail: <MailIcon />,
     old: <MenuBookIcon />,
     store: <StorefrontIcon />,
     courses: <CalendarMonthIcon />,
@@ -80,10 +76,10 @@ export default function PermanentDrawerWithTree({ menuData }) {
     vri: <DhammaIcon />,
     vipassana: <VipassanaIcon sx={{ strokeWidth: 4.5 }} />,
     resources: <BookIcon />,
-    centers: <CenterIcon sx={{ scale:1.7}}/>,
+    centers: <CenterIcon sx={{ scale: 1.7 }} />,
     donations: <PaymentIcon />,
   };
-  // Recursive function to render tree items
+
   const renderTree = (nodes) => {
     if (nodes.href) {
       return (
@@ -93,6 +89,7 @@ export default function PermanentDrawerWithTree({ menuData }) {
           label={
             <Link
               style={{
+                display: "block",
                 textDecoration: "none",
                 color: "inherit",
                 padding: "4px 0",
@@ -165,7 +162,7 @@ export default function PermanentDrawerWithTree({ menuData }) {
                   primary={item.text}
                   sx={{
                     textAlign: "center",
-                    
+
                     "& .MuiListItemText-primary": {
                       fontSize: "0.8rem",
                     },
@@ -208,7 +205,7 @@ export default function PermanentDrawerWithTree({ menuData }) {
               padding: 2,
               top: "0 !important",
               minHeight: "100vh",
-              maxHeight:"99vh",
+              maxHeight: "99vh",
               width: 340,
 
               boxShadow: "0 0 16px rgba(0,0,0,0.15)",
@@ -222,25 +219,17 @@ export default function PermanentDrawerWithTree({ menuData }) {
       >
         {hoveredItemData && (
           <Box>
-            {/* The main title of the popover */}
             <Typography variant="h6" sx={{ marginBottom: 2.5 }}>
               {hoveredItemData.text}
             </Typography>
 
-            {/* === THIS IS THE NEW LOGIC === 
-              Instead of one big tree, we loop and create sections.
-            */}
             {hoveredItemData.tree.map((topLevelNode) => {
-              // Case 1: The top-level item is just a direct link
               if (topLevelNode.href) {
                 return (
-                  // We wrap this single item in a TreeView
-                  // so it uses the 'renderTree' function
-                  // and gets the same styling as other tree items.
                   <SimpleTreeView
                     key={topLevelNode.id}
                     sx={{
-                      mb: 0, // No extra margin needed
+                      mb: 0,
                       flexGrow: 1,
                     }}
                   >
@@ -249,15 +238,12 @@ export default function PermanentDrawerWithTree({ menuData }) {
                 );
               }
 
-              // Case 2: The top-level item is a FOLDER (a section)
               if (topLevelNode.children && topLevelNode.children.length > 0) {
                 return (
                   <Box key={topLevelNode.id} sx={{ mb: 3 }}>
-                    {/* The "Heading" you wanted */}
                     <Typography
-                      variant="h5" // A great style for section heads
+                      variant="h5"
                       sx={{
-                        // display: "block",
                         py: "1rem",
                         color: "secondary.main",
                         fontWeight: 500,
@@ -267,14 +253,12 @@ export default function PermanentDrawerWithTree({ menuData }) {
                       {topLevelNode.label}
                     </Typography>
 
-                    {/* A NEW TreeView just for this section's children */}
                     <SimpleTreeView
                       slots={{
                         expandIcon: ChevronRightIcon,
                         collapseIcon: ExpandMoreIcon,
                       }}
                     >
-                      {/* We reuse the 'renderTree' function here */}
                       {topLevelNode.children.map((childNode) =>
                         renderTree(childNode)
                       )}
@@ -282,7 +266,7 @@ export default function PermanentDrawerWithTree({ menuData }) {
                   </Box>
                 );
               }
-              return null; // In case of an empty top-level folder
+              return null;
             })}
           </Box>
         )}
