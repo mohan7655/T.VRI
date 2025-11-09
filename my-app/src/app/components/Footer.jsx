@@ -5,7 +5,7 @@ import { StyledLink } from "./components";
 const Footer = () => {
   return (
     <>
-      <Divider sx={{ borderColor: "secondary.main" }} />
+      <Divider sx={{ borderColor: "secondary.main", mt: "10vh" }} />
       <Box
         sx={{
           display: "flex",

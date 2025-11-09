@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import { Button, Divider, Typography } from "@mui/material";
-import { Hoz, StyledButton, Text } from "./components/components";
+import { Hoz, StyledButton, Text, TextBoxContainer } from "./components/components";
 import Header from "./components/Header";
 
 export default function Home() {
@@ -12,6 +12,7 @@ export default function Home() {
           What is Vipassana
         </Typography>
         <Divider />
+        <TextBoxContainer>
         <Text variant="body1" gutterBottom sx={{ whiteSpace: "pre-wrap" }}>
           Vipassana, which means to see things as they really are, is one of
           India's most ancient techniques of meditation. It was rediscovered by
@@ -85,6 +86,7 @@ export default function Home() {
           measure the benefits. All those who try it will find Vipassana to be
           an invaluable tool with which to achieve and share real happiness
         </Text>
+        </TextBoxContainer>
       </main>
     </div>
   );
