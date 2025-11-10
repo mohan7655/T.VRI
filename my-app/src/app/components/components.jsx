@@ -34,9 +34,9 @@ export const TextBoxContainer = styled(Box)(({ theme }) => ({
 
 export const ContainerDivider = styled(Divider)(({ theme }) => ({
   borderBottomWidth: "0.2rem",
-  borderRadius: "2rem",
-  borderColor: theme.palette.background.default,
-  margin: "2rem -2rem",
+  borderRadius: "4rem",
+  borderColor: theme.palette.secondary.main,
+  margin: "2rem 2rem",
 }));
 
 export const HeadBar = styled(Box)({
