@@ -31,11 +31,7 @@ export default async function PostPage({ params }) {
   const showtoc = frontmatter.showToc !== false;
   return (
     <>
-      <Typography
-        variant="h1"
-        gutterBottom
-        sx={{ fontSize: "3.7rem", m: "2rem 0 0 4rem" }}
-      >
+      <Typography variant="h1" gutterBottom sx={{ fontSize: "3.2rem", m: "2rem 0 2rem 1rem" }}>
         {frontmatter.description}
       </Typography>
       <Box
