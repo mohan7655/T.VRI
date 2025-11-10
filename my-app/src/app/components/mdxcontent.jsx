@@ -148,25 +148,6 @@ const muiComponents = {
       />
     </Box>
   ),
-  code: ({ className, children, ...props }) => {
-    if (!className) {
-      return (
-        <code
-          style={{
-            background: "#f5f5f5",
-            padding: "2px 6px",
-            borderRadius: "4px",
-            fontSize: "0.9em",
-            fontFamily: "monospace",
-          }}
-          {...props}
-        >
-          {children}
-        </code>
-      );
-    }
-    return <CodeBlock className={className}>{children}</CodeBlock>;
-  },
   pre: ({ children }) => <>{children}</>,
   CodeBlock: CodeBlock,
   Box: Box,
