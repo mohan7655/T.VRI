@@ -138,6 +138,16 @@ const muiComponents = {
       {...props}
     />
   ),
+  tr: (props) => (
+    <tr
+      style={{
+        margin: "2rem",
+        padding:"2rem",
+        // color: "#fbfa",
+      }}
+      {...props}
+    />
+  ),
   img: (props) => (
     <Box sx={{ my: 2, position: "relative", width: "100%", height: "400px" }}>
       <Image

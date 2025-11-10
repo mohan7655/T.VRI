@@ -9,7 +9,7 @@ import remarkFootnotes from "remark-footnotes";
 
 export default async function PostPage({ params }) {
   const resolvedParams = await params;
-  const slugArray = ["anapana", ...resolvedParams.slug];
+  const slugArray = ["policies", ...resolvedParams.slug];
 
   const { content, frontmatter } = await getPostData(slugArray);
 
@@ -28,11 +28,7 @@ export default async function PostPage({ params }) {
   const showtoc = frontmatter.showToc !== false;
   return (
     <>
-      <Typography
-        variant="h1"
-        gutterBottom
-        sx={{ fontSize: "3.2rem", m: "2rem 0 2rem 1rem" }}
-      >
+      <Typography variant="h1" gutterBottom sx={{ fontSize: "3.2rem", m: "2rem 0 2rem 1rem" }}>
         {frontmatter.description}
       </Typography>
       <Box
@@ -45,7 +41,7 @@ export default async function PostPage({ params }) {
           sx={{
             flexGrow: 1,
             minWidth: 0,
-            px: 0, 
+            p: 2, 
           }}
         >
           {hasContent ? (
@@ -61,9 +57,9 @@ export default async function PostPage({ params }) {
 }
 
 export async function generateStaticParams() {
-  const paths = await getAllPostPaths("anapana");
+  const paths = await getAllPostPaths("policies");
 
   return paths.map((p) => ({
-    slug: [...p.slug.map((segment) => segment.replace(/\.mdx$/, ""))],
+    slug: p.slug.map((segment) => segment.replace(/\.mdx$/, "")),
   }));
 }

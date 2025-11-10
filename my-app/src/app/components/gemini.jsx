@@ -22,7 +22,7 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import { Grow, Link } from "@mui/material";
+import { Collapse, Fade, Grow, Link, Zoom } from "@mui/material";
 import StorefrontIcon from "@mui/icons-material/Storefront";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
@@ -36,6 +36,7 @@ const drawerWidth = "6vw";
 export default function PermanentDrawerWithTree({ menuData }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [hoveredItemData, setHoveredItemData] = React.useState(null);
+  
   const open = Boolean(anchorEl);
   const closeTimer = React.useRef(null);
   const openTimer = React.useRef(null);
@@ -77,33 +78,30 @@ export default function PermanentDrawerWithTree({ menuData }) {
     donations: <PaymentIcon />,
   };
 
-  
-
   const renderTree = (nodes) => {
+    const childrenCount = nodes.children ? nodes.children.length : 0;
 
-  const childrenCount = nodes.children ? nodes.children.length : 0;
-
-  const labelContent = (
-    <Box sx={{ display: "flex", alignItems: "center",  pr: 0 }}>
-      <Typography variant="body1" sx={{ fontWeight: "medium", flexGrow: 1 }}>
-        {nodes.label}
-      </Typography>
-
-      {childrenCount > 0 && (
-        <Typography
-          variant="caption"
-          sx={{
-            ml: 1,
-            p: "2px 6px",
-            color: "text.secondary",
-            fontWeight: "bold",
-          }}
-        >
-          {childrenCount}
+    const labelContent = (
+      <Box sx={{ display: "flex", alignItems: "center", pr: 0 }}>
+        <Typography variant="body1" sx={{ fontWeight: "medium", flexGrow: 1 }}>
+          {nodes.label}
         </Typography>
-      )}
-    </Box>
-  );
+
+        {childrenCount > 0 && (
+          <Typography
+            variant="caption"
+            sx={{
+              ml: 1,
+              p: "2px 6px",
+              color: "text.secondary",
+              fontWeight: "bold",
+            }}
+          >
+            {childrenCount}
+          </Typography>
+        )}
+      </Box>
+    );
 
     if (nodes.href) {
       return (
@@ -151,6 +149,7 @@ export default function PermanentDrawerWithTree({ menuData }) {
         }}
         variant="permanent"
         anchor="left"
+        
       >
         <List>
           {menuData.map((item) => (
@@ -217,8 +216,10 @@ export default function PermanentDrawerWithTree({ menuData }) {
         slotProps={{
           transition: {
             direction: "right",
-            timeout: 100,
+            timeout: 200,
+            
           },
+
           paper: {
             onMouseEnter: onPopoverEnter,
             onMouseLeave: handleClose,
@@ -241,9 +242,20 @@ export default function PermanentDrawerWithTree({ menuData }) {
           pointerEvents: "none",
         }}
       >
+        {/* <Grow 
+      // The key is to bind the transition to a key that changes
+      // when the content changes (the item's ID).
+      key={hoveredItemData ? hoveredItemData.id : 'empty'} 
+      in={true} // Always "in" once rendered
+      // direction="left" 
+      timeout={200} 
+      mountOnEnter
+      unmountOnExit
+    >
+        <Box> */}
         {hoveredItemData && (
           <Box>
-            <Typography variant="h6" sx={{ marginBottom: 2.5 }}>
+            <Typography variant="h5" sx={{ marginBottom: 2.5 }}>
               {hoveredItemData.text}
             </Typography>
 
@@ -294,6 +306,8 @@ export default function PermanentDrawerWithTree({ menuData }) {
             })}
           </Box>
         )}
+        {/* </Box> */}
+        {/* </Grow> */}
       </Popover>
     </>
   );

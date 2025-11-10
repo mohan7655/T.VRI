@@ -24,6 +24,7 @@ export default async function PostPage({ params }) {
         remarkPlugins: [
           [remarkGfm, { inlineNotes: true, footnoteLabel: "References" }],
         ],
+        
       },
       parseFrontmatter: false,
     });
@@ -44,7 +45,7 @@ export default async function PostPage({ params }) {
           sx={{
             flexGrow: 1,
             minWidth: 0,
-            p: 2, // A common flexbox fix to prevent content overflow
+            p: 2, 
           }}
         >
           {hasContent ? (

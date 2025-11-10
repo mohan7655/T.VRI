@@ -11,7 +11,7 @@ const Footer = () => {
           display: "flex",
           height: "30vh",
           py: 2,
-          px:4,
+          px: 4,
           gap: 8,
           backgroundColor: "background.paper",
         }}
@@ -37,15 +37,16 @@ const Footer = () => {
               Policies
             </Typography>
             <StyledLink
-              href="https://www.vridhamma.org/terms-and-conditions"
+              href="/policies/terms_conditions"
+              //   href="https://www.vridhamma.org/terms-and-conditions"
               target="_blank"
             >
               Terms Of Use
             </StyledLink>
-            <StyledLink href="https://www.vridhamma.org/privacy-policy">
+            <StyledLink href="/policies/privacy_policy">
               Privacy Policy
             </StyledLink>
-            <StyledLink href="https://www.vridhamma.org/shipping-and-returns">
+            <StyledLink href="/policies/shipping_returns">
               Shipping And Returns
             </StyledLink>
           </Box>
@@ -61,13 +62,13 @@ const Footer = () => {
         >
           <Typography variant="body2">About </Typography>
           <StyledLink
-            href="https://www.vridhamma.org/About-VRI"
+            href="/vri/01_about"
             target="_blank"
           >
             About Us
           </StyledLink>
           <StyledLink
-            href="https://www.vridhamma.org/Contact-Us"
+            href="/vri/03_contact"
             target="_blank"
           >
             Contact Us

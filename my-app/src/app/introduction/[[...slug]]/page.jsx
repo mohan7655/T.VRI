@@ -42,8 +42,7 @@ export default async function PostPage({ params }) {
           sx={{
             flexGrow: 1,
             minWidth: 0,
-            // backgroundColor:"primary.main",
-            // p: 2, // A common flexbox fix to prevent content overflow
+            
           }}
         >
           {hasContent ? (
