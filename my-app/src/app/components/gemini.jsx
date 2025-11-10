@@ -19,9 +19,7 @@ import { TreeItem } from "@mui/x-tree-view/TreeItem";
 
 // Icons
 import InboxIcon from "@mui/icons-material/MoveToInbox";
-import StarIcon from "@mui/icons-material/Star";
-import MailIcon from "@mui/icons-material/Mail";
-import DraftsIcon from "@mui/icons-material/Drafts";
+
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { Grow, Link } from "@mui/material";
@@ -31,7 +29,6 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import SelfImprovementIcon from "@mui/icons-material/SelfImprovement";
 import { CenterIcon, DhammaIcon, VipassanaIcon } from "./customicons";
 import BookIcon from "@mui/icons-material/Book";
-import HouseIcon from "@mui/icons-material/House";
 import PaymentIcon from "@mui/icons-material/Payment";
 
 const drawerWidth = "6vw";
@@ -80,7 +77,34 @@ export default function PermanentDrawerWithTree({ menuData }) {
     donations: <PaymentIcon />,
   };
 
+  
+
   const renderTree = (nodes) => {
+
+  const childrenCount = nodes.children ? nodes.children.length : 0;
+
+  const labelContent = (
+    <Box sx={{ display: "flex", alignItems: "center",  pr: 0 }}>
+      <Typography variant="body1" sx={{ fontWeight: "medium", flexGrow: 1 }}>
+        {nodes.label}
+      </Typography>
+
+      {childrenCount > 0 && (
+        <Typography
+          variant="caption"
+          sx={{
+            ml: 1,
+            p: "2px 6px",
+            color: "text.secondary",
+            fontWeight: "bold",
+          }}
+        >
+          {childrenCount}
+        </Typography>
+      )}
+    </Box>
+  );
+
     if (nodes.href) {
       return (
         <TreeItem
@@ -106,7 +130,7 @@ export default function PermanentDrawerWithTree({ menuData }) {
     }
     if (Array.isArray(nodes.children)) {
       return (
-        <TreeItem key={nodes.id} itemId={nodes.id} label={nodes.label}>
+        <TreeItem key={nodes.id} itemId={nodes.id} label={labelContent}>
           {nodes.children.map((node) => renderTree(node))}
         </TreeItem>
       );
