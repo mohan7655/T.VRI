@@ -20,7 +20,7 @@ export const StyledButton = styled(Button)({
 export const Text = styled(Typography)({
   fontSize: "1.1rem",
   padding: "0 2rem",
-  fontWeight: "300",
+  fontWeight: "400",
   lineHeight: 1.6,
 });
 

@@ -39,11 +39,11 @@ const theme = createTheme({
     fontFamily: "var(--font-geist-sans)",
     
     body1: {
-      fontWeight: 500,
+      // fontWeight: 500,
       // color:"#fafaff"
-      fontSize:"1.1rem",
+      // fontSize:"1.1rem",
     },
-    fontWeightRegular:500,
+    // fontWeightRegular:500,
   },
 });
 
