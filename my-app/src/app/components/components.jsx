@@ -36,7 +36,7 @@ export const ContainerDivider = styled(Divider)(({ theme }) => ({
   borderBottomWidth: "0.2rem",
   borderRadius: "4rem",
   borderColor: theme.palette.secondary.main,
-  margin: "2rem 2rem",
+  margin: "1rem 4rem 3rem 2rem",
 }));
 
 export const HeadBar = styled(Box)({

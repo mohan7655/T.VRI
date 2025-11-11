@@ -172,7 +172,7 @@ export default function PermanentDrawerWithTree({ menuData }) {
             padding: 0,
           },
         }}
-        disablePadding
+        
         variant="permanent"
         anchor="left"
       >
@@ -189,11 +189,11 @@ export default function PermanentDrawerWithTree({ menuData }) {
                   gap: 0,
                   flexDirection: "column",
                   alignItems: "center",
-                  justifyContent: "space-between",
+                  justifyContent: "flex-end",
                   borderRadius: 3,
-                  py: 0,
+                  // py: 0,
                   height: "10.8vh",
-                  my: 0,
+                  // my: 0,
                   "&:hover": {
                     "& .MuiSvgIcon-root": {
                       transform: "scale(1.2)",
@@ -206,7 +206,7 @@ export default function PermanentDrawerWithTree({ menuData }) {
                   },
                 }}
               >
-                <ListItemIcon sx={{ minWidth: 0, scale: 1.3 }}>
+                <ListItemIcon sx={{ minWidth: 0, scale: 1.3,flexGrow:1 }}>
                   {iconMap[item.icon] || <InboxIcon />}
                 </ListItemIcon>
                 <ListItemText
