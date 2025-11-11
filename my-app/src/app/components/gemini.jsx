@@ -32,7 +32,7 @@ import BookIcon from "@mui/icons-material/Book";
 import PaymentIcon from "@mui/icons-material/Payment";
 import { Search } from "@mui/icons-material";
 
-const drawerWidth = "6vw";
+const drawerWidth = "7vw";
 
 export default function PermanentDrawerWithTree({ menuData }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -193,6 +193,10 @@ export default function PermanentDrawerWithTree({ menuData }) {
                   borderRadius: 3,
                   // py: 0,
                   height: "10.8vh",
+                  "& .MuiSvgIcon-root": {
+                      
+                      color: "text.primary",
+                    },
                   // my: 0,
                   "&:hover": {
                     "& .MuiSvgIcon-root": {

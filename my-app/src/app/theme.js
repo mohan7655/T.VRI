@@ -10,10 +10,10 @@ const theme = createTheme({
     secondary: {
       main: "#EABE70",
     },
-    background:{
-      paper:"#fafafa"
+    background: {
+      paper: "#fafafa",
     },
-    
+
     // background: {
     //   paper: "#282A2C",
     //   default: "#1B1C1D",
@@ -37,6 +37,13 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: "var(--font-geist-sans)",
+    
+    body1: {
+      fontWeight: 500,
+      // color:"#fafaff"
+      fontSize:"1.1rem",
+    },
+    fontWeightRegular:500,
   },
 });
 

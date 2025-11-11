@@ -26,7 +26,7 @@ export default function ClientLayout({ children, menuData }) {
         <Box
           sx={{
             flexGrow: 1,
-            width: "92vw",
+            width: "91vw",
           }}
         >
           <Header />

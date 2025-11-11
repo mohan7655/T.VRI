@@ -1,18 +1,28 @@
 import { getNavigationTree } from "@/lib/autoNav";
 import ClientLayout from "./client-layout";
+import { Geist, Geist_Mono } from "next/font/google";
 
 export const metadata = {
   title: "Vipassana Research Institute",
   description: "Test",
-  favicon:  "\vecel.svg"
+  // favicon:  "\vecel.svg"
 };
+ const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
 
 export default function RootLayout({ children }) {
   const menuData = getNavigationTree();
 
   return (
     <html lang="en">
-      <body>
+      <body >
         <ClientLayout menuData={menuData}>
           {children}
         </ClientLayout>
