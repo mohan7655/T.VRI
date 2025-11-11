@@ -71,8 +71,8 @@ export function getNavigationTree() {
       ),
     },
     {
-      id: "vipassana-meditation",
-      text: "Vipassana Meditation",
+      id: "vipassana",
+      text: "Vipassana",
       icon: "vipassana",
       tree: buildTreeRecursive(
         path.join(contentDirectory, "introduction"),
@@ -89,7 +89,7 @@ export function getNavigationTree() {
       ),
     },
     {
-      id: "Courses",
+      id: "courses",
       text: "Courses",
       icon: "courses",
       tree: buildTreeRecursive(
@@ -104,6 +104,15 @@ export function getNavigationTree() {
       tree: buildTreeRecursive(
         path.join(contentDirectory, "centers"),
         "/centers"
+      ),
+    },
+    {
+      id: "search",
+      text: "Search",
+      icon: "search",
+      tree: buildTreeRecursive(
+        path.join(contentDirectory, "courses"),
+        "/courses"
       ),
     },
     {

@@ -119,6 +119,7 @@ const muiComponents = {
       />
     );
   },
+  //change if internal then no blank
   p: (props) => <Text variant="body1" {...props} />,
   a: (props) => <StyledLink target="_blank" {...props} />,
 

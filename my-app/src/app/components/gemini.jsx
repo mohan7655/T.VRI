@@ -30,6 +30,7 @@ import SelfImprovementIcon from "@mui/icons-material/SelfImprovement";
 import { CenterIcon, DhammaIcon, VipassanaIcon } from "./customicons";
 import BookIcon from "@mui/icons-material/Book";
 import PaymentIcon from "@mui/icons-material/Payment";
+import { Search } from "@mui/icons-material";
 
 const drawerWidth = "6vw";
 
@@ -76,6 +77,7 @@ export default function PermanentDrawerWithTree({ menuData }) {
     resources: <BookIcon />,
     centers: <CenterIcon sx={{ scale: 1.7 }} />,
     donations: <PaymentIcon />,
+    search: <Search/>
   };
 
   const renderTree = (nodes) => {
@@ -108,7 +110,7 @@ export default function PermanentDrawerWithTree({ menuData }) {
         <TreeItem
           key={nodes.id}
           sx={{
-            [`& .${treeItemClasses.content}`]: { p: 1, borderRadius:5, },
+            [`& .${treeItemClasses.content}`]: { p: 1, borderRadius: 5 },
           }}
           itemId={nodes.id}
           label={
@@ -131,16 +133,28 @@ export default function PermanentDrawerWithTree({ menuData }) {
     }
     if (Array.isArray(nodes.children)) {
       return (
-        <TreeItem key={nodes.id} itemId={nodes.id} label={labelContent} sx={{
-            [`& .${treeItemClasses.content}`]: { p: 1, borderRadius:5, },
-          }}>
+        <TreeItem
+          key={nodes.id}
+          itemId={nodes.id}
+          label={labelContent}
+          sx={{
+            [`& .${treeItemClasses.content}`]: { p: 1, borderRadius: 5 },
+          }}
+        >
           {nodes.children.map((node) => renderTree(node))}
         </TreeItem>
       );
     }
-    return <TreeItem key={nodes.id} itemId={nodes.id} label={nodes.label} sx={{
-            [`& .${treeItemClasses.content}`]: { p: 1, borderRadius:5, },
-          }}/>;
+    return (
+      <TreeItem
+        key={nodes.id}
+        itemId={nodes.id}
+        label={nodes.label}
+        sx={{
+          [`& .${treeItemClasses.content}`]: { p: 1, borderRadius: 5 },
+        }}
+      />
+    );
   };
 
   return (
@@ -149,29 +163,37 @@ export default function PermanentDrawerWithTree({ menuData }) {
         sx={{
           width: drawerWidth,
           flexShrink: 0,
+
           "& .MuiDrawer-paper": {
             width: drawerWidth,
             boxSizing: "border-box",
+            paddingTop: 0,
+            margin: 0,
+            padding: 0,
           },
         }}
+        disablePadding
         variant="permanent"
         anchor="left"
       >
-        <List>
+        <List
+        //  sx={{  py: 0 }}
+        >
           {menuData.map((item) => (
-            <ListItem key={item.id} disablePadding>
+            <ListItem key={item.id} disablePadding >
               <ListItemButton
                 onMouseEnter={(event) => handleOpen(event, item)}
                 onMouseLeave={handleClose}
                 sx={{
                   display: "flex",
-                  // backgroundColor:"secondary.main",
+                  gap: 0,
                   flexDirection: "column",
                   alignItems: "center",
-                  justifyContent: "center",
+                  justifyContent: "space-between",
                   borderRadius: 3,
-                  py: 3,
+                  py: 0,
                   height: "10.8vh",
+                  my: 0,
                   "&:hover": {
                     "& .MuiSvgIcon-root": {
                       transform: "scale(1.2)",
@@ -184,18 +206,20 @@ export default function PermanentDrawerWithTree({ menuData }) {
                   },
                 }}
               >
-                <ListItemIcon sx={{ minWidth: 0, scale: 1.2 }}>
+                <ListItemIcon sx={{ minWidth: 0, scale: 1.3 }}>
                   {iconMap[item.icon] || <InboxIcon />}
                 </ListItemIcon>
                 <ListItemText
                   primary={item.text}
                   sx={{
                     textAlign: "center",
-
+                    mb: 0,
+                    minHeight: 0,
                     "& .MuiListItemText-primary": {
                       fontSize: "0.8rem",
                     },
                   }}
+                  
                 />
               </ListItemButton>
             </ListItem>
