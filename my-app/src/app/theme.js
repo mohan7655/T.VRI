@@ -43,7 +43,7 @@ const theme = createTheme({
       // color:"#fafaff"
       // fontSize:"1.1rem",
     },
-    // fontWeightRegular:500,
+    fontWeightRegular:500,
   },
 });
 

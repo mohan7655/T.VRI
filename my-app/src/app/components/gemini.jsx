@@ -195,7 +195,7 @@ export default function PermanentDrawerWithTree({ menuData }) {
                   height: "10.8vh",
                   "& .MuiSvgIcon-root": {
                       
-                      color: "text.primary",
+                      color: "text.secondary",
                     },
                   // my: 0,
                   "&:hover": {
