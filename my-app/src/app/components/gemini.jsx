@@ -15,7 +15,7 @@ import Slide from "@mui/material/Slide";
 
 // TreeView (from @mui/x-tree-view)
 import { SimpleTreeView } from "@mui/x-tree-view/SimpleTreeView";
-import { TreeItem } from "@mui/x-tree-view/TreeItem";
+import { TreeItem, treeItemClasses } from "@mui/x-tree-view/TreeItem";
 
 // Icons
 import InboxIcon from "@mui/icons-material/MoveToInbox";
@@ -36,7 +36,7 @@ const drawerWidth = "6vw";
 export default function PermanentDrawerWithTree({ menuData }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [hoveredItemData, setHoveredItemData] = React.useState(null);
-  
+
   const open = Boolean(anchorEl);
   const closeTimer = React.useRef(null);
   const openTimer = React.useRef(null);
@@ -107,6 +107,9 @@ export default function PermanentDrawerWithTree({ menuData }) {
       return (
         <TreeItem
           key={nodes.id}
+          sx={{
+            [`& .${treeItemClasses.content}`]: { p: 1, borderRadius:5, },
+          }}
           itemId={nodes.id}
           label={
             <Link
@@ -128,12 +131,16 @@ export default function PermanentDrawerWithTree({ menuData }) {
     }
     if (Array.isArray(nodes.children)) {
       return (
-        <TreeItem key={nodes.id} itemId={nodes.id} label={labelContent}>
+        <TreeItem key={nodes.id} itemId={nodes.id} label={labelContent} sx={{
+            [`& .${treeItemClasses.content}`]: { p: 1, borderRadius:5, },
+          }}>
           {nodes.children.map((node) => renderTree(node))}
         </TreeItem>
       );
     }
-    return <TreeItem key={nodes.id} itemId={nodes.id} label={nodes.label} />;
+    return <TreeItem key={nodes.id} itemId={nodes.id} label={nodes.label} sx={{
+            [`& .${treeItemClasses.content}`]: { p: 1, borderRadius:5, },
+          }}/>;
   };
 
   return (
@@ -149,7 +156,6 @@ export default function PermanentDrawerWithTree({ menuData }) {
         }}
         variant="permanent"
         anchor="left"
-        
       >
         <List>
           {menuData.map((item) => (
@@ -159,7 +165,7 @@ export default function PermanentDrawerWithTree({ menuData }) {
                 onMouseLeave={handleClose}
                 sx={{
                   display: "flex",
-
+                  // backgroundColor:"secondary.main",
                   flexDirection: "column",
                   alignItems: "center",
                   justifyContent: "center",
@@ -217,7 +223,6 @@ export default function PermanentDrawerWithTree({ menuData }) {
           transition: {
             direction: "right",
             timeout: 200,
-            
           },
 
           paper: {
