@@ -110,7 +110,7 @@ export default function PermanentDrawerWithTree({ menuData }) {
         <TreeItem
           key={nodes.id}
           sx={{
-            [`& .${treeItemClasses.content}`]: { p: 1, borderRadius: 5 },
+            [`& .${treeItemClasses.content}`]: { p: 0.5, borderRadius: 5 },
           }}
           itemId={nodes.id}
           label={
@@ -151,7 +151,7 @@ export default function PermanentDrawerWithTree({ menuData }) {
         itemId={nodes.id}
         label={nodes.label}
         sx={{
-          [`& .${treeItemClasses.content}`]: { p: 1, borderRadius: 5 },
+          [`& .${treeItemClasses.content}`]: { p: 0.5, borderRadius: 5 },
         }}
       />
     );
