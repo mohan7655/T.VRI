@@ -36,15 +36,9 @@ const theme = createTheme({
     //       }),
   },
   typography: {
-    fontFamily: "var(--font-geist-sans)",
-    
-    body1: {
-      // fontWeight: 500,
-      // color:"#fafaff"
-      // fontSize:"1.1rem",
-    },
-    // fontWeightRegular:500,
+    fontFamily: "var(--font-geist-roboto)",
   },
+  
 });
 
 export default theme;

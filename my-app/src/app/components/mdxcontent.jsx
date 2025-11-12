@@ -122,7 +122,7 @@ const muiComponents = {
   //change if internal then no blank
   p: (props) => <Text variant="body1" {...props} />,
   a: (props) => <StyledLink target="_blank" {...props} />,
-
+  hr:(props)=> <Divider sx={{margin:"2rem 5rem 2rem 5rem", borderColor: "secondary",borderBottomWidth: 2, }} {...props} />,
   ul: (props) => (
     <ul
       style={{
@@ -160,7 +160,6 @@ const muiComponents = {
     </Box>
   ),
   pre: ({ children }) => <>{children}</>,
-  CodeBlock: CodeBlock,
   Box: Box,
   Grid: Grid,
   TextBoxContainer,

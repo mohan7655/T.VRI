@@ -261,11 +261,11 @@ export default function PermanentDrawerWithTree({ menuData }) {
               pointerEvents: "auto",
               boxSizing: "border-box",
               padding: 2,
+              paddingRight: 0,
               top: "0 !important",
               minHeight: "100vh",
               maxHeight: "99vh",
               width: 340,
-
               boxShadow: "0 0 16px rgba(0,0,0,0.15)",
               overflowY: "auto",
             },

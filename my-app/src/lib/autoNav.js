@@ -10,15 +10,17 @@ const contentDirectory = path.join(process.cwd(), "src", "content");
 function buildTreeRecursive(directory, baseUrl) {
   const items = fs.readdirSync(directory);
   const tree = [];
-  
+
   for (const item of items) {
     if (item.startsWith(".")) continue;
-    
+
     const itemPath = path.join(directory, item);
     const stat = fs.statSync(itemPath);
-    const relativePath = path.relative(contentDirectory, itemPath).replace(/\\/g, '/');
+    const relativePath = path
+      .relative(contentDirectory, itemPath)
+      .replace(/\\/g, "/");
     const url = `/${relativePath.replace(/\.mdx$/, "")}`;
-    
+
     if (stat.isDirectory()) {
       // --- FOLDER ---
       let title = item;
@@ -27,7 +29,7 @@ function buildTreeRecursive(directory, baseUrl) {
         const indexContent = fs.readFileSync(indexPath, "utf8");
         title = matter(indexContent).data.title || title;
       }
-      
+
       tree.push({
         id: item,
         label: title,
@@ -44,13 +46,13 @@ function buildTreeRecursive(directory, baseUrl) {
       tree.push({
         id: slug,
         label: data.title || data.description || slug, // Use title first
-        href: href,          // Use the external or internal href
+        href: href, // Use the external or internal href
         external: isExternal,
         originalName: item,
       });
     }
   }
-  
+
   return tree.sort((a, b) => {
     return a.originalName.localeCompare(b.originalName);
   });
@@ -65,10 +67,7 @@ export function getNavigationTree() {
       id: "vri",
       text: "VRI",
       icon: "vri",
-      tree: buildTreeRecursive(
-        path.join(contentDirectory, "vri"),
-        "/vri"
-      ),
+      tree: buildTreeRecursive(path.join(contentDirectory, "vri"), "/vri"),
     },
     {
       id: "vipassana",
@@ -115,15 +114,15 @@ export function getNavigationTree() {
         "/courses"
       ),
     },
-    {
-      id: "resources",
-      text: "Resources",
-      icon: "resources",
-      tree: buildTreeRecursive(
-        path.join(contentDirectory, "resources"),
-        "/resources"
-      ),
-    },
+    // {
+    //   id: "resources",
+    //   text: "Resources",
+    //   icon: "resources",
+    //   tree: buildTreeRecursive(
+    //     path.join(contentDirectory, "resources"),
+    //     "/resources"
+    //   ),
+    // },
     {
       id: "oldstudent",
       text: "Old Students",
@@ -146,14 +145,10 @@ export function getNavigationTree() {
       id: "books",
       text: "Books",
       icon: "store",
-      tree: buildTreeRecursive(
-        path.join(contentDirectory, "books"),
-        "/books"
-      ),
+      tree: buildTreeRecursive(path.join(contentDirectory, "books"), "/books"),
     },
-    
   ];
-  
+
   return menuData;
 }
 
@@ -163,39 +158,42 @@ export function getNavigationTree() {
 export async function getAllPostPaths(baseCategory) {
   const paths = [];
   const startDir = path.join(contentDirectory, baseCategory);
-  
+
   function findPathsRecursive(directory) {
     const items = fs.readdirSync(directory);
-    
+
     for (const item of items) {
       if (item.startsWith(".")) continue;
-      
+
       const itemPath = path.join(directory, item);
       const stat = fs.statSync(itemPath);
-      
+
       if (stat.isDirectory()) {
         // Check if folder has an _index.mdx
         const indexPath = path.join(itemPath, "_index.mdx");
         if (fs.existsSync(indexPath)) {
-          const relativePath = path.relative(startDir, itemPath).replace(/\\/g, '/');
+          const relativePath = path
+            .relative(startDir, itemPath)
+            .replace(/\\/g, "/");
           paths.push({
-            slug: relativePath.split('/'),
+            slug: relativePath.split("/"),
           });
         }
         findPathsRecursive(itemPath);
       } else if (item.endsWith(".mdx") && item !== "_index.mdx") {
         // This is a post file
-        const relativePath = path.relative(startDir, itemPath)
-          .replace(/\\/g, '/')
+        const relativePath = path
+          .relative(startDir, itemPath)
+          .replace(/\\/g, "/")
           .replace(/\.mdx$/, "");
-        
+
         paths.push({
-          slug: relativePath.split('/'),
+          slug: relativePath.split("/"),
         });
       }
     }
   }
-  
+
   findPathsRecursive(startDir);
   return paths;
 }
