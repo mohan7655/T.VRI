@@ -153,7 +153,7 @@ const muiComponents = {
   img: (props) => (
     <Box sx={{ my: 2, position: "relative", width: "100%", height: "400px" }}>
       <CldImage
-        src={props.src}
+        src={`/assets/images/${props.src}`} 
         alt={props.alt || ""}
         layout="fill"
         objectFit="cover"
