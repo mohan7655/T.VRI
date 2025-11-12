@@ -26,6 +26,7 @@ import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import React from "react";
 import remarkFootnotes from "remark-footnotes";
 import rehypeSlug from "rehype-slug";
+import { CldImage } from "next-cloudinary";
 
 // Helper function to create URL-friendly IDs
 const slugify = (text) => {
@@ -151,7 +152,7 @@ const muiComponents = {
   ),
   img: (props) => (
     <Box sx={{ my: 2, position: "relative", width: "100%", height: "400px" }}>
-      <Image
+      <CldImage
         src={props.src}
         alt={props.alt || ""}
         layout="fill"

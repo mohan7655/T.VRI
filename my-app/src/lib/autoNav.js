@@ -114,24 +114,24 @@ export function getNavigationTree() {
         "/courses"
       ),
     },
-    // {
-    //   id: "resources",
-    //   text: "Resources",
-    //   icon: "resources",
-    //   tree: buildTreeRecursive(
-    //     path.join(contentDirectory, "resources"),
-    //     "/resources"
-    //   ),
-    // },
     {
-      id: "oldstudent",
-      text: "Old Students",
-      icon: "old",
+      id: "resources",
+      text: "Resources",
+      icon: "resources",
       tree: buildTreeRecursive(
-        path.join(contentDirectory, "oldstudents"),
-        "/oldstudents"
+        path.join(contentDirectory, "resources"),
+        "/resources"
       ),
     },
+    // {
+    //   id: "oldstudent",
+    //   text: "Old Students",
+    //   icon: "old",
+    //   tree: buildTreeRecursive(
+    //     path.join(contentDirectory, "oldstudents"),
+    //     "/oldstudents"
+    //   ),
+    // },
     {
       id: "donations",
       text: "Donations",

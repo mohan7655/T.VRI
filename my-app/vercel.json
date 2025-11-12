@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/assets/images/:path*",
+      "destination": "https://res.cloudinary.com/dg6acynb0/image/upload/:path*"
+    }
+  ]
+}
