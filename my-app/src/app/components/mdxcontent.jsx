@@ -156,6 +156,7 @@ const muiComponents = {
         src={`/assets/images/${props.src}`} 
         alt={props.alt || ""}
         layout="fill"
+        crossOrigin="anonymous"
         objectFit="cover"
       />
     </Box>
