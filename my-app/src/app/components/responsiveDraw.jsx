@@ -322,7 +322,7 @@ function ResponsiveDrawer({ menuData }) {
                 },
                 "&:hover": {
                   "& .MuiSvgIcon-root": {
-                    transform: "scale(1.2)",
+                    transform: "scale(1.1)",
                     color: "primary.main",
                   },
                   "& .MuiListItemText-primary": {
