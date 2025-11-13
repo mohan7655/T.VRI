@@ -108,11 +108,11 @@ export default function TableOfContents() {
                 heading.level === "h3"
                   ? 0
                   : heading.level === "h4"
-                  ? "1rem" // 1 rem indent
+                  ? "0" // 1 rem indent
                   : heading.level === "h5"
-                  ? "2rem" // 2 rem indent (1rem + 1rem)
+                  ? "1rem" // 2 rem indent (1rem + 1rem)
                   : heading.level === "h6"
-                  ? "3rem" // 3 rem indent
+                  ? "2rem" // 3 rem indent
                   : 0,
             }}
           >
