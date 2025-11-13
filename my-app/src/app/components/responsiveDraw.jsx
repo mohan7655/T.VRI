@@ -354,7 +354,7 @@ function ResponsiveDrawer({ menuData }) {
   );
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex",m:0,p:0 }}>
       <AppBar
         position="fixed"
         sx={{
