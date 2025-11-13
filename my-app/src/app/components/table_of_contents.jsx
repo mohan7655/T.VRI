@@ -88,8 +88,8 @@ export default function TableOfContents() {
       sx={{
         py: 1,
         position: { sm: "sticky" },
-        top: "10vh",
-        maxHeight: "calc(100vh - 150px)",
+        top: {sm:"12vh",md:"10vh"},
+        maxHeight: {sm:"80vh",md:"calc(100vh - 150px)"},
         overflowY: "auto",
         minWidth: "20vw",
         display: { xs: "none", sm: "block" },
