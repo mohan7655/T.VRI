@@ -121,7 +121,7 @@ function ResponsiveDrawer({ menuData }) {
 
     const labelContent = (
       <Box sx={{ display: "flex", alignItems: "center", pr: 0 }}>
-        <Typography variant="body1" sx={{ fontWeight: "medium", flexGrow: 1 }}>
+        <Typography variant="body1" sx={{  flexGrow: 1 }}>
           {nodes.label}
         </Typography>
 
@@ -146,7 +146,7 @@ function ResponsiveDrawer({ menuData }) {
         <TreeItem
           key={nodes.id}
           sx={{
-            [`& .${treeItemClasses.content}`]: { p: 0.5, borderRadius: 5 },
+            [`& .${treeItemClasses.content}`]: { p: 0.2, borderRadius: 4 },
           }}
           itemId={nodes.id}
           label={
@@ -174,7 +174,7 @@ function ResponsiveDrawer({ menuData }) {
           itemId={nodes.id}
           label={labelContent}
           sx={{
-            [`& .${treeItemClasses.content}`]: { p: 1, borderRadius: 5 },
+            [`& .${treeItemClasses.content}`]: { p: 0.5, borderRadius: 5 },
           }}
         >
           {nodes.children.map((node) => renderTree(node))}

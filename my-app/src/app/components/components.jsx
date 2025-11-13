@@ -11,7 +11,7 @@ export const StyledButton = styled(Button)({
 });
 
 export const Text = styled(Typography)(({ theme }) => ({
-  fontSize: "1.2rem",
+  // fontSize: "1.1rem",
   padding: "0 1",
   fontWeight: "500",
 

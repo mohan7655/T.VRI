@@ -37,8 +37,8 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: "var(--font-geist-roboto)",
+    fontSize: "16",
   },
-  
 });
 
 export default theme;

@@ -133,22 +133,24 @@ const muiComponents = {
       {...props}
     />
   ),
-  ul: (props) => (
-    <ul
-      style={{
-        paddingLeft: "5rem",
-      }}
-      {...props}
-    />
-  ),
+ul: (props) => (
+  <Box
+    component="ul"
+    sx={{
+      paddingLeft: { xs: '2rem', sm: '5rem' },
+    }}
+    {...props}
+  />
+),
   ol: (props) => (
-    <ol
-      style={{
-        paddingLeft: "5rem",
-      }}
-      {...props}
-    />
-  ),
+  <Box
+    component="ol"
+    sx={{
+      paddingLeft: { xs: '2rem', sm: '5rem' },
+    }}
+    {...props}
+  />
+),
   tr: (props) => (
     <tr
       style={{

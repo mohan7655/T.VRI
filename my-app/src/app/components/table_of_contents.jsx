@@ -129,7 +129,7 @@ export default function TableOfContents() {
               }}
             >
               <Typography
-                variant="body1"
+                variant="body2"
                 sx={{
                   color:
                     activeId === heading.id ? "primary.main" : "text.secondary",
