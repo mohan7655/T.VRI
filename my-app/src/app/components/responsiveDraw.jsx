@@ -358,7 +358,7 @@ function ResponsiveDrawer({ menuData }) {
       <AppBar
         position="fixed"
         sx={{
-          width: "100%",
+          width: "99%",
           // ml:  {xs:0,sm:440} ,
           backgroundColor: "background.default",
           zIndex: (theme) => theme.zIndex.drawer + 50,
