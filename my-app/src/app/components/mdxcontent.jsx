@@ -21,7 +21,6 @@ import {
   Text,
   TextBoxContainer,
   Verses,
-  
 } from "./components";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
@@ -171,6 +170,8 @@ const muiComponents = {
   ),
   img: (props) => (
     <Box
+      component="img"
+      src={`/assets/${props.src}`}
       sx={{
         my: 2,
         position: "relative",
@@ -181,20 +182,9 @@ const muiComponents = {
         // paddingBottom: "56.25%",
         display: "flex",
         justifyContent: "center",
+        objectFit: "contain",
       }}
-    >
-      <CldImage
-        src={props.src}
-        alt={props.alt || ""}
-        fill={true}
-        // width={960}
-        // height={400}
-        sizes="100vw"
-        style={{ objectFit: "contain" }}
-        // sx={{ objectFit: "contain" }}
-        crossOrigin="anonymous"
-      />
-    </Box>
+    />
   ),
   pre: ({ children }) => <>{children}</>,
   Box: Box,
