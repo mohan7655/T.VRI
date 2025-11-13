@@ -27,8 +27,21 @@ export const Text = styled(Typography)({
 export const TextBoxContainer = styled(Box)(({ theme }) => ({
   // backgroundColor: "#fafafa",
   backgroundColor: theme.palette.background.paper,
-  borderRadius: "2rem",
-  padding: "2rem",
+ 
+  
+  [theme.breakpoints.up('xs')]: {
+    padding: theme.spacing(1),
+    paddingTop:theme.spacing(2), 
+     borderRadius: "1rem",// 48px padding for MD screens and up
+  },
+  
+  
+  [theme.breakpoints.up('sm')]: {
+    
+    padding: theme.spacing(3), 
+     borderRadius: "2rem",
+  },
+  
   margin: "1rem 0",
 }));
 
@@ -39,15 +52,20 @@ export const ContainerDivider = styled(Divider)(({ theme }) => ({
   margin: "1rem 4rem 3rem 2rem",
 }));
 
-export const HeadBar = styled(Box)({
+export const HeadBar = styled(Box)(({theme})=>({
   display: "flex",
-  flexDirection: "row",
+  flexDirection: "column",
+  padding:"4rem 2rem",
+  [theme.breakpoints.up('sm')]: {
+    flexDirection: "row",
+     minHeight: "35vh",
+  },
   gap: "1rem",
   justifyContent: "center",
   alignItems: "center",
-  minHeight: "35vh",
+ 
   minWidth: "100%",
-});
+}));
 
 export const HeadText = styled(Box)(({ theme }) => ({
   display: "flex",

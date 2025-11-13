@@ -83,7 +83,7 @@ export default function TableOfContents() {
     <TextBoxContainer
       sx={{
         py: 1,
-        position: "sticky",
+        position: {sm:"sticky"},
         top: "10vh",
         maxHeight: "calc(100vh - 150px)",
         overflowY: "auto",

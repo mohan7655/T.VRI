@@ -7,6 +7,8 @@ import Header from "./components/Header";
 import { Box } from "@mui/material";
 import PermanentDrawerWithTree from "./components/gemini";
 import Footer from "./components/Footer";
+import ResponsiveDrawer from "./components/responsiveDraw";
+import { blue } from "@mui/material/colors";
 
 export default function ClientLayout({ children, menuData }) {
   const [mounted, setMounted] = useState(false);
@@ -21,12 +23,14 @@ export default function ClientLayout({ children, menuData }) {
 
   return (
     <ThemeRegistry>
-      <Box sx={{ display: "flex", gap: "1vw", position: "absolute" }}>
+      <Box sx={{ display: "flex", gap: "1vw", position: "absolute", }}>
         <PermanentDrawerWithTree menuData={menuData}  />
+        {/* <ResponsiveDrawer menuData={menuData}/> */}
         <Box
           sx={{
             flexGrow: 1,
-            width: "91vw",
+            width: {xs:"100vw",sm:"91vw"},
+            
           }}
         >
           <Header />

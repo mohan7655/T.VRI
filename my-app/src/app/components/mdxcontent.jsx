@@ -123,7 +123,16 @@ const muiComponents = {
   //change if internal then no blank
   p: (props) => <Text variant="body1" {...props} />,
   a: (props) => <StyledLink target="_blank" {...props} />,
-  hr:(props)=> <Divider sx={{margin:"2rem 5rem 2rem 5rem", borderColor: "secondary",borderBottomWidth: 2, }} {...props} />,
+  hr: (props) => (
+    <Divider
+      sx={{
+        margin: "2rem 5rem 2rem 5rem",
+        borderColor: "secondary",
+        borderBottomWidth: 2,
+      }}
+      {...props}
+    />
+  ),
   ul: (props) => (
     <ul
       style={{
@@ -144,20 +153,36 @@ const muiComponents = {
     <tr
       style={{
         margin: "2rem",
-        padding:"2rem",
+        padding: "2rem",
         // color: "#fbfa",
       }}
       {...props}
     />
   ),
   img: (props) => (
-    <Box sx={{ my: 2, position: "relative", width: "100%", height: "400px" }}>
+    <Box
+      sx={{
+        my: 2,
+        position: "relative",
+        // backgroundColor:black[300],
+        width: "100%",
+        // maxWidth: "100%",
+        height: "60vh",
+        // paddingBottom: "56.25%",
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
       <CldImage
-        src={`/assets/images/${props.src}`} 
+        src={props.src}
         alt={props.alt || ""}
-        layout="fill"
+        fill={true}
+        // width={960}
+        // height={400}
+        sizes="100vw"
+        style={{ objectFit: "contain" }}
+        // sx={{ objectFit: "contain" }}
         crossOrigin="anonymous"
-        objectFit="cover"
       />
     </Box>
   ),

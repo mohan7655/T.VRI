@@ -9,7 +9,8 @@ const Footer = () => {
       <Box
         sx={{
           display: "flex",
-          height: "30vh",
+          flexDirection: { xs: "column", sm: "row" },
+          minHeight: "30vh",
           py: 2,
           px: 4,
           gap: 8,
@@ -27,12 +28,29 @@ const Footer = () => {
           }}
         >
           <Box>
-            <Typography variant="h1" sx={{ fontSize: "1.2rem" }}>
+            <Typography
+              variant="h1"
+              sx={{ fontSize: "1.2rem", textAlign: "center" }}
+            >
               © {new Date().getFullYear()} VIPASSANA RESEARCH INSTITUTE
-              <br /> All Rights Reserved
+            
+            </Typography>
+            <Typography
+              variant="h1"
+              sx={{ fontSize: "1.2rem", textAlign: "center" }}
+            >
+              All Rights Reserved
             </Typography>
           </Box>
-          <Box sx={{ display: "flex", gap: 4, alignItems: "center", mt: 6 }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: { xs: "column", sm: "row" },
+              gap: 4,
+              alignItems: "center",
+              mt: 6,
+            }}
+          >
             <Typography variant="h1" sx={{ fontSize: "1.2rem" }}>
               Policies
             </Typography>
@@ -61,16 +79,10 @@ const Footer = () => {
           }}
         >
           <Typography variant="body2">About </Typography>
-          <StyledLink
-            href="/vri/01_about"
-            target="_blank"
-          >
+          <StyledLink href="/vri/01_about" target="_blank">
             About Us
           </StyledLink>
-          <StyledLink
-            href="/vri/03_contact"
-            target="_blank"
-          >
+          <StyledLink href="/vri/03_contact" target="_blank">
             Contact Us
           </StyledLink>
         </Box>

@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <>
       <HeadBar>
-        <Image>
+        {/* <Image> */}
           {/* Example object to rotate (e.g., an icon or any component) */}
           <Box
             component="img"
@@ -13,16 +13,16 @@ const Header = () => {
             alt="Wheel"
             sx={{
               // Use 'width' and 'height', not 'fontSize'
-              width: 125,
-              height: 125,
+              width: {xs:75,sm:125},
+              height: {xs:75,sm:125},
             }}
           />
-        </Image>
+        {/* </Image> */}
         <HeadText>
-          <Typography variant="h1" sx={{ mb: 0, fontSize: "4rem" }}>
+          <Typography variant="h1" sx={{ mb: 0, fontSize: {xs:"1.5rem",sm:"4rem"} }}>
             Vipassana Research Institue
           </Typography>
-          <Typography variant="h1" sx={{ mt: 0, fontSize: "1.5rem" }}>
+          <Typography variant="h1" sx={{ mt: 0, fontSize: {xs:"0.8rem",sm:"1.5rem"} }}>
             founded by S. N. Goenka in the tradition of Sayagyi U Ba Khin
           </Typography>
         </HeadText>
@@ -34,14 +34,14 @@ const Header = () => {
           alt="top"
           sx={{
             // Use 'width' and 'height', not 'fontSize'
-            width: 325,
-            height: 50,
+            width: {xs:150,sm:325},
+            height: {xs:25,sm:50},
           }}
         />
-        <Typography variant="h1" sx={{ fontSize: "1.5rem" }}>
+        <Typography variant="h1" sx={{ fontSize: {xs:"1.1rem",sm:"1.5rem" } }}>
           वयधम्मा सङ्खारा, अप्पमादेन सम्पादेथ
         </Typography>
-        <Typography variant="h1" sx={{ fontSize: "1.5rem" }}>
+        <Typography variant="h1" sx={{ fontSize: {xs:"1.1rem",sm:"1.5rem" }}}>
           IMPERMANENT ARE ALL COMPOUNDED THINGS <br /> WORK OUT YOUR OWN
           SALVATION WITH DILIGENCE
         </Typography>
@@ -51,8 +51,8 @@ const Header = () => {
           alt="bottom"
           sx={{
             // Use 'width' and 'height', not 'fontSize'
-            width: 325,
-            height: 40,
+            width: {xs:150,sm:325},
+            height: {xs:25,sm:50},
           }}
         />
       </Pali_verses>

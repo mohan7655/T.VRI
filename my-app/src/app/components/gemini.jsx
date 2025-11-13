@@ -275,17 +275,7 @@ export default function PermanentDrawerWithTree({ menuData }) {
           pointerEvents: "none",
         }}
       >
-        {/* <Grow 
-      // The key is to bind the transition to a key that changes
-      // when the content changes (the item's ID).
-      key={hoveredItemData ? hoveredItemData.id : 'empty'} 
-      in={true} // Always "in" once rendered
-      // direction="left" 
-      timeout={200} 
-      mountOnEnter
-      unmountOnExit
-    >
-        <Box> */}
+        
         {hoveredItemData && (
           <Box>
             <Typography variant="h5" sx={{ marginBottom: 2.5 }}>
