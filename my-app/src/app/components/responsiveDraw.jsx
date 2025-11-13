@@ -40,7 +40,7 @@ import BookIcon from "@mui/icons-material/Book";
 import PaymentIcon from "@mui/icons-material/Payment";
 import { Search } from "@mui/icons-material";
 import MenuIcon from "@mui/icons-material/Menu";
-const drawerWidth = 240;
+const drawerWidth = 340;
 
 function ResponsiveDrawer({ menuData }) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
