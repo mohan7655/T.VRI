@@ -29,6 +29,7 @@ import {
   Grow,
   IconButton,
   Link,
+  Toolbar,
   Zoom,
 } from "@mui/material";
 import StorefrontIcon from "@mui/icons-material/Storefront";
@@ -40,6 +41,8 @@ import BookIcon from "@mui/icons-material/Book";
 import PaymentIcon from "@mui/icons-material/Payment";
 import { Search } from "@mui/icons-material";
 import MenuIcon from "@mui/icons-material/Menu";
+import MenuOpenIcon from "@mui/icons-material/MenuOpen";
+
 const drawerWidth = 340;
 
 function ResponsiveDrawer({ menuData }) {
@@ -192,6 +195,7 @@ function ResponsiveDrawer({ menuData }) {
 
   const mobileDrawer = (
     <div>
+      <Toolbar />
       <List>
         {menuData.map((item) => (
           <React.Fragment key={item.id}>
@@ -256,7 +260,10 @@ function ResponsiveDrawer({ menuData }) {
                     );
                   }
 
-                  if (topLevelNode.children && topLevelNode.children.length > 0) {
+                  if (
+                    topLevelNode.children &&
+                    topLevelNode.children.length > 0
+                  ) {
                     return (
                       <Box key={topLevelNode.id} sx={{ mb: 3 }}>
                         <Typography
@@ -353,22 +360,27 @@ function ResponsiveDrawer({ menuData }) {
         sx={{
           width: { md: `calc(100% - ${drawerWidth}px)` },
           ml: { md: `${drawerWidth}px` },
+          backgroundColor: "background.default",
+          zIndex: (theme) => theme.zIndex.drawer + 50,
+          boxShadow: "none",
+          display: "flex",
+          p: 1,
         }}
       >
         <IconButton
-          color="inherit"
+          // color="inherit"
           aria-label="open drawer"
           edge="start"
           onClick={handleDrawerToggle}
-          sx={{ mr: 2, display: { md: "none" } }}
+          sx={{ ml: 0, alignSelf: "flex-start", display: { md: "none" } }}
         >
-          <MenuIcon />
+          {mobileOpen ? <MenuOpenIcon /> : <MenuIcon />}
         </IconButton>
       </AppBar>
       <Box
         component="nav"
         sx={{ width: { md: "7vw" }, flexShrink: 0 }}
-        aria-label="mailbox folders"
+        aria-label="folders"
       >
         {/* Mobile Drawer */}
         <Drawer
@@ -378,6 +390,7 @@ function ResponsiveDrawer({ menuData }) {
           onClose={handleDrawerClose}
           sx={{
             display: { xs: "block", md: "none" },
+            pt: "10vh",
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
@@ -468,7 +481,10 @@ function ResponsiveDrawer({ menuData }) {
                     );
                   }
 
-                  if (topLevelNode.children && topLevelNode.children.length > 0) {
+                  if (
+                    topLevelNode.children &&
+                    topLevelNode.children.length > 0
+                  ) {
                     return (
                       <Box key={topLevelNode.id} sx={{ mb: 3 }}>
                         <Typography

@@ -34,8 +34,8 @@ const Header = () => {
           alt="top"
           sx={{
             // Use 'width' and 'height', not 'fontSize'
-            width: {xs:150,sm:325},
-            height: {xs:25,sm:50},
+            width: {xs:120,sm:275},
+            height: {xs:15,sm:35},
           }}
         />
         <Typography variant="h1" sx={{ fontSize: {xs:"1.1rem",sm:"1.5rem" } }}>
@@ -51,8 +51,8 @@ const Header = () => {
           alt="bottom"
           sx={{
             // Use 'width' and 'height', not 'fontSize'
-            width: {xs:150,sm:325},
-            height: {xs:25,sm:50},
+            width: {xs:120,sm:275},
+            height: {xs:15,sm:30},
           }}
         />
       </Pali_verses>
