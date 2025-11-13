@@ -43,7 +43,7 @@ import { Search } from "@mui/icons-material";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 
-const drawerWidth = 340;
+const drawerWidth = "75vw";
 
 function ResponsiveDrawer({ menuData }) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
