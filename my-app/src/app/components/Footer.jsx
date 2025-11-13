@@ -9,7 +9,7 @@ const Footer = () => {
       <Box
         sx={{
           display: "flex",
-          flexDirection: { xs: "column", sm: "row" },
+          flexDirection: { xs: "column", md: "row" },
           minHeight: "30vh",
           py: 2,
           px: 4,
@@ -45,7 +45,7 @@ const Footer = () => {
           <Box
             sx={{
               display: "flex",
-              flexDirection: { xs: "column", sm: "row" },
+              flexDirection: { xs: "column", md: "row" },
               gap: 4,
               alignItems: "center",
               mt: 6,

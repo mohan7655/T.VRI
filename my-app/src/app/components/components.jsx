@@ -15,7 +15,7 @@ export const Text = styled(Typography)(({ theme }) => ({
   padding: "0 1",
   fontWeight: "500",
 
-  [theme.breakpoints.up("sm")]: {
+  [theme.breakpoints.up("md")]: {
     padding: theme.spacing(2),
     lineHeight: 1.6,
   },
@@ -32,7 +32,7 @@ export const TextBoxContainer = styled(Box)(({ theme }) => ({
     borderRadius: "1rem", // 48px padding for MD screens and up
   },
 
-  [theme.breakpoints.up("sm")]: {
+  [theme.breakpoints.up("md")]: {
     padding: theme.spacing(3),
     borderRadius: "2rem",
   },
@@ -51,7 +51,7 @@ export const HeadBar = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   padding: "4rem 2rem",
-  [theme.breakpoints.up("sm")]: {
+  [theme.breakpoints.up("md")]: {
     flexDirection: "row",
     minHeight: "35vh",
   },
