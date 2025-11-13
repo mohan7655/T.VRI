@@ -1,14 +1,7 @@
 "use client";
 
 import styled from "@emotion/styled";
-import {
-  Box,
-  Divider,
-  Drawer,
-  Paper,
-  StyledEngineProvider,
-  Typography,
-} from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 import { blue, blueGrey } from "@mui/material/colors";
 import { Button } from "@mui/material";
 import Link from "next/link";
@@ -17,35 +10,33 @@ export const StyledButton = styled(Button)({
   color: blue,
 });
 
-export const Text = styled(Typography)(({theme})=>({
+export const Text = styled(Typography)(({ theme }) => ({
   fontSize: "1.2rem",
   padding: "0 1",
   fontWeight: "500",
-  lineHeight: 1.6,
-  [theme.breakpoints.up('sm')]: {
-    padding: theme.spacing(2), 
+
+  [theme.breakpoints.up("sm")]: {
+    padding: theme.spacing(2),
+    lineHeight: 1.6,
   },
 }));
 
 export const TextBoxContainer = styled(Box)(({ theme }) => ({
   // backgroundColor: "#fafafa",
   backgroundColor: theme.palette.background.paper,
- 
-  
-  [theme.breakpoints.up('xs')]: {
+
+  [theme.breakpoints.up("xs")]: {
     padding: theme.spacing(1.5),
-    paddingTop:theme.spacing(2),
-    margin:theme.spacing(1), 
-     borderRadius: "1rem",// 48px padding for MD screens and up
+    paddingTop: theme.spacing(2),
+    margin: theme.spacing(1),
+    borderRadius: "1rem", // 48px padding for MD screens and up
   },
-  
-  
-  [theme.breakpoints.up('sm')]: {
-    
-    padding: theme.spacing(3), 
-     borderRadius: "2rem",
+
+  [theme.breakpoints.up("sm")]: {
+    padding: theme.spacing(3),
+    borderRadius: "2rem",
   },
-  
+
   margin: "1rem 0",
 }));
 
@@ -56,18 +47,18 @@ export const ContainerDivider = styled(Divider)(({ theme }) => ({
   margin: "1rem 4rem 3rem 2rem",
 }));
 
-export const HeadBar = styled(Box)(({theme})=>({
+export const HeadBar = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
-  padding:"4rem 2rem",
-  [theme.breakpoints.up('sm')]: {
+  padding: "4rem 2rem",
+  [theme.breakpoints.up("sm")]: {
     flexDirection: "row",
-     minHeight: "35vh",
+    minHeight: "35vh",
   },
   gap: "1rem",
   justifyContent: "center",
   alignItems: "center",
- 
+
   minWidth: "100%",
 }));
 

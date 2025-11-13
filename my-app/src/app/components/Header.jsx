@@ -19,7 +19,7 @@ const Header = () => {
           />
         {/* </Image> */}
         <HeadText>
-          <Typography variant="h1" sx={{ mb: 0, fontSize: {xs:"1.5rem",sm:"4rem"} }}>
+          <Typography variant="h1" sx={{ mb: 0, fontSize: {xs:"2rem",sm:"4rem"} }}>
             Vipassana Research Institue
           </Typography>
           <Typography variant="h1" sx={{ mt: 0, fontSize: {xs:"0.8rem",sm:"1.5rem"} }}>
