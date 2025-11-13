@@ -170,21 +170,48 @@ const muiComponents = {
   ),
   img: (props) => (
     <Box
-      component="img"
-      src={`/assets/${props.src}`}
       sx={{
         my: 2,
-        position: "relative",
-        // backgroundColor:black[300],
         width: "100%",
-        // maxWidth: "100%",
-        height: "60vh",
-        // paddingBottom: "56.25%",
+        maxWidth: "100%",
         display: "flex",
-        justifyContent: "center",
-        objectFit: "contain",
+        flexDirection: "column",
+        alignItems: "center",
+        maxHeight: "90vh",
+        position: "relative",
+        overflow: "hidden",
       }}
-    />
+    >
+      <Box
+        component="img"
+        src={`/assets/${props.src}`}
+        sx={{
+          position: "relative",
+          width: "auto",
+          maxWidth: "100%",
+          height: "auto",
+          maxHeight: "100%",
+          objectFit: "contain",
+        }}
+      />
+
+      {/* 2. Caption/Alt Text (MUI Typography) */}
+      {props.alt && (
+        <Typography
+          variant="caption" // Use a small, standard typography variant
+          sx={{
+            width: "100%",
+            mt: 1,
+            color: "text.secondary", // Faint secondary color for caption
+            textAlign: "center",
+            // CRITICAL: Set height to auto so it doesn't fight the 60vh parent
+            height: "auto",
+          }}
+        >
+          {props.alt}
+        </Typography>
+      )}
+    </Box>
   ),
   pre: ({ children }) => <>{children}</>,
   Box: Box,
