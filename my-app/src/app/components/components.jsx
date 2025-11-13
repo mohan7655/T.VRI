@@ -33,8 +33,9 @@ export const TextBoxContainer = styled(Box)(({ theme }) => ({
  
   
   [theme.breakpoints.up('xs')]: {
-    padding: theme.spacing(1),
-    paddingTop:theme.spacing(2), 
+    padding: theme.spacing(1.5),
+    paddingTop:theme.spacing(2),
+    margin:theme.spacing(1), 
      borderRadius: "1rem",// 48px padding for MD screens and up
   },
   
