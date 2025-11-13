@@ -28,31 +28,33 @@ export default async function PostPage({ params }) {
   const showtoc = frontmatter.showToc !== false;
   return (
     <>
-      <Typography variant="h1" gutterBottom sx={{ fontSize: "3.2rem", m: "2rem 0 2rem 1rem" }}>
-        {frontmatter.description}
-      </Typography>
-      <Box
-        sx={{
-          display: "flex",
-          gap: "2rem",
-        }}
-      >
-        <Box
-          sx={{
-            flexGrow: 1,
-            minWidth: 0,
-            p: 2, 
-          }}
-        >
-          {hasContent ? (
-            <MdxContent source={mdxSource} />
-          ) : (
-            <Typography>No content available</Typography>
-          )}
-        </Box>
-        {showtoc ? <TableOfContents /> : null}
-      </Box>
-    </>
+              <Typography variant="h1" gutterBottom sx={{ fontSize:{xs:"2rem",sm: "3.2rem"}, m: "2rem 0 2rem 1rem" }}>
+                {frontmatter.description}
+              </Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection:{xs:"column",sm:"row-reverse"},
+                  gap: "2rem",
+                }}
+              >
+                {showtoc ? <TableOfContents /> : null}
+                <Box
+                  sx={{
+                    flexGrow: 1,
+                    minWidth: 0,
+                    
+                  }}
+                >
+                  {hasContent ? (
+                    <MdxContent source={mdxSource} />
+                  ) : (
+                    <Typography>No content available</Typography>
+                  )}
+                </Box>
+                
+              </Box>
+            </>
   );
 }
 

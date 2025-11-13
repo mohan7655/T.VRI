@@ -46,9 +46,6 @@ function ResponsiveDrawer({ menuData }) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [isClosing, setIsClosing] = React.useState(false);
 
-  // For mobile: track which item is expanded
-  const [expandedMobileItem, setExpandedMobileItem] = React.useState(null);
-
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [hoveredItemData, setHoveredItemData] = React.useState(null);
 
@@ -96,10 +93,6 @@ function ResponsiveDrawer({ menuData }) {
     }
   };
 
-  const handleMobileItemClick = (itemId) => {
-    setExpandedMobileItem(expandedMobileItem === itemId ? null : itemId);
-  };
-
   const iconMap = {
     old: <MenuBookIcon />,
     store: <StorefrontIcon />,
@@ -112,7 +105,6 @@ function ResponsiveDrawer({ menuData }) {
     donations: <PaymentIcon />,
     search: <Search />,
   };
-
   const renderTree = (nodes) => {
     const childrenCount = nodes.children ? nodes.children.length : 0;
 
@@ -189,130 +181,29 @@ function ResponsiveDrawer({ menuData }) {
       />
     );
   };
-
-  const mobileDrawer = (
+  const drawer = (
     <div>
-      <List>
+      <SimpleTreeView
+      //  sx={{  py: 0 }}
+      >
         {menuData.map((item) => (
-          <React.Fragment key={item.id}>
-            <ListItem disablePadding>
-              <ListItemButton
-                onClick={() => handleMobileItemClick(item.id)}
-                sx={{
-                  display: "flex",
-                  gap: 2,
-                  alignItems: "center",
-                  borderRadius: 3,
-                  py: 1.5,
-                  "&:hover": {
-                    "& .MuiSvgIcon-root": {
-                      color: "primary.main",
-                    },
-                    "& .MuiListItemText-primary": {
-                      fontWeight: 550,
-                      color: "primary.main",
-                    },
-                  },
-                }}
-              >
-                <ListItemIcon sx={{ minWidth: 0, scale: 1.3 }}>
-                  {iconMap[item.icon] || <InboxIcon />}
-                </ListItemIcon>
-                <ListItemText
-                  primary={item.text}
-                  sx={{
-                    "& .MuiListItemText-primary": {
-                      fontSize: "1rem",
-                      fontWeight: expandedMobileItem === item.id ? 600 : 400,
-                    },
-                  }}
-                />
-                {expandedMobileItem === item.id ? (
-                  <ExpandMoreIcon />
-                ) : (
-                  <ChevronRightIcon />
-                )}
-              </ListItemButton>
-            </ListItem>
-
-            <Collapse
-              in={expandedMobileItem === item.id}
-              timeout="auto"
-              unmountOnExit
-            >
-              <Box sx={{ pl: 2, pr: 2, pb: 2 }}>
-                {item.tree.map((topLevelNode) => {
-                  if (topLevelNode.href) {
-                    return (
-                      <SimpleTreeView
-                        key={topLevelNode.id}
-                        sx={{
-                          mb: 0,
-                          flexGrow: 1,
-                        }}
-                      >
-                        {renderTree(topLevelNode)}
-                      </SimpleTreeView>
-                    );
-                  }
-
-                  if (topLevelNode.children && topLevelNode.children.length > 0) {
-                    return (
-                      <Box key={topLevelNode.id} sx={{ mb: 3 }}>
-                        <Typography
-                          variant="subtitle1"
-                          sx={{
-                            py: 1,
-                            color: "secondary.main",
-                            fontWeight: 600,
-                            lineHeight: 1.5,
-                          }}
-                        >
-                          {topLevelNode.label}
-                        </Typography>
-
-                        <SimpleTreeView
-                          slots={{
-                            expandIcon: ChevronRightIcon,
-                            collapseIcon: ExpandMoreIcon,
-                          }}
-                        >
-                          {topLevelNode.children.map((childNode) =>
-                            renderTree(childNode)
-                          )}
-                        </SimpleTreeView>
-                      </Box>
-                    );
-                  }
-                  return null;
-                })}
-              </Box>
-            </Collapse>
-          </React.Fragment>
-        ))}
-      </List>
-    </div>
-  );
-
-  const desktopDrawer = (
-    <div>
-      <List>
-        {menuData.map((item) => (
-          <ListItem key={item.id}>
+          <TreeItem key={item.id} >
             <ListItemButton
-              onMouseEnter={(event) => handleOpen(event, item)}
-              onMouseLeave={handleClose}
+               onMouseEnter={(event) => handleOpen(event, item)}
+              onMouseLeave={handleClose} 
               sx={{
                 display: "flex",
                 gap: 0,
-                flexDirection: "column",
+                flexDirection: {xs:"row",md:"column"},
                 alignItems: "center",
-                justifyContent: "flex-end",
+                justifyContent: {xs:"center",md:"flex-end"},
                 borderRadius: 3,
+                // py: 0,
                 height: "10.8vh",
                 "& .MuiSvgIcon-root": {
                   color: "text.secondary",
                 },
+                // my: 0,
                 "&:hover": {
                   "& .MuiSvgIcon-root": {
                     transform: "scale(1.2)",
@@ -325,13 +216,14 @@ function ResponsiveDrawer({ menuData }) {
                 },
               }}
             >
-              <ListItemIcon sx={{ minWidth: 0, scale: 1.3, flexGrow: 1 }}>
+              <ListItemIcon sx={{ minWidth: 0, scale: 1.3, flexGrow: {xs:0,md:1},pl:{xs:2,md:0} }}>
                 {iconMap[item.icon] || <InboxIcon />}
               </ListItemIcon>
               <ListItemText
                 primary={item.text}
                 sx={{
-                  textAlign: "center",
+                  textAlign: {xs:"left",md:"center"},
+                  pl:{xs:4,md:0},
                   mb: 0,
                   minHeight: 0,
                   "& .MuiListItemText-primary": {
@@ -340,11 +232,13 @@ function ResponsiveDrawer({ menuData }) {
                 }}
               />
             </ListItemButton>
-          </ListItem>
+          </TreeItem>
         ))}
-      </List>
+      </SimpleTreeView>
     </div>
   );
+
+  // Remove this const when copying and pasting into your project.
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -370,7 +264,7 @@ function ResponsiveDrawer({ menuData }) {
         sx={{ width: { md: "7vw" }, flexShrink: 0 }}
         aria-label="mailbox folders"
       >
-        {/* Mobile Drawer */}
+        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Drawer
           variant="temporary"
           open={mobileOpen}
@@ -385,14 +279,12 @@ function ResponsiveDrawer({ menuData }) {
           }}
           slotProps={{
             root: {
-              keepMounted: true,
+              keepMounted: true, // Better open performance on mobile.
             },
           }}
         >
-          {mobileDrawer}
+          {drawer}
         </Drawer>
-
-        {/* Desktop Drawer */}
         <Drawer
           variant="permanent"
           sx={{
@@ -404,105 +296,120 @@ function ResponsiveDrawer({ menuData }) {
           }}
           open
         >
-          {desktopDrawer}
+          {drawer}
           <Popover
-            open={open}
-            anchorEl={anchorEl}
-            anchorOrigin={{
-              vertical: "top",
-              horizontal: "right",
-            }}
-            transformOrigin={{
-              vertical: "top",
-              horizontal: "left",
-            }}
-            onClose={handleClose}
-            disableRestoreFocus
-            slots={{
-              transition: Grow,
-            }}
-            slotProps={{
-              transition: {
-                direction: "right",
-                timeout: 200,
-              },
-              paper: {
-                onMouseEnter: onPopoverEnter,
-                onMouseLeave: handleClose,
-                sx: {
-                  pointerEvents: "auto",
-                  boxSizing: "border-box",
-                  padding: 2,
-                  paddingRight: 0,
-                  top: "0 !important",
-                  minHeight: "100vh",
-                  maxHeight: "99vh",
-                  width: 340,
-                  boxShadow: "0 0 16px rgba(0,0,0,0.15)",
-                  overflowY: "auto",
-                },
-              },
-            }}
-            sx={{
-              pointerEvents: "none",
-            }}
-          >
-            {hoveredItemData && (
-              <Box>
-                <Typography variant="h5" sx={{ marginBottom: 2.5 }}>
-                  {hoveredItemData.text}
-                </Typography>
+          open={open}
+          anchorEl={anchorEl}
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "right",
+          }}
+          transformOrigin={{
+            vertical: "top",
+            horizontal: "left",
+          }}
+          onClose={handleClose}
+          disableRestoreFocus
+          slots={{
+            transition: Grow,
+          }}
+          slotProps={{
+            transition: {
+              direction: "right",
+              timeout: 200,
+            },
 
-                {hoveredItemData.tree.map((topLevelNode) => {
-                  if (topLevelNode.href) {
-                    return (
-                      <SimpleTreeView
-                        key={topLevelNode.id}
+            paper: {
+              onMouseEnter: onPopoverEnter,
+              onMouseLeave: handleClose,
+
+              sx: {
+                pointerEvents: "auto",
+                boxSizing: "border-box",
+                padding: 2,
+                paddingRight: 0,
+                top: "0 !important",
+                minHeight: "100vh",
+                maxHeight: "99vh",
+                width: 340,
+                boxShadow: "0 0 16px rgba(0,0,0,0.15)",
+                overflowY: "auto",
+              },
+            },
+          }}
+          sx={{
+            pointerEvents: "none",
+          }}
+        >
+          {hoveredItemData && (
+            <Box>
+              <Typography variant="h5" sx={{ marginBottom: 2.5 }}>
+                {hoveredItemData.text}
+              </Typography>
+
+              {hoveredItemData.tree.map((topLevelNode) => {
+                if (topLevelNode.href) {
+                  return (
+                    <SimpleTreeView
+                      key={topLevelNode.id}
+                      sx={{
+                        mb: 0,
+                        flexGrow: 1,
+                      }}
+                    >
+                      {renderTree(topLevelNode)}
+                    </SimpleTreeView>
+                  );
+                }
+
+                if (topLevelNode.children && topLevelNode.children.length > 0) {
+                  return (
+                    <Box key={topLevelNode.id} sx={{ mb: 3 }}>
+                      <Typography
+                        variant="h5"
                         sx={{
-                          mb: 0,
-                          flexGrow: 1,
+                          py: "1rem",
+                          color: "secondary.main",
+                          fontWeight: 500,
+                          lineHeight: 1.5,
                         }}
                       >
-                        {renderTree(topLevelNode)}
+                        {topLevelNode.label}
+                      </Typography>
+
+                      <SimpleTreeView
+                        slots={{
+                          expandIcon: ChevronRightIcon,
+                          collapseIcon: ExpandMoreIcon,
+                        }}
+                      >
+                        {topLevelNode.children.map((childNode) =>
+                          renderTree(childNode)
+                        )}
                       </SimpleTreeView>
-                    );
-                  }
-
-                  if (topLevelNode.children && topLevelNode.children.length > 0) {
-                    return (
-                      <Box key={topLevelNode.id} sx={{ mb: 3 }}>
-                        <Typography
-                          variant="h5"
-                          sx={{
-                            py: "1rem",
-                            color: "secondary.main",
-                            fontWeight: 500,
-                            lineHeight: 1.5,
-                          }}
-                        >
-                          {topLevelNode.label}
-                        </Typography>
-
-                        <SimpleTreeView
-                          slots={{
-                            expandIcon: ChevronRightIcon,
-                            collapseIcon: ExpandMoreIcon,
-                          }}
-                        >
-                          {topLevelNode.children.map((childNode) =>
-                            renderTree(childNode)
-                          )}
-                        </SimpleTreeView>
-                      </Box>
-                    );
-                  }
-                  return null;
-                })}
-              </Box>
-            )}
-          </Popover>
+                    </Box>
+                  );
+                }
+                return null;
+              })}
+            </Box>
+          )}
+          {/* </Box> */}
+          {/* </Grow> */}
+        </Popover>
         </Drawer>
+        
       </Box>
+      {/* <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          p: 3,
+          width: { md: `calc(100% - ${drawerWidth}px)` },
+        }}
+      >
+        <Toolbar />
+      </Box> */}
     </Box>
   );
 }

@@ -24,8 +24,8 @@ export default function ClientLayout({ children, menuData }) {
   return (
     <ThemeRegistry>
       <Box sx={{ display: "flex", gap: "1vw", position: "absolute", }}>
-        <PermanentDrawerWithTree menuData={menuData}  />
-        {/* <ResponsiveDrawer menuData={menuData}/> */}
+        {/* <PermanentDrawerWithTree menuData={menuData}  /> */}
+        <ResponsiveDrawer menuData={menuData}/>
         <Box
           sx={{
             flexGrow: 1,

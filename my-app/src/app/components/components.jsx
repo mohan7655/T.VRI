@@ -17,12 +17,15 @@ export const StyledButton = styled(Button)({
   color: blue,
 });
 
-export const Text = styled(Typography)({
+export const Text = styled(Typography)(({theme})=>({
   fontSize: "1.2rem",
-  padding: "0 2rem",
+  padding: "0 1",
   fontWeight: "500",
   lineHeight: 1.6,
-});
+  [theme.breakpoints.up('sm')]: {
+    padding: theme.spacing(2), 
+  },
+}));
 
 export const TextBoxContainer = styled(Box)(({ theme }) => ({
   // backgroundColor: "#fafafa",
