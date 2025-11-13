@@ -83,11 +83,12 @@ export default function TableOfContents() {
     <TextBoxContainer
       sx={{
         py: 1,
-        position: {sm:"sticky"},
+        position: { sm: "sticky" },
         top: "10vh",
         maxHeight: "calc(100vh - 150px)",
         overflowY: "auto",
         minWidth: "20vw",
+        display: { xs: "none", sm: "block" },
       }}
     >
       <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
