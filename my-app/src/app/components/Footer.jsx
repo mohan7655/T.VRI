@@ -40,7 +40,11 @@ const Footer = () => {
             </Typography>
             <Typography
               variant="body1"
-              sx={{ fontSize: "1.2rem", textAlign: "center" ,fontWeight:'bold'}}
+              sx={{
+                fontSize: "1.2rem",
+                textAlign: "center",
+                fontWeight: "bold",
+              }}
             >
               All Rights Reserved
             </Typography>
@@ -49,12 +53,15 @@ const Footer = () => {
             sx={{
               display: "flex",
               flexDirection: { xs: "column", md: "row" },
-              gap: 4,
-              alignItems: "center",
+              gap: { xs: 1, md: 4 },
+              alignItems: { xs: "left", md: "center" },
               mt: 6,
             }}
           >
-            <Typography variant="body1" sx={{ fontSize: "1.2rem",fontWeight:'bold' }}>
+            <Typography
+              variant="body1"
+              sx={{ fontSize: "1.2rem", fontWeight: "bold" }}
+            >
               Policies
             </Typography>
             <StyledLink
@@ -135,13 +142,13 @@ const Footer = () => {
         >
           <Typography variant="body2">Download </Typography>
           <StyledLink
-            href="https://play.google.com/store/apps/details?id=com.vipassanameditation"
+            href="https://play.google.com/store/apps/details?id=org.dhamma&pcampaignid=web_share"
             target="_blank"
           >
             Play Store
           </StyledLink>
           <StyledLink
-            href="https://apps.apple.com/in/app/vipassanameditation-vri/id1491766806"
+            href="https://apps.apple.com/us/app/dhamma-org/id1127952631"
             target="_blank"
           >
             App Store

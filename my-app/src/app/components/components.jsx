@@ -50,10 +50,11 @@ export const ContainerDivider = styled(Divider)(({ theme }) => ({
 export const HeadBar = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
-  padding: "4rem 2rem",
+  padding: "4rem 2rem 1rem 2rem",
   [theme.breakpoints.up("md")]: {
     flexDirection: "row",
     minHeight: "35vh",
+    padding:"4rem 2rem"
   },
   gap: "1rem",
   justifyContent: "center",

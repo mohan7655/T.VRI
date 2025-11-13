@@ -358,8 +358,8 @@ function ResponsiveDrawer({ menuData }) {
       <AppBar
         position="fixed"
         sx={{
-          width: { md: `calc(100% - ${drawerWidth}px)` },
-          ml: { md: `${drawerWidth}px` },
+          width: "100%",
+          // ml:  {xs:0,sm:440} ,
           backgroundColor: "background.default",
           zIndex: (theme) => theme.zIndex.drawer + 50,
           boxShadow: "none",
@@ -393,7 +393,7 @@ function ResponsiveDrawer({ menuData }) {
             pt: "10vh",
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
-              width: drawerWidth,
+              width: {xs:340,sm:440},
             },
           }}
           slotProps={{
