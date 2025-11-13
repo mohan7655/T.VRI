@@ -112,3 +112,11 @@ export const StyledLink = styled(Link)(({ theme }) => ({
     color: theme.palette.primary.dark,
   },
 }));
+
+export const Verses = styled(Box)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  [theme.breakpoints.up("md")]: {
+    flexDirection: "row",
+  },
+}));

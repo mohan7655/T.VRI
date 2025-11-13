@@ -20,6 +20,8 @@ import {
   StyledLink,
   Text,
   TextBoxContainer,
+  Verses,
+  
 } from "./components";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
@@ -82,7 +84,6 @@ const muiComponents = {
         sx={{
           scrollMarginTop: "100px",
           pl: "-1",
-         
         }}
         {...props}
       />
@@ -98,7 +99,6 @@ const muiComponents = {
         sx={{
           scrollMarginTop: "100px",
           pl: "0.5rem",
-         
         }}
         {...props}
       />
@@ -204,6 +204,7 @@ const muiComponents = {
     <Button variant="contained" color="primary" {...props} />
   ),
   Divider: ContainerDivider,
+  Verses,
   Table,
   TableBody,
   TableCell,

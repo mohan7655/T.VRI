@@ -29,15 +29,18 @@ const Footer = () => {
         >
           <Box>
             <Typography
-              variant="h1"
-              sx={{ fontSize: "1.2rem", textAlign: "center" }}
+              variant="body1"
+              sx={{
+                fontSize: "1.2rem",
+                textAlign: "center",
+                fontWeight: "bold",
+              }}
             >
               © {new Date().getFullYear()} VIPASSANA RESEARCH INSTITUTE
-            
             </Typography>
             <Typography
-              variant="h1"
-              sx={{ fontSize: "1.2rem", textAlign: "center" }}
+              variant="body1"
+              sx={{ fontSize: "1.2rem", textAlign: "center" ,fontWeight:'bold'}}
             >
               All Rights Reserved
             </Typography>
@@ -51,7 +54,7 @@ const Footer = () => {
               mt: 6,
             }}
           >
-            <Typography variant="h1" sx={{ fontSize: "1.2rem" }}>
+            <Typography variant="body1" sx={{ fontSize: "1.2rem",fontWeight:'bold' }}>
               Policies
             </Typography>
             <StyledLink

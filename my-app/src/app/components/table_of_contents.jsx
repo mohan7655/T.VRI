@@ -32,6 +32,10 @@ export default function TableOfContents() {
         text: elem.textContent,
         level: elem.tagName.toLowerCase(),
       }));
+      // .filter((heading) => {
+      //   // 1. Exclude headings that have no ID (often used for simple decoration)
+      //   if (!heading.id) return false;
+      // });
       setHeadings(headingData);
     }, 0);
 

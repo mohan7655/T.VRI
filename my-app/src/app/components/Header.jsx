@@ -30,11 +30,11 @@ const Header = () => {
             Vipassana Research Institue
           </Typography>
           <Typography
-            variant="h1"
+            variant="body1"
             sx={{
               mt: 0,
               display: { xs: "block", md: "none" },
-              fontSize: "0.8rem",
+              fontSize: { md: "0.8rem" },
               textAlign: "center",
             }}
           >
@@ -42,11 +42,12 @@ const Header = () => {
             in the tradition of Sayagyi U Ba Khin
           </Typography>
           <Typography
-            variant="h1"
+            variant="body1"
             sx={{
               mt: 0,
+              // fontSize: "0.2rem",
+              color: "black",
               display: { xs: "none", md: "block" },
-              fontSize: "1.5rem",
             }}
           >
             founded by S. N. Goenka in the tradition of Sayagyi U Ba Khin

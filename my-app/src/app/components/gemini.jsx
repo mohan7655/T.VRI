@@ -177,7 +177,7 @@ export default function PermanentDrawerWithTree({ menuData }) {
         anchor="left"
       >
         <List
-        //  sx={{  py: 0 }}
+         sx={{  py: 0 }}
         >
           {menuData.map((item) => (
             <ListItem key={item.id} disablePadding >
