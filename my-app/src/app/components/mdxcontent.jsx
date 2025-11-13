@@ -79,7 +79,11 @@ const muiComponents = {
         variant="h3"
         gutterBottom
         id={id}
-        sx={{ scrollMarginTop: "100px", pl: "-1" }}
+        sx={{
+          scrollMarginTop: "100px",
+          pl: "-1",
+         
+        }}
         {...props}
       />
     );
@@ -91,7 +95,11 @@ const muiComponents = {
         variant="h4"
         gutterBottom
         id={id}
-        sx={{ scrollMarginTop: "100px", pl: "0.5rem" }}
+        sx={{
+          scrollMarginTop: "100px",
+          pl: "0.5rem",
+         
+        }}
         {...props}
       />
     );
@@ -133,24 +141,24 @@ const muiComponents = {
       {...props}
     />
   ),
-ul: (props) => (
-  <Box
-    component="ul"
-    sx={{
-      paddingLeft: { xs: '2rem', sm: '5rem' },
-    }}
-    {...props}
-  />
-),
+  ul: (props) => (
+    <Box
+      component="ul"
+      sx={{
+        paddingLeft: { xs: "2rem", sm: "5rem" },
+      }}
+      {...props}
+    />
+  ),
   ol: (props) => (
-  <Box
-    component="ol"
-    sx={{
-      paddingLeft: { xs: '2rem', sm: '5rem' },
-    }}
-    {...props}
-  />
-),
+    <Box
+      component="ol"
+      sx={{
+        paddingLeft: { xs: "2rem", sm: "5rem" },
+      }}
+      {...props}
+    />
+  ),
   tr: (props) => (
     <tr
       style={{

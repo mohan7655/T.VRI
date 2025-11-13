@@ -1,7 +1,7 @@
 "use client";
-import { createTheme } from "@mui/material";
+import { createTheme, responsiveFontSizes } from "@mui/material";
 
-const theme = createTheme({
+let theme = createTheme({
   palette: {
     mode: "light",
     primary: {
@@ -40,5 +40,7 @@ const theme = createTheme({
     fontSize: "16",
   },
 });
+
+theme = responsiveFontSizes(theme);
 
 export default theme;
