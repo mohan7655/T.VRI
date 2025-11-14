@@ -177,7 +177,7 @@ const muiComponents = {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        maxHeight: "90vh",
+        maxHeight: "120vh",
         position: "relative",
         overflow: "hidden",
       }}
