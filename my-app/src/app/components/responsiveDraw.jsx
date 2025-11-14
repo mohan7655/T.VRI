@@ -42,6 +42,8 @@ import PaymentIcon from "@mui/icons-material/Payment";
 import { Search } from "@mui/icons-material";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
+import SearchComponent from "./search";
+import SearchButtonWithModal from "./searchComponent";
 
 const drawerWidth = "75vw";
 
@@ -304,6 +306,44 @@ function ResponsiveDrawer({ menuData }) {
   const desktopDrawer = (
     <div>
       <List>
+        <ListItemButton
+          sx={{
+            display: "flex",
+            gap: 0,
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "flex-end",
+            borderRadius: 3,
+            height: "10.8vh",
+            "& .MuiSvgIcon-root": {
+              color: "text.secondary",
+            },
+            "&:hover": {
+              "& .MuiSvgIcon-root": {
+                transform: "scale(1.1)",
+                color: "primary.main",
+              },
+              "& .MuiListItemText-primary": {
+                fontWeight: 550,
+                color: "primary.main",
+              },
+            },
+          }}
+        >
+          <SearchButtonWithModal />
+          <ListItemText
+            primary={"Search"}
+            sx={{
+              textAlign: "center",
+              mb: 0,
+              minHeight: 0,
+              "& .MuiListItemText-primary": {
+                fontSize: "0.8rem",
+              },
+            }}
+          />
+        </ListItemButton>
+
         {menuData.map((item) => (
           <ListItem key={item.id} disablePadding>
             <ListItemButton
@@ -364,6 +404,8 @@ function ResponsiveDrawer({ menuData }) {
           zIndex: (theme) => theme.zIndex.drawer + 50,
           boxShadow: "none",
           display: { xs: "flex", md: "none" },
+          flexDirection: "row", 
+          justifyContent: "flex-start",
           p: 1,
         }}
       >
@@ -376,6 +418,9 @@ function ResponsiveDrawer({ menuData }) {
         >
           {mobileOpen ? <MenuOpenIcon /> : <MenuIcon />}
         </IconButton>
+        <Box sx={{ml:"auto",p:1}}>
+          <SearchButtonWithModal />
+        </Box>
       </AppBar>
       <Box
         component="nav"

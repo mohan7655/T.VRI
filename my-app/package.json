@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev ",
-    "build": "next build ",
+    "build": "node src/lib/searchIndex.js && next build",
     "start": "next start",
     "lint": "eslint"
   },
@@ -16,6 +16,8 @@
     "@mui/material": "^7.3.4",
     "@mui/material-nextjs": "^7.3.3",
     "@mui/x-tree-view": "^8.16.0",
+    "flexsearch": "^0.8.212",
+    "fuse.js": "^7.1.0",
     "gray-matter": "^4.0.3",
     "grey-matter": "^0.0.0",
     "hast-util-to-string": "^3.0.1",

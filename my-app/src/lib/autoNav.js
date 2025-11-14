@@ -105,15 +105,7 @@ export function getNavigationTree() {
         "/centers"
       ),
     },
-    {
-      id: "search",
-      text: "Search",
-      icon: "search",
-      tree: buildTreeRecursive(
-        path.join(contentDirectory, "courses"),
-        "/courses"
-      ),
-    },
+    
     {
       id: "resources",
       text: "Resources",
