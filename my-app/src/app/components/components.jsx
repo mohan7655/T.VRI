@@ -54,7 +54,7 @@ export const HeadBar = styled(Box)(({ theme }) => ({
   [theme.breakpoints.up("md")]: {
     flexDirection: "row",
     minHeight: "35vh",
-    padding:"4rem 2rem"
+    padding: "4rem 2rem",
   },
   gap: "1rem",
   justifyContent: "center",
@@ -92,10 +92,10 @@ export const Image = styled(Box)({
   },
 });
 
-export const Pali_verses = styled(Box)({
+export const Pali_verses = styled(Box)(({ theme }) => ({
   px: "2rem",
   py: "1rem",
-  backgroundColor: "#002299",
+  backgroundColor: theme.palette.primary.main,
   color: "#EABE70",
   textAlign: "center",
   alignItems: "center",
@@ -103,7 +103,10 @@ export const Pali_verses = styled(Box)({
   display: "flex",
   flexDirection: "column",
   gap: "1rem",
-});
+  [theme.breakpoints.up("md")]: {
+    flexDirection: "row",
+  },
+}));
 
 export const StyledLink = styled(Link)(({ theme }) => ({
   textDecoration: "none",
