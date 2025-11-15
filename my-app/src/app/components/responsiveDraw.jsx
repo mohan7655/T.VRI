@@ -148,7 +148,7 @@ function ResponsiveDrawer({ menuData }) {
         <TreeItem
           key={nodes.id}
           sx={{
-            [`& .${treeItemClasses.content}`]: { p: 0.5, borderRadius: 4 },
+            [`& .${treeItemClasses.content}`]: { borderRadius: 4 },
           }}
           itemId={nodes.id}
           label={
@@ -176,7 +176,8 @@ function ResponsiveDrawer({ menuData }) {
           itemId={nodes.id}
           label={labelContent}
           sx={{
-            [`& .${treeItemClasses.content}`]: { p: 1, borderRadius: 5 },
+            [`& .${treeItemClasses.content}`]: { borderRadius: 5 },
+            [`& .${treeItemClasses.group}`]: { paddingLeft: "1" },
           }}
         >
           {nodes.children.map((node) => renderTree(node))}
@@ -189,7 +190,7 @@ function ResponsiveDrawer({ menuData }) {
         itemId={nodes.id}
         label={nodes.label}
         sx={{
-          [`& .${treeItemClasses.content}`]: { p: 0.5, borderRadius: 5 },
+          [`& .${treeItemClasses.content}`]: { borderRadius: 5 },
         }}
       />
     );
@@ -306,7 +307,7 @@ function ResponsiveDrawer({ menuData }) {
   const desktopDrawer = (
     <div>
       <List>
-        <SearchButtonWithModal/>
+        <SearchButtonWithModal />
 
         {menuData.map((item) => (
           <ListItem key={item.id} disablePadding>
