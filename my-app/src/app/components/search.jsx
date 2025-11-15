@@ -247,7 +247,7 @@ export default function SearchComponent({ onResultClick }) {
         </Typography>
       )}
 
-      <List sx={{ maxHeight: 500, overflowY: "auto", borderRadius: 5 }}>
+      <List sx={{ maxHeight: 500, overflowY: "auto", borderRadius: 5 ,}}>
         {!isIndexReady && query && (
           <Box sx={{ textAlign: "center", py: 4 }}>
             <CircularProgress size={24} />
@@ -269,10 +269,11 @@ export default function SearchComponent({ onResultClick }) {
                 p: 2,
                 border: "1px solid",
                 borderColor: "divider",
+                backgroundColor: "background.main",
                 borderRadius: 5,
                 "&:hover": {
                   backgroundColor: "action.hover",
-                  borderColor: "secondary.main",
+                  borderColor: "primary.main",
                 },
                 display: "block",
               }}
