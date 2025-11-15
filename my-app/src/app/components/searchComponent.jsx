@@ -65,10 +65,10 @@ export default function SearchButtonWithModal() {
           "& .MuiDialog-container": {
             // CRITICAL: Stops vertical centering (alignItems: 'center' is the default)
             alignItems: "flex-start",
-            m: -2,
+            m: {xs:0,md:-2},
             p: 0,
             justifyContent: "flex-end",
-            borderRadius: 5,
+            borderRadius: {xs:0,md:5},
           },
         }}
         // Use Slide for a smooth opening transition
