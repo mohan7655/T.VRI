@@ -330,8 +330,8 @@ function ResponsiveDrawer({ menuData }) {
             },
           }}
         >
-          <ListItemIcon sx={{scale:1.3,minWidth:0}}>
-          <SearchButtonWithModal />
+          <ListItemIcon sx={{ scale: 1.3, minWidth: 0 }}>
+            <SearchButtonWithModal />
           </ListItemIcon>
           <ListItemText
             primary={"Search"}
@@ -406,8 +406,9 @@ function ResponsiveDrawer({ menuData }) {
           zIndex: (theme) => theme.zIndex.drawer + 50,
           boxShadow: "none",
           display: { xs: "flex", md: "none" },
-          flexDirection: "row", 
-          justifyContent: "flex-start",
+          flexDirection: "row",
+          // justifyContent: "center",
+          alignItems: "center",
           p: 1,
         }}
       >
@@ -420,7 +421,16 @@ function ResponsiveDrawer({ menuData }) {
         >
           {mobileOpen ? <MenuOpenIcon /> : <MenuIcon />}
         </IconButton>
-        <Box sx={{ml:"auto",p:0,alignSelf:'center'}}>
+        <Box
+          sx={{
+            // mr: 1,
+            ml: "auto",
+            p: 1,
+            pb:0,
+            alignSelf: "center",
+            
+          }}
+        >
           <SearchButtonWithModal />
         </Box>
       </AppBar>

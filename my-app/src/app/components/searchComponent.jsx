@@ -75,13 +75,13 @@ export default function SearchButtonWithModal() {
         slots={{ transition: Grow }}
         slotProps={{
           transition: { direction: "down" },
-          paper: { sx: { borderRadius: {xs:0,md:5} } },
+          paper: { sx: { borderRadius: {xs:0,sm:5} } },
         }}
       >
         
 
         {/* 3. The Search Component */}
-        <Box sx={{ p: isMobile ? 3 : 1, height: "100%" }}>
+        <Box sx={{ p: isMobile ? 1 : 2, height: "100%" }}>
           {/* Pass the close handler so the modal shuts after a result is clicked */}
           <SearchComponent onResultClick={handleClose} />
         </Box>
