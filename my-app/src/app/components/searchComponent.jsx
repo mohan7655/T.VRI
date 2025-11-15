@@ -48,12 +48,13 @@ export default function SearchButtonWithModal() {
         onClick={handleOpen}
         sx={{
           display: "flex",
-          gap: 0,p:1,
+          gap: 0,
+          p: 1,
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "flex-end",
           borderRadius: 3,
-          height: {md:"10.8vh"},
+          height: { md: "10.8vh" },
           "& .MuiSvgIcon-root": {
             color: "text.secondary",
           },
@@ -69,7 +70,9 @@ export default function SearchButtonWithModal() {
           },
         }}
       >
-        <ListItemIcon sx={{ minWidth: 0, scale: {md:1.3}, flexGrow: {md:1} }}>
+        <ListItemIcon
+          sx={{ minWidth: 0, scale: { md: 1.3 }, flexGrow: { md: 1 } }}
+        >
           <SearchIcon />
         </ListItemIcon>
         <ListItemText
@@ -77,7 +80,7 @@ export default function SearchButtonWithModal() {
           sx={{
             textAlign: "center",
             mb: 0,
-            display:{xs:"none", md:"block"},
+            display: { xs: "none", md: "block" },
             minHeight: 0,
             "& .MuiListItemText-primary": {
               fontSize: "0.8rem",
@@ -98,9 +101,23 @@ export default function SearchButtonWithModal() {
           "& .MuiDialog-container": {
             // CRITICAL: Stops vertical centering (alignItems: 'center' is the default)
             alignItems: "flex-start",
-            m: { xs: 0, md: -2 },
-            p: 0,
+            // maxWidth: "90vw",
+            m: { xs: 0 },
+            // p: 0,
+            // ml:"10vw",
             justifyContent: "flex-end",
+          },
+          "& .MuiDialog-paper": {
+            // CRITICAL FIX: Ensures the width is responsive and uses vw units
+            width: {
+              xs: "100vw", // When not in fullScreen, ensure it's 100vw on small screens
+              md: "88vw", // 90% of the viewport width on desktop
+            },
+            // Since fullWidth is true, we use maxWidth to ensure it stops at 90vw
+            // maxWidth: "90vw",
+
+            // If you are setting the top offset, ensure this remains
+            // alignItems: "flex-start",
           },
         }}
         // Use Slide for a smooth opening transition
