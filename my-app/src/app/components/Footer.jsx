@@ -60,9 +60,9 @@ const Footer = () => {
           >
             <Typography
               variant="body1"
-              sx={{ fontSize: "1.2rem", fontWeight: "bold" }}
+              sx={{ fontSize: "1.2rem",  }}
             >
-              Policies
+              <b>Policies</b>
             </Typography>
             <StyledLink
               href="/policies/terms_conditions"
@@ -88,7 +88,7 @@ const Footer = () => {
             gap: 1,
           }}
         >
-          <Typography variant="body2">About </Typography>
+          <Typography variant="body2"><b>About</b> </Typography>
           <StyledLink href="/vri/01_about" target="_blank">
             About Us
           </StyledLink>
@@ -105,7 +105,7 @@ const Footer = () => {
             gap: 1,
           }}
         >
-          <Typography variant="body2">Social Media:</Typography>
+          <Typography variant="body2"><b>Social Media:</b></Typography>
           <StyledLink
             href="https://www.facebook.com/Vipassanaorganisation/"
             target="_blank"
@@ -140,7 +140,7 @@ const Footer = () => {
             gap: 1,
           }}
         >
-          <Typography variant="body2">Download </Typography>
+          <Typography variant="body2"><b>Download</b> </Typography>
           <StyledLink
             href="https://play.google.com/store/apps/details?id=org.dhamma&pcampaignid=web_share"
             target="_blank"

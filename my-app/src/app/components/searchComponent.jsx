@@ -13,6 +13,9 @@ import {
   ListItemButton,
   ListItemText,
   ListItemIcon,
+  Fade,
+  Zoom,
+  Grow,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import SearchIcon from "@mui/icons-material/Search";
@@ -69,7 +72,7 @@ export default function SearchButtonWithModal() {
           },
         }}
         // Use Slide for a smooth opening transition
-        slots={{ transition: Slide }}
+        slots={{ transition: Grow }}
         slotProps={{
           transition: { direction: "down" },
           paper: { sx: { borderRadius: 5 } },
