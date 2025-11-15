@@ -420,7 +420,7 @@ function ResponsiveDrawer({ menuData }) {
         >
           {mobileOpen ? <MenuOpenIcon /> : <MenuIcon />}
         </IconButton>
-        <Box sx={{ml:"auto",p:1}}>
+        <Box sx={{ml:"auto",p:0,alignSelf:'center'}}>
           <SearchButtonWithModal />
         </Box>
       </AppBar>
