@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev ",
-    "build": "node src/lib/searchIndex.js && next build",
+    "build:search": "node -e \"require('./src/lib/searchIndex.mjs').buildSearchIndex()\"",
+    "dev": "npm run build:search && next dev",
+    "build": "npm run build:search && next build",
     "start": "next start",
     "lint": "eslint"
   },

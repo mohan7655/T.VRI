@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import FlexSearch from "flexsearch";
 import {
   Box,
@@ -18,77 +18,120 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 
 export default function SearchComponent({ onResultClick }) {
-  const [index, setIndex] = useState([]);
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchIndex, setSearchIndex] = useState(null);
+  const inputRef = useRef(null);
 
-  // Fetch the index file once on component mount
+  // Load pre-built FlexSearch index
   useEffect(() => {
-    fetch("/search-index.json")
+    let isMounted = true;
+
+    fetch("/flexsearch-index.json")
       .then((res) => {
         if (!res.ok) throw new Error("Failed to load search index");
         return res.json();
       })
-      .then((data) => {
-        setIndex(data);
+      .then((exportedData) => {
+        if (!isMounted) return;
+
+        // Create FlexSearch instance
+        const flexIndex = new FlexSearch.Document({
+          document: {
+            id: "slug",
+            index: ["titleNormalized", "bodyNormalized", "category"],
+            store: [
+              "slug",
+              "title",
+              "description",
+              "excerpt",
+              "category",
+              "tags",
+              "date",
+              "author",
+            ],
+          },
+          tokenize: "forward",
+          context: {
+            resolution: 5,
+            depth: 3,
+          },
+          optimize: true,
+          cache: true,
+        });
+
+        // Import the pre-built index from array format
+        exportedData.forEach(({ key, data }) => {
+          flexIndex.import(key, data);
+        });
+
+        setSearchIndex(flexIndex);
         setLoading(false);
       })
       .catch((err) => {
+        if (!isMounted) return;
         setError(err.message);
         setLoading(false);
       });
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
-  // Initialize FlexSearch index
+  // Focus input after loading
   useEffect(() => {
-    if (!index || index.length === 0) return;
+    if (!loading && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [loading]);
 
-    const newIndex = new FlexSearch.Document({
-      document: {
-        id: "slug",
-        index: [
-          {
-            field: "title",
-            tokenize: "forward",
-            optimize: true,
-            resolution: 9,
-          },
-          {
-            field: "body",
-            tokenize: "forward",
-            optimize: true,
-            resolution: 5,
-          },
-          {
-            field: "headings",
-            tokenize: "forward",
-            optimize: true,
-            resolution: 7,
-          },
-        ],
-        store: true, // Store the entire document for retrieval
-      },
-      tokenize: "forward",
-      context: true,
-    });
+  // Normalize Pali text
+  const normalizePali = (text) => {
+    if (!text) return "";
+    return text
+      .replace(/ā/g, "a")
+      .replace(/ī/g, "i")
+      .replace(/ū/g, "u")
+      .replace(/ñ/g, "n")
+      .replace(/ṃ/g, "m")
+      .replace(/ṁ/g, "m")
+      .replace(/ṭ/g, "t")
+      .replace(/ḍ/g, "d")
+      .replace(/ṇ/g, "n")
+      .replace(/ḷ/g, "l")
+      .replace(/ṛ/g, "r")
+      .replace(/ṝ/g, "r")
+      .replace(/ś/g, "s")
+      .replace(/ṣ/g, "s")
+      .replace(/Ā/g, "A")
+      .replace(/Ī/g, "I")
+      .replace(/Ū/g, "U")
+      .replace(/Ñ/g, "N")
+      .replace(/Ṃ/g, "M")
+      .replace(/Ṁ/g, "M")
+      .replace(/Ṭ/g, "T")
+      .replace(/Ḍ/g, "D")
+      .replace(/Ṇ/g, "N")
+      .replace(/Ḷ/g, "L")
+      .replace(/Ṛ/g, "R")
+      .replace(/Ṝ/g, "R")
+      .replace(/Ś/g, "S")
+      .replace(/Ṣ/g, "S");
+  };
 
-    index.forEach((doc) => newIndex.add(doc));
-    setSearchIndex(newIndex);
-  }, [index]);
-
-  // Flatten FlexSearch enriched results into pure docs
+  // Search results with excerpts from body
   const results = useMemo(() => {
     if (!query || !searchIndex) return [];
 
     try {
-      const searchResults = searchIndex.search(query, {
-        limit: 20,
+      const normalizedQuery = normalizePali(query);
+      const searchResults = searchIndex.search(normalizedQuery, {
+        limit: 100,
         enrich: true,
       });
 
-      // Deduplicate and extract docs
       const seen = new Set();
       const docs = [];
 
@@ -100,25 +143,61 @@ export default function SearchComponent({ onResultClick }) {
 
           if (doc && doc.slug && !seen.has(doc.slug)) {
             seen.add(doc.slug);
-            docs.push(doc);
+
+            // Find matching excerpt from body
+            const normalizedBody = normalizePali(doc.body || "");
+            const queryIndex = normalizedBody
+              .toLowerCase()
+              .indexOf(normalizedQuery.toLowerCase());
+
+            let matchExcerpt = doc.excerpt;
+            if (queryIndex !== -1 && doc.body) {
+              const start = Math.max(0, queryIndex - 60);
+              const end = Math.min(doc.body.length, queryIndex + 100);
+              matchExcerpt =
+                (start > 0 ? "..." : "") +
+                doc.body.substring(start, end) +
+                (end < doc.body.length ? "..." : "");
+            }
+
+            docs.push({
+              ...doc,
+              matchExcerpt,
+            });
           }
         });
       });
 
-      return docs.slice(0, 10); // Return top 10
+      return docs;
     } catch (err) {
       console.error("Search error:", err);
       return [];
     }
   }, [query, searchIndex]);
 
-  // Simple highlighting function for FlexSearch
+  function extractParagraphSnippet(fullText, query) {
+    if (!fullText || !query) return fullText;
+
+    const escapedQuery = query.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&");
+
+    const paragraphRegex = new RegExp(`([^\\n]*?${escapedQuery}[^\\n]*?)`, "i");
+
+    const match = fullText.match(paragraphRegex);
+
+    if (match && match[1].length > 0) {
+      // Return the full paragraph block containing the match
+      return match[1].trim();
+    }
+    return fullText.substring(0, 150).trim() + "...";
+  }
+
+  //   Highlight matching text
   const highlightText = (text, searchQuery) => {
     if (!text || !searchQuery) return text;
 
-    const query = searchQuery.toLowerCase();
-    const textLower = text.toLowerCase();
-    const index = textLower.indexOf(query);
+    const normalizedQuery = normalizePali(searchQuery.toLowerCase());
+    const normalizedText = normalizePali(text.toLowerCase());
+    const index = normalizedText.indexOf(normalizedQuery);
 
     if (index === -1) return text;
 
@@ -126,9 +205,9 @@ export default function SearchComponent({ onResultClick }) {
       <>
         {text.substring(0, index)}
         <mark style={{ backgroundColor: "#fff59d", padding: "0 2px" }}>
-          {text.substring(index, index + query.length)}
+          {text.substring(index, index + searchQuery.length)}
         </mark>
-        {text.substring(index + query.length)}
+        {text.substring(index + searchQuery.length)}
       </>
     );
   };
@@ -137,6 +216,7 @@ export default function SearchComponent({ onResultClick }) {
     return (
       <Box sx={{ display: "flex", justifyContent: "center", p: 3 }}>
         <CircularProgress />
+        <Typography sx={{ ml: 2 }}>Loading search index...</Typography>
       </Box>
     );
   }
@@ -150,19 +230,24 @@ export default function SearchComponent({ onResultClick }) {
   }
 
   return (
-    <Box sx={{ p: 2, borderRadius:4 }}>
+    <Box sx={{ p: 2, borderRadius: 4 }}>
       <TextField
         fullWidth
-        label="Search ..."
+        label="Search..."
+        inputRef={inputRef}
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         variant="outlined"
         size="medium"
-        sx={{ mb: 2 ,borderRadius:'5px', '& .MuiOutlinedInput-root': {
+        sx={{
+          mb: 2,
+          "& .MuiOutlinedInput-root": {
             borderRadius: 5,
-            '&:hover fieldset': {
-              borderColor: 'primary.main',
-            },}}}
+            "&:hover fieldset": {
+              borderColor: "primary.main",
+            },
+          },
+        }}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
@@ -173,7 +258,6 @@ export default function SearchComponent({ onResultClick }) {
         placeholder="Try searching for topics, titles, or keywords..."
       />
 
-      {/* Results count */}
       {query && (
         <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
           {results.length > 0
@@ -182,8 +266,7 @@ export default function SearchComponent({ onResultClick }) {
         </Typography>
       )}
 
-      {/* Display Results */}
-      <List sx={{ maxHeight: 500, overflowY: "auto",borderRadius:5 }}>
+      <List sx={{ maxHeight: 500, overflowY: "auto", borderRadius: 5 }}>
         {results.length > 0 ? (
           results.map((item) => (
             <ListItem
@@ -216,10 +299,26 @@ export default function SearchComponent({ onResultClick }) {
                     <Typography
                       variant="body2"
                       color="text.secondary"
-                      sx={{ mb: 1,borderRadius:5 }}
+                      sx={{ mb: 1 }}
                     >
-                      {item.description || item.excerpt}
+                      {/* {extractParagraphSnippet(item.body, query)} */}
+                      {highlightText(item.matchExcerpt, query)}
                     </Typography>
+                    <Stack
+                      direction="row"
+                      spacing={1}
+                      flexWrap="wrap"
+                      sx={{ mt: 1 }}
+                    >
+                      {item.category && (
+                        <Chip
+                          label={item.category}
+                          size="small"
+                          variant="outlined"
+                          sx={{ mb: 0.5 }}
+                        />
+                      )}
+                    </Stack>
                   </Box>
                 }
               />
@@ -234,9 +333,7 @@ export default function SearchComponent({ onResultClick }) {
               Try using different keywords or check your spelling
             </Typography>
           </Box>
-        ) : (
-          null
-        )}
+        ) : null}
       </List>
     </Box>
   );

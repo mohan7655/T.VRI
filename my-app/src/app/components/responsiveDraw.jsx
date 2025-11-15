@@ -330,7 +330,9 @@ function ResponsiveDrawer({ menuData }) {
             },
           }}
         >
+          <ListItemIcon sx={{scale:1.3,minWidth:0}}>
           <SearchButtonWithModal />
+          </ListItemIcon>
           <ListItemText
             primary={"Search"}
             sx={{

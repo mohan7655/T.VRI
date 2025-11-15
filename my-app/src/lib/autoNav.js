@@ -74,8 +74,8 @@ export function getNavigationTree() {
       text: "Vipassana",
       icon: "vipassana",
       tree: buildTreeRecursive(
-        path.join(contentDirectory, "introduction"),
-        "/introduction"
+        path.join(contentDirectory, "vipassana"),
+        "/vipassana"
       ),
     },
     {
