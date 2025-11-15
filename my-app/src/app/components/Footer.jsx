@@ -13,7 +13,7 @@ const Footer = () => {
           minHeight: "30vh",
           py: 2,
           px: 4,
-          gap: 8,
+          gap: { xs: 2, md: 8 },
           backgroundColor: "background.paper",
         }}
       >
