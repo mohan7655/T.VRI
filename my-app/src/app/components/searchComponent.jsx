@@ -68,14 +68,14 @@ export default function SearchButtonWithModal() {
             m: {xs:0,md:-2},
             p: 0,
             justifyContent: "flex-end",
-            borderRadius: {xs:0,md:5},
+            
           },
         }}
         // Use Slide for a smooth opening transition
         slots={{ transition: Grow }}
         slotProps={{
           transition: { direction: "down" },
-          paper: { sx: { borderRadius: 5 } },
+          paper: { sx: { borderRadius: {xs:0,md:5} } },
         }}
       >
         
