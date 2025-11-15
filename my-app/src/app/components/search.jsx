@@ -129,7 +129,7 @@ export default function SearchComponent({ onResultClick }) {
     try {
       const normalizedQuery = normalizePali(query);
       const searchResults = searchIndex.search(normalizedQuery, {
-        limit: 100,
+        // limit: 100,
         enrich: true,
       });
 
