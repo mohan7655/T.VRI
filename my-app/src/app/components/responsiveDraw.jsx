@@ -388,9 +388,7 @@ function ResponsiveDrawer({ menuData }) {
             // mr: 1,
             ml: "auto",
             p: 0,
-            pb:0,
             alignSelf: "center",
-            
           }}
         >
           <SearchButtonWithModal />
