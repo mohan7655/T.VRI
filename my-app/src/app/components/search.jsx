@@ -23,7 +23,7 @@ export default function SearchComponent({ onResultClick }) {
   const [error, setError] = useState(null);
   const [searchIndex, setSearchIndex] = useState(null);
   const inputRef = useRef(null);
-
+  const [rawData, setRawData] = useState(null); // New state for raw data
   // Load pre-built FlexSearch index
   useEffect(() => {
     let isMounted = true;
@@ -36,37 +36,7 @@ export default function SearchComponent({ onResultClick }) {
       .then((exportedData) => {
         if (!isMounted) return;
 
-        // Create FlexSearch instance
-        const flexIndex = new FlexSearch.Document({
-          document: {
-            id: "slug",
-            index: ["titleNormalized", "bodyNormalized", "category"],
-            store: [
-              "slug",
-              "title",
-              "description",
-              "excerpt",
-              "category",
-              "tags",
-              "date",
-              "author",
-            ],
-          },
-          tokenize: "forward",
-          context: {
-            resolution: 5,
-            depth: 3,
-          },
-          optimize: true,
-          cache: true,
-        });
-
-        // Import the pre-built index from array format
-        exportedData.forEach(({ key, data }) => {
-          flexIndex.import(key, data);
-        });
-
-        setSearchIndex(flexIndex);
+        setRawData(exportedData);
         setLoading(false);
       })
       .catch((err) => {
@@ -79,6 +49,37 @@ export default function SearchComponent({ onResultClick }) {
       isMounted = false;
     };
   }, []);
+  useEffect(() => {
+    if (!rawData) return;
+
+    const flexIndex = new FlexSearch.Document({
+      document: {
+        id: "slug",
+        index: ["titleNormalized", "bodyNormalized", "category"],
+        store: [
+          "slug",
+          "title",
+          "description",
+          "excerpt",
+          "category",
+          "tags",
+          "date",
+          "author",
+          "body",
+        ],
+      },
+      tokenize: "forward",
+      context: { resolution: 5, depth: 3 },
+      optimize: true,
+      cache: true,
+    });
+
+    rawData.forEach(({ key, data }) => {
+      flexIndex.import(key, data);
+    });
+
+    setSearchIndex(flexIndex);
+  }, [rawData]); // Triggered when rawData loads OR when the query changes
 
   // Focus input after loading
   useEffect(() => {
@@ -212,14 +213,28 @@ export default function SearchComponent({ onResultClick }) {
     );
   };
 
-  if (loading) {
-    return (
-      <Box sx={{ display: "flex", justifyContent: "center", p: 3 }}>
-        <CircularProgress />
-        <Typography sx={{ ml: 2 }}>Loading search index...</Typography>
-      </Box>
-    );
-  }
+  <TextField
+  fullWidth
+  label="Search..."
+  inputRef={inputRef}
+  value={query}
+  onChange={(e) => setQuery(e.target.value)}
+  variant="outlined"
+  size="medium"
+  InputProps={{
+    startAdornment: (
+      <InputAdornment position="start">
+        <SearchIcon />
+      </InputAdornment>
+    ),
+    endAdornment: !searchIndex ? (
+      <InputAdornment position="end">
+        <CircularProgress size={18} />
+      </InputAdornment>
+    ) : null,
+  }}
+  placeholder="Try searching for topics, titles, or keywords..."
+/>
 
   if (error) {
     return (
@@ -228,12 +243,15 @@ export default function SearchComponent({ onResultClick }) {
       </Typography>
     );
   }
+  const isIndexReady = Boolean(searchIndex);
+
+  // If we are initializing the index or have no query, show the initial state.
 
   return (
     <Box sx={{ p: 2, borderRadius: 4 }}>
       <TextField
         fullWidth
-        label="Search..."
+        label={isIndexReady ? "Search..." : "Initializing search engine..."}
         inputRef={inputRef}
         value={query}
         onChange={(e) => setQuery(e.target.value)}
