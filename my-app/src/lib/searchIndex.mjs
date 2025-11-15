@@ -93,7 +93,7 @@ function traverseDir(currentDir, currentPath = '') {
     
     if (stat.isDirectory()) {
       traverseDir(fullPath, relativePath);
-    } else if (/\.mdx?$/.test(entry)) {
+    } else if (/\.mdx?$/.test(entry) && entry !== "_index.mdx") {
       const slug = relativePath.replace(/\.mdx?$/, '').replace(/\\/g, '/');
       const fileContents = fs.readFileSync(fullPath, 'utf8');
       const { data, content } = matter(fileContents);

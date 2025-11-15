@@ -86,16 +86,20 @@ export default function TableOfContents() {
   return (
     <TextBoxContainer
       sx={{
-        py: 1,
+        py: 4,
         position: { sm: "sticky" },
-        top: {sm:"12vh",md:"10vh"},
-        maxHeight: {sm:"80vh",md:"calc(100vh - 150px)"},
+        top: { sm: "12vh", md: "10vh" },
+        maxHeight: { sm: "80vh", md: "calc(100vh - 100px)" },
         overflowY: "auto",
         minWidth: "20vw",
         display: { xs: "none", sm: "block" },
       }}
     >
-      <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
+      <Typography
+        variant="h6"
+        gutterBottom
+        sx={{ fontWeight: 600, }}
+      >
         Table of Contents
       </Typography>
       <List dense disablePadding>
