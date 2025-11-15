@@ -1,20 +1,19 @@
 "use client";
-import { MDXRemote } from "next-mdx-remote";
-import Image from "next/image";
 import {
-  Typography,
-  Button,
   Box,
+  Button,
+  Divider,
   Grid,
   Link,
-  Divider,
   Table,
-  TableRow,
-  TableCell,
-  TableHead,
   TableBody,
+  TableCell,
   TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
 } from "@mui/material";
+import { MDXRemote } from "next-mdx-remote";
 import {
   ContainerDivider,
   StyledLink,
@@ -22,12 +21,6 @@ import {
   TextBoxContainer,
   Verses,
 } from "./components";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import React from "react";
-import remarkFootnotes from "remark-footnotes";
-import rehypeSlug from "rehype-slug";
-import { CldImage } from "next-cloudinary";
 
 // Helper function to create URL-friendly IDs
 const slugify = (text) => {
@@ -38,21 +31,6 @@ const slugify = (text) => {
     .replace(/\s+/g, "-")
     .replace(/[^\w\-]+/g, "")
     .replace(/\-\-+/g, "-");
-};
-
-// CodeBlock component for syntax highlighting
-const CodeBlock = ({ children, className }) => {
-  const language = className ? className.replace("language-", "") : "text";
-
-  return (
-    <SyntaxHighlighter
-      language={language}
-      style={vscDarkPlus}
-      customStyle={{ borderRadius: "8px", margin: "1rem 0" }}
-    >
-      {String(children).replace(/\n$/, "")}
-    </SyntaxHighlighter>
-  );
 };
 
 // Map all the components you want to use in MDX
@@ -129,7 +107,17 @@ const muiComponents = {
   },
   //change if internal then no blank
   p: (props) => <Text variant="body1" {...props} />,
-  a: (props) => <StyledLink target="_blank" {...props} />,
+  a: (props) => {
+    const isInternalLink = props.href && props.href.startsWith("/");
+    if (isInternalLink) {
+      return <StyledLink {...props} />;
+    } else {
+      return (
+        <StyledLink target="_blank" rel="noopener noreferrer" {...props} />
+      );
+    }
+  },
+
   hr: (props) => (
     <Divider
       sx={{

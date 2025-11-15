@@ -67,7 +67,7 @@ const Footer = () => {
             <StyledLink
               href="/policies/terms_conditions"
               //   href="https://www.vridhamma.org/terms-and-conditions"
-              target="_blank"
+              
             >
               Terms Of Use
             </StyledLink>
@@ -89,10 +89,10 @@ const Footer = () => {
           }}
         >
           <Typography variant="body2"><b>About</b> </Typography>
-          <StyledLink href="/vri/01_about" target="_blank">
+          <StyledLink href="/vri/01_about" >
             About Us
           </StyledLink>
-          <StyledLink href="/vri/03_contact" target="_blank">
+          <StyledLink href="/vri/03_contact" >
             Contact Us
           </StyledLink>
         </Box>
