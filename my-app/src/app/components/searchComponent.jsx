@@ -95,7 +95,7 @@ export default function SearchButtonWithModal() {
         onClose={handleClose}
         // fullScreen
         fullScreen={isMobile} // Full screen on mobile
-        maxWidth="lg"
+        maxWidth="xl"
         fullWidth
         sx={{
           "& .MuiDialog-container": {
