@@ -306,45 +306,7 @@ function ResponsiveDrawer({ menuData }) {
   const desktopDrawer = (
     <div>
       <List>
-        <ListItemButton
-          sx={{
-            display: "flex",
-            gap: 0,
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "flex-end",
-            borderRadius: 3,
-            height: "10.8vh",
-            "& .MuiSvgIcon-root": {
-              color: "text.secondary",
-            },
-            "&:hover": {
-              "& .MuiSvgIcon-root": {
-                transform: "scale(1.1)",
-                color: "primary.main",
-              },
-              "& .MuiListItemText-primary": {
-                fontWeight: 550,
-                color: "primary.main",
-              },
-            },
-          }}
-        >
-          <ListItemIcon sx={{ scale: 1.3, minWidth: 0 }}>
-            <SearchButtonWithModal />
-          </ListItemIcon>
-          <ListItemText
-            primary={"Search"}
-            sx={{
-              textAlign: "center",
-              mb: 0,
-              minHeight: 0,
-              "& .MuiListItemText-primary": {
-                fontSize: "0.8rem",
-              },
-            }}
-          />
-        </ListItemButton>
+        <SearchButtonWithModal/>
 
         {menuData.map((item) => (
           <ListItem key={item.id} disablePadding>
@@ -425,7 +387,7 @@ function ResponsiveDrawer({ menuData }) {
           sx={{
             // mr: 1,
             ml: "auto",
-            p: 1,
+            p: 0,
             pb:0,
             alignSelf: "center",
             

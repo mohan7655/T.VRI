@@ -44,14 +44,47 @@ export default function SearchButtonWithModal() {
 
   return (
     <>
-      {/* 1. The Search Button (Icon) */}
-
-      <ListItemIcon
-        sx={{ minWidth: 0, flexGrow: 1 }}
+      <ListItemButton
         onClick={handleOpen}
+        sx={{
+          display: "flex",
+          gap: 0,p:1,
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "flex-end",
+          borderRadius: 3,
+          height: {md:"10.8vh"},
+          "& .MuiSvgIcon-root": {
+            color: "text.secondary",
+          },
+          "&:hover": {
+            "& .MuiSvgIcon-root": {
+              transform: "scale(1.1)",
+              color: "primary.main",
+            },
+            "& .MuiListItemText-primary": {
+              fontWeight: 550,
+              color: "primary.main",
+            },
+          },
+        }}
       >
-        <SearchIcon />
-      </ListItemIcon>
+        <ListItemIcon sx={{ minWidth: 0, scale: {md:1.3}, flexGrow: {md:1} }}>
+          <SearchIcon />
+        </ListItemIcon>
+        <ListItemText
+          primary={"Search"}
+          sx={{
+            textAlign: "center",
+            mb: 0,
+            display:{xs:"none", md:"block"},
+            minHeight: 0,
+            "& .MuiListItemText-primary": {
+              fontSize: "0.8rem",
+            },
+          }}
+        />
+      </ListItemButton>
 
       {/* 2. The Modal/Dialog */}
       <Dialog
@@ -65,21 +98,18 @@ export default function SearchButtonWithModal() {
           "& .MuiDialog-container": {
             // CRITICAL: Stops vertical centering (alignItems: 'center' is the default)
             alignItems: "flex-start",
-            m: {xs:0,md:-2},
+            m: { xs: 0, md: -2 },
             p: 0,
             justifyContent: "flex-end",
-            
           },
         }}
         // Use Slide for a smooth opening transition
         slots={{ transition: Grow }}
         slotProps={{
           transition: { direction: "down" },
-          paper: { sx: { borderRadius: {xs:0,sm:5} } },
+          paper: { sx: { borderRadius: { xs: 0, sm: 5 } } },
         }}
       >
-        
-
         {/* 3. The Search Component */}
         <Box sx={{ p: isMobile ? 1 : 2, height: "100%" }}>
           {/* Pass the close handler so the modal shuts after a result is clicked */}
