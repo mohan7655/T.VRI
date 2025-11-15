@@ -62,7 +62,7 @@ export default function SearchButtonWithModal() {
           "& .MuiDialog-container": {
             // CRITICAL: Stops vertical centering (alignItems: 'center' is the default)
             alignItems: "flex-start",
-            m: -3,
+            m: -2,
             p: 0,
             justifyContent: "flex-end",
             borderRadius: 5,
@@ -78,7 +78,7 @@ export default function SearchButtonWithModal() {
         
 
         {/* 3. The Search Component */}
-        <Box sx={{ p: isMobile ? 4 : 1, height: "100%" }}>
+        <Box sx={{ p: isMobile ? 3 : 1, height: "100%" }}>
           {/* Pass the close handler so the modal shuts after a result is clicked */}
           <SearchComponent onResultClick={handleClose} />
         </Box>

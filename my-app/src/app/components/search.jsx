@@ -247,7 +247,7 @@ export default function SearchComponent({ onResultClick }) {
         </Typography>
       )}
 
-      <List sx={{ maxHeight: 500, overflowY: "auto", borderRadius: 5 ,}}>
+      <List sx={{ maxHeight: 700, overflowY: "auto", borderRadius: 5 ,}}>
         {!isIndexReady && query && (
           <Box sx={{ textAlign: "center", py: 4 }}>
             <CircularProgress size={24} />
