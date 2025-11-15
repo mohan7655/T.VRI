@@ -83,10 +83,10 @@ export default function SearchComponent({ onResultClick }) {
 
   // Focus input after loading
   useEffect(() => {
-    if (!loading && inputRef.current) {
+    if (inputRef.current) {
       inputRef.current.focus();
     }
-  }, [loading]);
+  }, []);
 
   // Normalize Pali text
   const normalizePali = (text) => {
@@ -176,22 +176,6 @@ export default function SearchComponent({ onResultClick }) {
     }
   }, [query, searchIndex]);
 
-  function extractParagraphSnippet(fullText, query) {
-    if (!fullText || !query) return fullText;
-
-    const escapedQuery = query.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&");
-
-    const paragraphRegex = new RegExp(`([^\\n]*?${escapedQuery}[^\\n]*?)`, "i");
-
-    const match = fullText.match(paragraphRegex);
-
-    if (match && match[1].length > 0) {
-      // Return the full paragraph block containing the match
-      return match[1].trim();
-    }
-    return fullText.substring(0, 150).trim() + "...";
-  }
-
   //   Highlight matching text
   const highlightText = (text, searchQuery) => {
     if (!text || !searchQuery) return text;
@@ -213,29 +197,6 @@ export default function SearchComponent({ onResultClick }) {
     );
   };
 
-  <TextField
-  fullWidth
-  label="Search..."
-  inputRef={inputRef}
-  value={query}
-  onChange={(e) => setQuery(e.target.value)}
-  variant="outlined"
-  size="medium"
-  InputProps={{
-    startAdornment: (
-      <InputAdornment position="start">
-        <SearchIcon />
-      </InputAdornment>
-    ),
-    endAdornment: !searchIndex ? (
-      <InputAdornment position="end">
-        <CircularProgress size={18} />
-      </InputAdornment>
-    ) : null,
-  }}
-  placeholder="Try searching for topics, titles, or keywords..."
-/>
-
   if (error) {
     return (
       <Typography color="error" sx={{ p: 3 }}>
@@ -251,7 +212,7 @@ export default function SearchComponent({ onResultClick }) {
     <Box sx={{ p: 2, borderRadius: 4 }}>
       <TextField
         fullWidth
-        label={isIndexReady ? "Search..." : "Initializing search engine..."}
+        label={isIndexReady ? "Search..." : "Initializing search..."}
         inputRef={inputRef}
         value={query}
         onChange={(e) => setQuery(e.target.value)}
@@ -266,17 +227,19 @@ export default function SearchComponent({ onResultClick }) {
             },
           },
         }}
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <SearchIcon />
-            </InputAdornment>
-          ),
+        slotProps={{
+          input: {
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon />
+              </InputAdornment>
+            ),
+          },
         }}
         placeholder="Try searching for topics, titles, or keywords..."
       />
 
-      {query && (
+      {query && isIndexReady && (
         <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
           {results.length > 0
             ? `Found ${results.length} result${results.length !== 1 ? "s" : ""}`
@@ -285,7 +248,15 @@ export default function SearchComponent({ onResultClick }) {
       )}
 
       <List sx={{ maxHeight: 500, overflowY: "auto", borderRadius: 5 }}>
-        {results.length > 0 ? (
+        {!isIndexReady && query && (
+          <Box sx={{ textAlign: "center", py: 4 }}>
+            <CircularProgress size={24} />
+            <Typography color="text.secondary" variant="body2" sx={{ mt: 1 }}>
+              Finalizing search engine... please wait.
+            </Typography>
+          </Box>
+        )}
+        {isIndexReady && results.length > 0 ? (
           results.map((item) => (
             <ListItem
               key={item.slug}
@@ -342,7 +313,7 @@ export default function SearchComponent({ onResultClick }) {
               />
             </ListItem>
           ))
-        ) : query ? (
+        ) : isIndexReady && query ? (
           <Box sx={{ textAlign: "center", py: 4 }}>
             <Typography color="text.secondary" variant="h6" gutterBottom>
               No results found for "{query}"
