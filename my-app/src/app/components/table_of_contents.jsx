@@ -86,20 +86,17 @@ export default function TableOfContents() {
   return (
     <TextBoxContainer
       sx={{
-        py: 4,
+        py: 2,
+        px:2,
         position: { sm: "sticky" },
-        top: { sm: "12vh", md: "10vh" },
-        maxHeight: { sm: "80vh", md: "calc(100vh - 100px)" },
+        top: { sm: "12vh", md: "3vh" },
+        maxHeight: { sm: "80vh", md: "calc(100vh - 50px)" },
         overflowY: "auto",
-        minWidth: "20vw",
+        minWidth: "22vw",
         display: { xs: "none", sm: "block" },
       }}
     >
-      <Typography
-        variant="h6"
-        gutterBottom
-        sx={{ fontWeight: 600, }}
-      >
+      <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
         Table of Contents
       </Typography>
       <List dense disablePadding>
@@ -112,11 +109,11 @@ export default function TableOfContents() {
                 heading.level === "h3"
                   ? 0
                   : heading.level === "h4"
-                  ? "0" // 1 rem indent
+                  ? "0.5rem" // 1 rem indent
                   : heading.level === "h5"
                   ? "1rem" // 2 rem indent (1rem + 1rem)
                   : heading.level === "h6"
-                  ? "2rem" // 3 rem indent
+                  ? "1.5rem" // 3 rem indent
                   : 0,
             }}
           >
@@ -140,7 +137,10 @@ export default function TableOfContents() {
                 variant="body2"
                 sx={{
                   color:
-                    activeId === heading.id ? "primary.main" : "text.secondary",
+                    activeId === heading.id ? "primary.dark" : "text.secondary",
+                  "&:hover": {
+                    color: "primary.light",
+                  },
                   fontWeight: activeId === heading.id ? 500 : 300,
                 }}
               >

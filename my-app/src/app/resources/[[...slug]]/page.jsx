@@ -42,7 +42,7 @@ export default async function PostPage({ params }) {
           sx={{
             display: "flex",
             flexDirection: { sm: "row", md: "row-reverse" },
-            gap: { sm: "2", md: "2rem" },
+            gap: { sm: "2", md: "1rem" },
           }}
         >
           {showtoc ? <TableOfContents /> : null}

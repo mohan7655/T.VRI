@@ -12,6 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useRouter } from "next/navigation";
+import { red } from "@mui/material/colors";
 
 export default function LoginDialog() {
   const { login } = useAuth();
@@ -72,13 +73,11 @@ export default function LoginDialog() {
         />
       </DialogContent>
 
-      <DialogActions>
-        <Button onClick={handleLogin}>Login</Button>
-      </DialogActions>
-      <DialogActions>
-        <Button onClick={handleCancel} color="red">
+      <DialogActions sx={{ flexDirection: "row" }}>
+        <Button onClick={handleCancel} color="error">
           Cancel
         </Button>
+        <Button onClick={handleLogin}>Login</Button>
       </DialogActions>
     </Dialog>
   );

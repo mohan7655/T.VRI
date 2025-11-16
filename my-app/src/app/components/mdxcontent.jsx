@@ -61,7 +61,7 @@ const muiComponents = {
         id={id}
         sx={{
           scrollMarginTop: "100px",
-          pl: "-1",
+          pl: "-2rem",
         }}
         {...props}
       />
@@ -76,7 +76,7 @@ const muiComponents = {
         id={id}
         sx={{
           scrollMarginTop: "100px",
-          pl: "0.5rem",
+          pl: "-1.5rem",
         }}
         {...props}
       />
@@ -89,7 +89,7 @@ const muiComponents = {
         variant="h5"
         gutterBottom
         id={id}
-        sx={{ scrollMarginTop: "100px", pl: "1.7rem" }}
+        sx={{ scrollMarginTop: "100px", pl: "0rem" }}
         {...props}
       />
     );
@@ -101,7 +101,7 @@ const muiComponents = {
         variant="h6"
         gutterBottom
         id={id}
-        sx={{ scrollMarginTop: "100px", pl: "3rem" }}
+        sx={{ scrollMarginTop: "100px", pl: "0.5rem" }}
         {...props}
       />
     );
