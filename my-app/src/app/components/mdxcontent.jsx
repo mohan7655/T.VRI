@@ -21,6 +21,7 @@ import {
   TextBoxContainer,
   Verses,
 } from "./components";
+import YouTubePlayer from "./Youtube";
 
 // Helper function to create URL-friendly IDs
 const slugify = (text) => {
@@ -217,6 +218,8 @@ const muiComponents = {
   TableHead,
   TableRow,
   Link,
+  YouTubePlayer,
+  
 };
 
 export default function MdxContent({ source }) {
