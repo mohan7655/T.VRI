@@ -44,6 +44,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import SearchComponent from "./search";
 import SearchButtonWithModal from "./searchComponent";
+import { useAuth } from "@/context/AuthContext";
+import LoginDialog from "./LoginDialog";
 
 const drawerWidth = "75vw";
 
@@ -56,7 +58,7 @@ function ResponsiveDrawer({ menuData }) {
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [hoveredItemData, setHoveredItemData] = React.useState(null);
-
+  const { isLoggedin } = useAuth();
   const open = Boolean(anchorEl);
   const closeTimer = React.useRef(null);
   const openTimer = React.useRef(null);
@@ -142,7 +144,9 @@ function ResponsiveDrawer({ menuData }) {
         )}
       </Box>
     );
-
+    const isDisabled =
+      nodes.id === "03_satipatthana" ||
+      (nodes.id === "02_course_summaries" && !isLoggedin);
     if (nodes.href) {
       return (
         <TreeItem
@@ -177,6 +181,7 @@ function ResponsiveDrawer({ menuData }) {
           key={nodes.id}
           itemId={nodes.id}
           label={labelContent}
+          // disabled={isDisabled}
           sx={{
             [`& .${treeItemClasses.content}`]: { borderRadius: 5 },
             [`& .${treeItemClasses.group}`]: { paddingLeft: "1" },
@@ -186,11 +191,13 @@ function ResponsiveDrawer({ menuData }) {
         </TreeItem>
       );
     }
+
     return (
       <TreeItem
         key={nodes.id}
         itemId={nodes.id}
         label={nodes.label}
+        disabled={isDisabled}
         sx={{
           [`& .${treeItemClasses.content}`]: { borderRadius: 5 },
         }}
@@ -250,6 +257,15 @@ function ResponsiveDrawer({ menuData }) {
               unmountOnExit
             >
               <Box sx={{ pl: 2, pr: 2, pb: 2 }}>
+                {item && console.log(item.id)}
+                {item.text === "Resources" && !isLoggedin && (
+                  <>
+                    <Typography variant="body2" color="text.secondary">
+                      You will be Redirected to Login page. <br />
+                      <br />
+                    </Typography>
+                  </>
+                )}
                 {item.tree.map((topLevelNode) => {
                   if (topLevelNode.href) {
                     return (
@@ -486,6 +502,14 @@ function ResponsiveDrawer({ menuData }) {
                   {hoveredItemData.text}
                 </Typography>
 
+                {hoveredItemData.text === "Resources" && !isLoggedin && (
+                  <>
+                    <Typography variant="body2" color="text.secondary">
+                      You will be Redirected to Login page. <br />
+                      <br />
+                    </Typography>
+                  </>
+                )}
                 {hoveredItemData.tree.map((topLevelNode) => {
                   if (topLevelNode.href) {
                     return (

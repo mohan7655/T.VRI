@@ -6,6 +6,7 @@ import { Typography, Container, Grid, Box } from "@mui/material";
 import { TextBoxContainer } from "@/app/components/components";
 import { serialize } from "next-mdx-remote/serialize";
 import remarkFootnotes from "remark-footnotes";
+import ProtectedRoute from "@/app/components/ProtectedRoute";
 
 export default async function PostPage({ params }) {
   const resolvedParams = await params;
@@ -28,34 +29,36 @@ export default async function PostPage({ params }) {
   const showtoc = frontmatter.showToc !== false;
   return (
     <>
-      <Typography
-        variant="h1"
-        gutterBottom
-        sx={{ fontSize: { xs: "2rem", sm: "3.2rem" }, m: "2rem 0 2rem 1rem" }}
-      >
-        {frontmatter.description}
-      </Typography>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: { xs: "column", sm: "row-reverse" },
-          gap: { sm: "2", md: "2rem" },
-        }}
-      >
-        {showtoc ? <TableOfContents /> : null}
+      <ProtectedRoute>
+        <Typography
+          variant="h1"
+          gutterBottom
+          sx={{ fontSize: { xs: "2rem", sm: "3.2rem" }, m: "2rem 0 2rem 1rem" }}
+        >
+          {frontmatter.description}
+        </Typography>
         <Box
           sx={{
-            flexGrow: 1,
-            minWidth: 0,
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row-reverse" },
+            gap: { sm: "2", md: "2rem" },
           }}
         >
-          {hasContent ? (
-            <MdxContent source={mdxSource} />
-          ) : (
-            <Typography>No content available</Typography>
-          )}
+          {showtoc ? <TableOfContents /> : null}
+          <Box
+            sx={{
+              flexGrow: 1,
+              minWidth: 0,
+            }}
+          >
+            {hasContent ? (
+              <MdxContent source={mdxSource} />
+            ) : (
+              <Typography>No content available</Typography>
+            )}
+          </Box>
         </Box>
-      </Box>
+      </ProtectedRoute>
     </>
   );
 }
