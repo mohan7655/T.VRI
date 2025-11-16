@@ -37,7 +37,12 @@ export default function LoginDialog() {
   return (
     // The dialog is always "open" because it's only rendered
     // when the user is *not* authenticated.
-    <Dialog open={true} >
+    <Dialog
+      open={true}
+      slotProps={{
+        paper: { sx: { borderRadius: { xs: 5, sm: 5 } } },
+      }}
+    >
       <DialogTitle>Authentication Required</DialogTitle>
       <DialogContent>
         <Typography variant="body2" gutterBottom>

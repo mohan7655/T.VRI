@@ -257,7 +257,7 @@ function ResponsiveDrawer({ menuData }) {
               unmountOnExit
             >
               <Box sx={{ pl: 2, pr: 2, pb: 2 }}>
-                {item && console.log(item.id)}
+                
                 {item.text === "Resources" && !isLoggedin && (
                   <>
                     <Typography variant="body2" color="text.secondary">
