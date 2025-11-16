@@ -7,6 +7,7 @@ import { TextBoxContainer } from "@/app/components/components";
 import { serialize } from "next-mdx-remote/serialize";
 import remarkFootnotes from "remark-footnotes";
 import ProtectedRoute from "@/app/components/ProtectedRoute";
+import remarkGfm from "remark-gfm";
 
 export default async function PostPage({ params }) {
   const resolvedParams = await params;
@@ -21,7 +22,7 @@ export default async function PostPage({ params }) {
     mdxSource = await serialize(content, {
       scope: frontmatter,
       mdxOptions: {
-        remarkPlugins: [[remarkFootnotes, { inlineNotes: true }]],
+         remarkPlugins: [[remarkFootnotes, { inlineNotes: true }], remarkGfm],
       },
       parseFrontmatter: false,
     });
@@ -40,7 +41,7 @@ export default async function PostPage({ params }) {
         <Box
           sx={{
             display: "flex",
-            flexDirection: { xs: "column", sm: "row-reverse" },
+            flexDirection: { sm: "row", md: "row-reverse" },
             gap: { sm: "2", md: "2rem" },
           }}
         >
