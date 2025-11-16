@@ -58,7 +58,7 @@ function ResponsiveDrawer({ menuData }) {
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [hoveredItemData, setHoveredItemData] = React.useState(null);
-  const { isLoggedin } = useAuth();
+  const { isAuthenticated } = useAuth();
   const open = Boolean(anchorEl);
   const closeTimer = React.useRef(null);
   const openTimer = React.useRef(null);
@@ -146,7 +146,7 @@ function ResponsiveDrawer({ menuData }) {
     );
     const isDisabled =
       nodes.id === "03_satipatthana" ||
-      (nodes.id === "02_course_summaries" && !isLoggedin);
+      (nodes.id === "02_course_summaries" && !isAuthenticated);
     if (nodes.href) {
       return (
         <TreeItem
@@ -258,7 +258,7 @@ function ResponsiveDrawer({ menuData }) {
             >
               <Box sx={{ pl: 2, pr: 2, pb: 2 }}>
                 
-                {item.text === "Resources" && !isLoggedin && (
+                {item.text === "Resources" && !isAuthenticated && (
                   <>
                     <Typography variant="body2" color="text.secondary">
                       You will be Redirected to Login page. <br />
@@ -502,7 +502,7 @@ function ResponsiveDrawer({ menuData }) {
                   {hoveredItemData.text}
                 </Typography>
 
-                {hoveredItemData.text === "Resources" && !isLoggedin && (
+                {hoveredItemData.text === "Resources" && !isAuthenticated && (
                   <>
                     <Typography variant="body2" color="text.secondary">
                       You will be Redirected to Login page. <br />

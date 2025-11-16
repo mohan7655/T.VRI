@@ -1,37 +1,42 @@
 "use client";
+import { createContext, useContext, useState, useEffect } from "react";
 
-import { createContext, useContext, useState, useEffect } from 'react';
-
-// 1. Create the context
 const AuthContext = createContext(null);
 
-// 2. Create the provider component
 export function AuthProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // 3. Check localStorage on initial load
+  // Check authentication on load
   useEffect(() => {
-    if (localStorage.getItem('isAuthenticated') === 'true') {
-      setIsAuthenticated(true);
+    const authData = localStorage.getItem("authData");
+    if (authData) {
+      const { timestamp } = JSON.parse(authData);
+      const threeHours = 3 * 60 * 60 * 1000; // 3 hours in milliseconds
+      const now = Date.now();
+
+      if (now - timestamp < threeHours) {
+        setIsAuthenticated(true);
+      } else {
+        // Expired, clear it
+        localStorage.removeItem("authData");
+      }
     }
   }, []);
 
-  // 4. Login function
   const login = (username, password) => {
-    if (
-      username === 'oldstudent' &&
-      password === 'behappy'
-    ) {
-      localStorage.setItem('isAuthenticated', 'true');
+    if (username === "oldstudent" && password === "behappy") {
+      const authData = {
+        timestamp: Date.now(),
+      };
+      localStorage.setItem("authData", JSON.stringify(authData));
       setIsAuthenticated(true);
-      return true; // Login successful
+      return true;
     }
-    return false; // Login failed
+    return false;
   };
 
-  // 5. Logout function
   const logout = () => {
-    localStorage.removeItem('isAuthenticated');
+    localStorage.removeItem("authData");
     setIsAuthenticated(false);
   };
 
@@ -42,7 +47,6 @@ export function AuthProvider({ children }) {
   );
 }
 
-// 6. Create a custom hook for easy access
 export const useAuth = () => {
   return useContext(AuthContext);
 };
