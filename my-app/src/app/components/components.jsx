@@ -102,9 +102,9 @@ export const Pali_verses = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   display: "flex",
   flexDirection: "column",
-  gap: "1rem",
+  // gap: "1rem",
   [theme.breakpoints.up("md")]: {
-    flexDirection: "row",
+    flexDirection: "column",
   },
 }));
 

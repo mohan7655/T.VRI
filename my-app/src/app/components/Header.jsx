@@ -57,25 +57,26 @@ const Header = () => {
       <Pali_verses>
         <Box
           component="img"
-          src="/top3.svg" // This is the correct path in Next.js
+          src="/top.png" // This is the correct path in Next.js
           alt="top"
           sx={{
             // Use 'width' and 'height', not 'fontSize'
-            width: { xs: 75, md: 150 },
-            height: { xs: 75, md: 150 },
+            width: { xs: 125, md: 250 },
+            height: { xs: 24, md: 45 },
             color: "primary.main",
+            
           }}
         />
         <Box>
           <Typography
             variant="h1"
-            sx={{ fontSize: { xs: "1.1rem", md: "1.5rem" } }}
+            sx={{ fontSize: { xs: "1.1rem", md: "1.5rem" },fontWeight:500 ,pt:2,}}
           >
             वयधम्मा सङ्खारा, अप्पमादेन सम्पादेथ<br/><br/>
           </Typography>
           <Typography
             variant="h1"
-            sx={{ fontSize: { xs: "1.1rem", md: "1.5rem" } }}
+            sx={{ fontSize: { xs: "1.1rem", md: "1.5rem" } ,fontWeight:500,pb:2}}
           >
             IMPERMANENT ARE ALL COMPOUNDED THINGS <br /> WORK OUT YOUR OWN
             SALVATION WITH DILIGENCE
@@ -83,13 +84,14 @@ const Header = () => {
         </Box>
         <Box
           component="img"
-          src="/top3.svg" // This is the correct path in Next.js
+          src="/bottom.png" // This is the correct path in Next.js
           alt="top"
           sx={{
             // Use 'width' and 'height', not 'fontSize'
-            width: { xs: 75, md: 150 },
-            height: { xs: 75, md: 150 },
+            width: { xs: 125, md: 250 },
+            height: { xs: 20, md: 35 },
             color: "primary.main",
+            
           }}
         />
       </Pali_verses>
