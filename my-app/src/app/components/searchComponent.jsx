@@ -99,24 +99,17 @@ export default function SearchButtonWithModal() {
         fullWidth
         sx={{
           "& .MuiDialog-container": {
-            // CRITICAL: Stops vertical centering (alignItems: 'center' is the default)
             alignItems: "flex-start",
-            // maxWidth: "90vw",
             m: { xs: 0 },
-            // p: 0,
-            // ml:"10vw",
+
             justifyContent: "flex-end",
           },
           "& .MuiDialog-paper": {
-            // CRITICAL FIX: Ensures the width is responsive and uses vw units
             width: {
-              xs: "100vw", // When not in fullScreen, ensure it's 100vw on small screens
-              md: "88vw", // 90% of the viewport width on desktop
+              xs: "100vw",
+              md: "88vw",
             },
-            // Since fullWidth is true, we use maxWidth to ensure it stops at 90vw
             // maxWidth: "90vw",
-
-            // If you are setting the top offset, ensure this remains
             // alignItems: "flex-start",
           },
         }}

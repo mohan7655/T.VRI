@@ -269,10 +269,10 @@ export default function SearchComponent({ onResultClick }) {
                 p: 2,
                 border: "1px solid",
                 borderColor: "divider",
-                backgroundColor: "background.main",
+                backgroundColor: "background.default",
                 borderRadius: 5,
                 "&:hover": {
-                  backgroundColor: "action.hover",
+                  backgroundColor: "background.paper",
                   borderColor: "primary.main",
                 },
                 display: "block",

@@ -123,7 +123,7 @@ function ResponsiveDrawer({ menuData }) {
 
     const labelContent = (
       <Box sx={{ display: "flex", alignItems: "center", pr: 0 }}>
-        <Typography variant="body1" sx={{ flexGrow: 1 }}>
+        <Typography variant="body2" sx={{ flexGrow: 1 }}>
           {nodes.label}
         </Typography>
 
@@ -152,19 +152,21 @@ function ResponsiveDrawer({ menuData }) {
           }}
           itemId={nodes.id}
           label={
-            <Link
-              style={{
-                display: "block",
-                textDecoration: "none",
-                color: "inherit",
-                padding: "4px 0",
-              }}
-              href={nodes.href}
-              target={nodes.external ? "_blank" : undefined}
-              rel={nodes.external ? "noopener noreferrer" : undefined}
-            >
-              {nodes.label}
-            </Link>
+            <Typography variant="body2" component="div">
+              <Link
+                style={{
+                  display: "block",
+                  textDecoration: "none",
+                  color: "inherit",
+                  padding: "4px 0",
+                }}
+                href={nodes.href}
+                target={nodes.external ? "_blank" : undefined}
+                rel={nodes.external ? "noopener noreferrer" : undefined}
+              >
+                {nodes.label}
+              </Link>
+            </Typography>
           }
         />
       );
