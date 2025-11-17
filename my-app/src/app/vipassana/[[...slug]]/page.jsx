@@ -21,7 +21,7 @@ export default async function PostPage({ params }) {
     mdxSource = await serialize(content, {
       scope: frontmatter,
       mdxOptions: {
-         remarkPlugins: [[remarkFootnotes, { inlineNotes: true }], remarkGfm],
+        remarkPlugins: [[remarkFootnotes, { inlineNotes: true }], remarkGfm],
       },
       parseFrontmatter: false,
     });
@@ -41,6 +41,7 @@ export default async function PostPage({ params }) {
           display: "flex",
           flexDirection: { sm: "row", md: "row-reverse" },
           gap: { sm: "2", md: "1rem" },
+          px: { md: 2 },
         }}
       >
         {showtoc ? <TableOfContents /> : null}

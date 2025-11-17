@@ -29,8 +29,8 @@ export default function ClientLayout({ children, menuData }) {
         <Box
           sx={{
             flexGrow: 1,
-            width: {xs:"100vw",md:"91vw"},
-            ml:{md:"1vw"}
+            width: {xs:"100vw",md:"92vw"},
+            ml:{md:"0vw"}
           }}
         >
           <Header />

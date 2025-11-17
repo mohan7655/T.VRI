@@ -10,6 +10,7 @@ const Header = () => {
         <Box
           component="img"
           src="/dhamma-wheel.svg" // This is the correct path in Next.js
+          // src="/logo_small.gif"
           alt="Wheel"
           sx={{
             // Use 'width' and 'height', not 'fontSize'
