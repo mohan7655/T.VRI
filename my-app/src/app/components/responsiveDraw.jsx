@@ -68,11 +68,12 @@ function ResponsiveDrawer({ menuData }) {
     setAnchorEl(event.currentTarget);
     if (openTimer.current) {
       clearTimeout(openTimer.current);
-    }
-
-    openTimer.current = setTimeout(() => {
+      openTimer.current = setTimeout(() => {
+        setHoveredItemData(itemData);
+      }, 100);
+    } else {
       setHoveredItemData(itemData);
-    }, 100);
+    }
   };
 
   const handleClose = () => {
@@ -81,7 +82,7 @@ function ResponsiveDrawer({ menuData }) {
     }
     closeTimer.current = setTimeout(() => {
       setAnchorEl(null);
-    }, 50);
+    }, 75);
   };
 
   const onPopoverEnter = () => {
@@ -257,7 +258,6 @@ function ResponsiveDrawer({ menuData }) {
               unmountOnExit
             >
               <Box sx={{ pl: 2, pr: 2, pb: 2 }}>
-                
                 {item.text === "Resources" && !isAuthenticated && (
                   <>
                     <Typography variant="body2" color="text.secondary">
