@@ -31,12 +31,12 @@ let theme = createTheme({
     fontSize: 16,
 
     // 2. Override all headings to use Arial
-    h1: { fontFamily: "Arial,var(--font-roboto), sans-serif" },
-    h2: { fontFamily: "Arial,var(--font-roboto), sans-serif" },
-    h3: { fontFamily: "Arial,var(--font-roboto), sans-serif" },
-    h4: { fontFamily: "Arial,var(--font-roboto), sans-serif" },
-    h5: { fontFamily: "Arial,var(--font-roboto), sans-serif" },
-    h6: { fontFamily: "Arial,var(--font-roboto), sans-serif" },
+    h1: { fontFamily: "var(--font-mont), sans-serif" },
+    h2: { fontFamily: "var(--font-mont), sans-serif" },
+    h3: { fontFamily: "var(--font-mont), sans-serif" },
+    h4: { fontFamily: "var(--font-mont), sans-serif" },
+    h5: { fontFamily: "var(--font-mont), sans-serif" },
+    h6: { fontFamily: "var(--font-mont), sans-serif" },
 
     // You might also want to override buttons
     button: { fontFamily: "Arial, sans-serif" },
