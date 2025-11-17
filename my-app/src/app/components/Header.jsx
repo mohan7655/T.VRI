@@ -25,6 +25,7 @@ const Header = () => {
               mb: 0,
               textAlign: "center",
               fontSize: { xs: "2.4rem", md: "4rem" },
+              fontWeight: 500,
             }}
           >
             Vipassana Research Institue
@@ -46,7 +47,7 @@ const Header = () => {
             sx={{
               mt: 0,
               // fontSize: "0.2rem",
-              color: "black",
+
               display: { xs: "none", md: "block" },
             }}
           >
@@ -64,19 +65,20 @@ const Header = () => {
             width: { xs: 125, md: 250 },
             height: { xs: 24, md: 45 },
             color: "primary.main",
-            
           }}
         />
         <Box>
           <Typography
             variant="h1"
-            sx={{ fontSize: { xs: "1.1rem", md: "1.5rem" },fontWeight:500 ,pt:2,}}
+            sx={{ fontSize: { xs: "1.1rem", md: "1.5rem" }, pt: 2 }}
           >
-            वयधम्मा सङ्खारा, अप्पमादेन सम्पादेथ<br/><br/>
+            वयधम्मा सङ्खारा, अप्पमादेन सम्पादेथ
+            <br />
+            <br />
           </Typography>
           <Typography
             variant="h1"
-            sx={{ fontSize: { xs: "1.1rem", md: "1.5rem" } ,fontWeight:500,pb:2}}
+            sx={{ fontSize: { xs: "1.1rem", md: "1.5rem" }, pb: 2 }}
           >
             IMPERMANENT ARE ALL COMPOUNDED THINGS <br /> WORK OUT YOUR OWN
             SALVATION WITH DILIGENCE
@@ -91,7 +93,6 @@ const Header = () => {
             width: { xs: 125, md: 250 },
             height: { xs: 20, md: 35 },
             color: "primary.main",
-            
           }}
         />
       </Pali_verses>

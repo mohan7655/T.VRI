@@ -33,7 +33,7 @@ const geistMono = Geist_Mono({
 });
 
 const montserrat = Montserrat({
-  variable: "--font--mont",
+  variable: "--font-mont",
   subsets: ["latin"],
 });
 export default function RootLayout({ children }) {
