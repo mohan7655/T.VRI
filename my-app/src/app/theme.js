@@ -25,27 +25,21 @@ let theme = createTheme({
             default: "#121212",
           },
         }),
-
-    //  ...(mode === 'light'
-    //     ? {
-    //         // --- LIGHT MODE VALUES ---
-    //         background: {
-    //           default: '#ffffff',
-    //           paper: '#f5f5f5',
-    //         },
-    //       }
-    //     : {
-    //         // --- DARK MODE VALUES ---
-    //         // This is your block, placed in the 'else' part
-    //         background: {
-    //           default: '#0c111c', // Very dark blue
-    //           paper: '#1a2333',   // Lighter surface blue
-    //         },
-    //       }),
   },
   typography: {
-    fontFamily: "var(--font-geist-roboto)",
+    fontFamily: "var(--font-roboto-slab), serif",
     fontSize: 16,
+
+    // 2. Override all headings to use Arial
+    h1: { fontFamily: "Arial,var(--font-roboto), sans-serif" },
+    h2: { fontFamily: "Arial,var(--font-roboto), sans-serif" },
+    h3: { fontFamily: "Arial,var(--font-roboto), sans-serif" },
+    h4: { fontFamily: "Arial,var(--font-roboto), sans-serif" },
+    h5: { fontFamily: "Arial,var(--font-roboto), sans-serif" },
+    h6: { fontFamily: "Arial,var(--font-roboto), sans-serif" },
+
+    // You might also want to override buttons
+    button: { fontFamily: "Arial, sans-serif" },
   },
 });
 

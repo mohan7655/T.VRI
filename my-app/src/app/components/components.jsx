@@ -13,7 +13,7 @@ export const StyledButton = styled(Button)({
 export const Text = styled(Typography)(({ theme }) => ({
   // fontSize: "1.1rem",
   padding: "0 1",
-  fontWeight: "500",
+  fontWeight: "400",
 
   [theme.breakpoints.up("md")]: {
     padding: theme.spacing(2),

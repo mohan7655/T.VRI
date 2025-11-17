@@ -1,8 +1,25 @@
 import { getNavigationTree } from "@/lib/autoNav";
 import ClientLayout from "./client-layout";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Roboto_Slab } from "next/font/google";
 import { AuthProvider } from "@/context/AuthContext";
+import { Lora, Roboto } from 'next/font/google';
 
+
+const lora = Lora({
+  subsets: ['latin'],
+  variable: '--font-lora', // CSS variable for the body
+  
+});
+
+const roboto = Roboto({
+  subsets: ['latin'],
+  variable: '--font-roboto', // CSS variable for headings
+  
+});
+const robotoSlab = Roboto_Slab({
+  subsets:['latin'],
+  variable:'--font-roboto-slab',
+})
 export const metadata = {
   title: "Vipassana Research Institute",
   description: "Test",
@@ -22,7 +39,7 @@ export default function RootLayout({ children }) {
   const menuData = getNavigationTree();
 
   return (
-    <html lang="en">
+    <html lang="en" className={`${lora.variable} ${robotoSlab.variable}`} >
       <body>
         <AuthProvider>
           <ClientLayout menuData={menuData}>{children}</ClientLayout>
@@ -41,11 +58,6 @@ export default function RootLayout({ children }) {
 // import PermanentDrawerWithTree from "./components/gemini";
 // // import { getNavigationTree } from "@/lib/navigation";
 // import { getNavigationTree } from "@/lib/autoNav";
-
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
 
 // const geistMono = Geist_Mono({
 //   variable: "--font-geist-mono",
