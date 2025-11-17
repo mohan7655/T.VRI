@@ -68,7 +68,9 @@ function ResponsiveDrawer({ menuData }) {
     setAnchorEl(event.currentTarget);
     if (openTimer.current) {
       clearTimeout(openTimer.current);
-      openTimer.current = setTimeout(() => {
+    }
+    if(anchorEl){
+    openTimer.current = setTimeout(() => {
         setHoveredItemData(itemData);
       }, 100);
     } else {
