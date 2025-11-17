@@ -1,23 +1,31 @@
 "use client";
 import { createTheme, responsiveFontSizes } from "@mui/material";
 
+const mode = "light";
+
 let theme = createTheme({
   palette: {
-    mode: "light",
+    mode: mode,
     primary: {
       main: "#002299",
     },
     secondary: {
       main: "#EABE70",
     },
-    background: {
-      paper: "#fafafa",
-    },
 
-    // background: {
-    //   paper: "#282A2C",
-    //   default: "#1B1C1D",
-    // },
+    ...(mode === "light"
+      ? {
+          background: {
+            paper: "#fafafa",
+          },
+        }
+      : {
+          background: {
+            paper: "#1E1E1E",
+            default: "#121212",
+          },
+        }),
+
     //  ...(mode === 'light'
     //     ? {
     //         // --- LIGHT MODE VALUES ---

@@ -212,7 +212,7 @@ export default function SearchComponent({ onResultClick }) {
     <Box sx={{ p: 2, borderRadius: 4 }}>
       <TextField
         fullWidth
-        label={isIndexReady ? "Search..." : "Initializing search..."}
+        label={isIndexReady ? "Search" : "Initializing search..."}
         inputRef={inputRef}
         value={query}
         onChange={(e) => setQuery(e.target.value)}
@@ -280,7 +280,7 @@ export default function SearchComponent({ onResultClick }) {
             >
               <ListItemText
                 primary={
-                  <Typography variant="h6" component="div" sx={{ mb: 0.5 }}>
+                  <Typography variant="h6" component="div" sx={{ mb: 0.5,color:'primary.light' }}>
                     {highlightText(item.title, query)}
                   </Typography>
                 }

@@ -343,7 +343,7 @@ function ResponsiveDrawer({ menuData }) {
                 borderRadius: 3,
                 height: "10.8vh",
                 "& .MuiSvgIcon-root": {
-                  color: "text.secondary",
+                  // color: "text.secondary",
                 },
                 "&:hover": {
                   "& .MuiSvgIcon-root": {
