@@ -90,7 +90,7 @@ export default function TableOfContents() {
         px:2,
         position: { sm: "sticky" },
         top: { sm: "12vh", md: "3vh" },
-        maxHeight: { sm: "80vh", md: "calc(100vh - 50px)" },
+        maxHeight: { sm: "78vh", md: "calc(100vh - 50px)" },
         overflowY: "auto",
         minWidth: "22vw",
         display: { xs: "none", sm: "block" },
