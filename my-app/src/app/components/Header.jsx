@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import { HeadBar, HeadText, Image, Pali_verses } from "./components";
+import { HeadBar, HeadText, Image, Pali_verses } from "./styled";
 
 const Header = () => {
   return (

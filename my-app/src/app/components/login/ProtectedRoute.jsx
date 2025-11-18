@@ -1,8 +1,7 @@
 "use client";
 
-
-import LoginDialog from './LoginDialog';
-import { useAuth } from '@/context/AuthContext';
+import LoginDialog from "./LoginDialog";
+import { useAuth } from "@/context/AuthContext";
 
 export default function ProtectedRoute({ children }) {
   const { isAuthenticated } = useAuth();

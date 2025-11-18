@@ -9,7 +9,7 @@ import {
   Paper,
 } from "@mui/material";
 import Link from "next/link";
-import { TextBoxContainer } from "./components";
+import { TextBoxContainer } from "./styled";
 
 export default function TableOfContents() {
   const [headings, setHeadings] = useState([]);
@@ -87,7 +87,7 @@ export default function TableOfContents() {
     <TextBoxContainer
       sx={{
         py: 2,
-        px:2,
+        px: 2,
         position: { sm: "sticky" },
         top: { sm: "12vh", md: "3vh" },
         maxHeight: { sm: "78vh", md: "calc(100vh - 50px)" },

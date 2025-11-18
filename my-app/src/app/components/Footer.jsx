@@ -1,6 +1,6 @@
 import { Box, Divider, Typography } from "@mui/material";
-import { ContainerDivider } from "./components";
-import { StyledLink } from "./components";
+import { ContainerDivider } from "./styled";
+import { StyledLink } from "./styled";
 
 const Footer = () => {
   return (
@@ -58,16 +58,12 @@ const Footer = () => {
               mt: 6,
             }}
           >
-            <Typography
-              variant="body1"
-              sx={{ fontSize: "1.2rem",  }}
-            >
+            <Typography variant="body1" sx={{ fontSize: "1.2rem" }}>
               <b>Policies</b>
             </Typography>
             <StyledLink
               href="/policies/terms_conditions"
               //   href="https://www.vridhamma.org/terms-and-conditions"
-              
             >
               Terms Of Use
             </StyledLink>
@@ -88,13 +84,11 @@ const Footer = () => {
             gap: 1,
           }}
         >
-          <Typography variant="body2"><b>About</b> </Typography>
-          <StyledLink href="/vri/01_about" >
-            About Us
-          </StyledLink>
-          <StyledLink href="/vri/03_contact" >
-            Contact Us
-          </StyledLink>
+          <Typography variant="body2">
+            <b>About</b>{" "}
+          </Typography>
+          <StyledLink href="/vri/01_about">About Us</StyledLink>
+          <StyledLink href="/vri/03_contact">Contact Us</StyledLink>
         </Box>
         <Box
           sx={{
@@ -105,7 +99,9 @@ const Footer = () => {
             gap: 1,
           }}
         >
-          <Typography variant="body2"><b>Social Media:</b></Typography>
+          <Typography variant="body2">
+            <b>Social Media:</b>
+          </Typography>
           <StyledLink
             href="https://www.facebook.com/Vipassanaorganisation/"
             target="_blank"
@@ -140,7 +136,9 @@ const Footer = () => {
             gap: 1,
           }}
         >
-          <Typography variant="body2"><b>Download</b> </Typography>
+          <Typography variant="body2">
+            <b>Download</b>{" "}
+          </Typography>
           <StyledLink
             href="https://play.google.com/store/apps/details?id=org.dhamma&pcampaignid=web_share"
             target="_blank"

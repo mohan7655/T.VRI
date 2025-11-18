@@ -3,10 +3,27 @@ import { getAllPostPaths } from "@/lib/autoNav";
 import MdxContent from "@/app/components/mdxcontent";
 import TableOfContents from "@/app/components/table_of_contents";
 import { Typography, Container, Grid, Box } from "@mui/material";
-import { TextBoxContainer } from "@/app/components/components";
+import { TextBoxContainer } from "@/app/components/styled";
 import { serialize } from "next-mdx-remote/serialize";
 import remarkGfm from "remark-gfm";
 import remarkFootnotes from "remark-footnotes";
+
+export async function generateMetadata({ params }) {
+  const resolvedParams = await params;
+  const slugArray = ["vri", ...resolvedParams.slug];
+
+  const { content, frontmatter } = await getPostData(slugArray);
+
+  const hasContent = content && content.trim().length > 0;
+  if (!hasContent) {
+    return { title: "Post Not Found" };
+  }
+  return {
+    title: frontmatter.description,
+    openGraph: { title: frontmatter.description, type: "article" },
+  };
+}
+
 export default async function PostPage({ params }) {
   // Your 'await' here is unnecessary, 'params' is a standard object
 

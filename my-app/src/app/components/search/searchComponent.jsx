@@ -1,24 +1,15 @@
 "use client";
-import React, { useState } from "react";
-import {
-  IconButton,
-  Dialog,
-  Slide,
-  Box,
-  useTheme,
-  useMediaQuery,
-  AppBar,
-  Toolbar,
-  Typography,
-  ListItemButton,
-  ListItemText,
-  ListItemIcon,
-  Fade,
-  Zoom,
-  Grow,
-} from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
 import SearchIcon from "@mui/icons-material/Search";
+import {
+  Box,
+  Dialog,
+  Grow,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  useMediaQuery,
+  useTheme
+} from "@mui/material";
 import { useRouter, useSearchParams } from "next/navigation";
 
 // Assuming your existing search logic is imported here

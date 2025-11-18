@@ -20,7 +20,7 @@ import {
   Text,
   TextBoxContainer,
   Verses,
-} from "./components";
+} from "./styled";
 import YouTubePlayer from "./Youtube";
 
 // Helper function to create URL-friendly IDs
@@ -219,7 +219,6 @@ const muiComponents = {
   TableRow,
   Link,
   YouTubePlayer,
-  
 };
 
 export default function MdxContent({ source }) {

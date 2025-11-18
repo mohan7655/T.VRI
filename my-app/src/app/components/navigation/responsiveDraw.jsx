@@ -1,7 +1,6 @@
 "use client";
 import * as React from "react";
 
-// Layout & Components
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
@@ -11,41 +10,36 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
-import Slide from "@mui/material/Slide";
 
-// TreeView (from @mui/x-tree-view)
 import { SimpleTreeView } from "@mui/x-tree-view/SimpleTreeView";
 import { TreeItem, treeItemClasses } from "@mui/x-tree-view/TreeItem";
 
 // Icons
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { Search } from "@mui/icons-material";
+import BookIcon from "@mui/icons-material/Book";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import MenuIcon from "@mui/icons-material/Menu";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
+import MenuOpenIcon from "@mui/icons-material/MenuOpen";
+import PaymentIcon from "@mui/icons-material/Payment";
+import SelfImprovementIcon from "@mui/icons-material/SelfImprovement";
+import StorefrontIcon from "@mui/icons-material/Storefront";
 import {
   AppBar,
   Collapse,
-  Fade,
   Grow,
   IconButton,
   Link,
   Toolbar,
-  Zoom,
 } from "@mui/material";
-import StorefrontIcon from "@mui/icons-material/Storefront";
-import MenuBookIcon from "@mui/icons-material/MenuBook";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import SelfImprovementIcon from "@mui/icons-material/SelfImprovement";
-import { CenterIcon, DhammaIcon, VipassanaIcon } from "./customicons";
-import BookIcon from "@mui/icons-material/Book";
-import PaymentIcon from "@mui/icons-material/Payment";
-import { Search } from "@mui/icons-material";
-import MenuIcon from "@mui/icons-material/Menu";
-import MenuOpenIcon from "@mui/icons-material/MenuOpen";
-import SearchComponent from "./search";
-import SearchButtonWithModal from "./searchComponent";
+import { CenterIcon, DhammaIcon, VipassanaIcon } from "../customicons";
+
 import { useAuth } from "@/context/AuthContext";
-import LoginDialog from "./LoginDialog";
+import SearchButtonWithModal from "../search/searchComponent";
 
 const drawerWidth = "75vw";
 
@@ -53,7 +47,6 @@ function ResponsiveDrawer({ menuData }) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [isClosing, setIsClosing] = React.useState(false);
 
-  // For mobile: track which item is expanded
   const [expandedMobileItem, setExpandedMobileItem] = React.useState(null);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -69,8 +62,8 @@ function ResponsiveDrawer({ menuData }) {
     if (openTimer.current) {
       clearTimeout(openTimer.current);
     }
-    if(anchorEl){
-    openTimer.current = setTimeout(() => {
+    if (anchorEl) {
+      openTimer.current = setTimeout(() => {
         setHoveredItemData(itemData);
       }, 100);
     } else {
