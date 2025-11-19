@@ -9,12 +9,14 @@ const Footer = () => {
       <Box
         sx={{
           display: "flex",
-          flexDirection: { xs: "column", md: "row" },
+          flexDirection: "row",
+          flexWrap: "wrap",
+          justifyContent: "space-between",
           minHeight: "30vh",
           py: 2,
           px: 4,
           gap: { xs: 2, md: 8 },
-          backgroundColor: "background.paper",
+          backgroundColor: "action.hover",
         }}
       >
         <Box
@@ -36,7 +38,7 @@ const Footer = () => {
                 fontWeight: "bold",
               }}
             >
-              © {new Date().getFullYear()} VIPASSANA RESEARCH INSTITUTE
+              © 2025 VIPASSANA RESEARCH INSTITUTE
             </Typography>
             <Typography
               variant="body1"
@@ -75,6 +77,7 @@ const Footer = () => {
             </StyledLink>
           </Box>
         </Box>
+
         <Box
           sx={{
             display: "flex",

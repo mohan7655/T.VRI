@@ -7,7 +7,7 @@ import { Button } from "@mui/material";
 import Link from "next/link";
 
 export const StyledButton = styled(Button)({
-  color: blue,
+  backgroundColor: "primary.main",
 });
 
 export const Text = styled(Typography)(({ theme }) => ({
