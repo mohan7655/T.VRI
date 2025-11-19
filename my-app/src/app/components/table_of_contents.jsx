@@ -32,10 +32,10 @@ export default function TableOfContents() {
           id: elem.id,
           text: elem.textContent,
           level: elem.tagName.toLowerCase(),
-        }))
-        .filter((heading) => {
-          if (!heading.id) return false;
-        });
+        }));
+        // .filter((heading) => {
+        //   if (!heading.id) return false;
+        // });
       setHeadings(headingData);
     }, 0);
 
