@@ -5,6 +5,7 @@ import {
   Divider,
   Grid,
   Link,
+  Paper,
   Table,
   TableBody,
   TableCell,
@@ -153,6 +154,36 @@ const muiComponents = {
         margin: "2rem",
         padding: "2rem",
         // color: "#fbfa",
+      }}
+      {...props}
+    />
+  ),
+  table: (props) => (
+    <TableContainer component={Paper} sx={{ my: 4, boxShadow: 1 }}>
+      <Table {...props} />
+    </TableContainer>
+  ),
+  thead: (props) => <TableHead {...props} />,
+  tbody: (props) => <TableBody {...props} />,
+  tr: (props) => <TableRow hover {...props} />,
+  th: (props) => (
+    <TableCell
+      sx={{
+        fontWeight: 600,
+        backgroundColor: "grey.100",
+        color: "text.primary",
+        fontSize: "0.875rem",
+        textTransform: "uppercase",
+        letterSpacing: "0.05em",
+      }}
+      {...props}
+    />
+  ),
+  td: (props) => (
+    <TableCell
+      sx={{
+        fontSize: "0.875rem",
+        color: "text.secondary",
       }}
       {...props}
     />
