@@ -173,7 +173,6 @@ const muiComponents = {
         backgroundColor: "grey.100",
         color: "text.primary",
         fontSize: "0.875rem",
-        textTransform: "uppercase",
         letterSpacing: "0.05em",
       }}
       {...props}
