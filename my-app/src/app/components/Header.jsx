@@ -57,7 +57,7 @@ const Header = () => {
         </HeadText>
       </HeadBar>
       <Pali_verses>
-        <Box
+        {/* <Box
           component="img"
           src="/top.png" // This is the correct path in Next.js
           alt="top"
@@ -67,7 +67,7 @@ const Header = () => {
             height: { xs: 24, md: 45 },
             color: "primary.main",
           }}
-        />
+        /> */}
         <Box>
           <Typography
             variant="h1"
@@ -85,7 +85,7 @@ const Header = () => {
             SALVATION WITH DILIGENCE
           </Typography>
         </Box>
-        <Box
+        {/* <Box
           component="img"
           src="/bottom.png" // This is the correct path in Next.js
           alt="top"
@@ -95,7 +95,7 @@ const Header = () => {
             height: { xs: 20, md: 35 },
             color: "primary.main",
           }}
-        />
+        /> */}
       </Pali_verses>
     </>
   );
