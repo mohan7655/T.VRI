@@ -115,11 +115,8 @@ export default function SearchComponent({ onResultClick }) {
       .replace(/Ṭ/g, "T")
       .replace(/Ḍ/g, "D")
       .replace(/Ṇ/g, "N")
-      .replace(/Ḷ/g, "L")
-      .replace(/Ṛ/g, "R")
-      .replace(/Ṝ/g, "R")
-      .replace(/Ś/g, "S")
-      .replace(/Ṣ/g, "S");
+      .replace(/Ḷ/g, "L");
+      
   };
 
   // Search results with excerpts from body
