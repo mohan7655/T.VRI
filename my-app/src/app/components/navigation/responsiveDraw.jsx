@@ -17,7 +17,7 @@ import { TreeItem, treeItemClasses } from "@mui/x-tree-view/TreeItem";
 // Icons
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 
-import { Search } from "@mui/icons-material";
+import { Scale, Search } from "@mui/icons-material";
 import BookIcon from "@mui/icons-material/Book";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
@@ -111,7 +111,7 @@ function ResponsiveDrawer({ menuData }) {
     vri: <DhammaIcon />,
     vipassana: <VipassanaIcon sx={{ strokeWidth: 4.5 }} />,
     resources: <BookIcon />,
-    centers: <CenterIcon />,
+    centers: <CenterIcon sx={{ fontSize: "3rem" }} />,
     donations: <PaymentIcon />,
     search: <Search />,
   };

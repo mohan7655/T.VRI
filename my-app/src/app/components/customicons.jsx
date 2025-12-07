@@ -2,9 +2,9 @@
 import * as React from "react";
 import SvgIcon from "@mui/material/SvgIcon";
 
-import dhammaSvg from "../../../public/leaf.svg";
-import vipassanaSvg from "../../../public/wheel.svg";
-import pagodaSvg from "../../../public/pagoda.svg";
+import dhammaSvg from "@/icons/leaf.svg";
+import vipassanaSvg from "@/icons/wheel.svg";
+import pagodaSvg from "@/icons/pagoda2.svg";
 // import pagodaSvg from "../../../public/pagoda.svg";
 
 export function VipassanaIcon(props) {
