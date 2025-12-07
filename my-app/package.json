@@ -5,7 +5,7 @@
   "scripts": {
     "build:search": "node -e \"require('./src/lib/searchIndex.mjs').buildSearchIndex()\"",
     "dev": "npm run build:search && next dev --webpack",
-    "build": "npm run build:search && next build",
+    "build": "npm run build:search && next build --webpack",
     "start": "next start",
     "lint": "eslint"
   },
