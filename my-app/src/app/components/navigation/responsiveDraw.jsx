@@ -111,7 +111,7 @@ function ResponsiveDrawer({ menuData }) {
     vri: <DhammaIcon />,
     vipassana: <VipassanaIcon sx={{ strokeWidth: 4.5 }} />,
     resources: <BookIcon />,
-    centers: <CenterIcon sx={{ fontSize: "3rem" }} />,
+    centers: <CenterIcon sx={{ scale:1.4 }} />,
     donations: <PaymentIcon />,
     search: <Search />,
   };
@@ -480,7 +480,8 @@ function ResponsiveDrawer({ menuData }) {
                   paddingRight: 0,
                   top: "0 !important",
                   // minHeight: "100vh",
-                  maxHeight: "calc(99vh-32px)",
+                  minHeight: "99vh",
+                  maxHeight: "99vh",
                   width: 340,
                   boxShadow: "0 0 16px rgba(0,0,0,0.15)",
                   overflowY: "auto",
