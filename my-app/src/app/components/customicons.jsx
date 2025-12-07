@@ -5,6 +5,7 @@ import SvgIcon from "@mui/material/SvgIcon";
 import dhammaSvg from "../../../public/leaf.svg";
 import vipassanaSvg from "../../../public/wheel.svg";
 import pagodaSvg from "../../../public/pagoda.svg";
+// import pagodaSvg from "../../../public/pagoda.svg";
 
 export function VipassanaIcon(props) {
   return <SvgIcon component={vipassanaSvg} inheritViewBox {...props} />;

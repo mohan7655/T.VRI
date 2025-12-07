@@ -111,7 +111,7 @@ function ResponsiveDrawer({ menuData }) {
     vri: <DhammaIcon />,
     vipassana: <VipassanaIcon sx={{ strokeWidth: 4.5 }} />,
     resources: <BookIcon />,
-    centers: <CenterIcon sx={{ scale: 1.7 }} />,
+    centers: <CenterIcon />,
     donations: <PaymentIcon />,
     search: <Search />,
   };
