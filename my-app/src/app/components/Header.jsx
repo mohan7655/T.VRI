@@ -25,7 +25,7 @@ const Header = () => {
             sx={{
               mb: 0,
               textAlign: "center",
-              fontSize: { xs: "2.4rem", md: "4rem" },
+              fontSize: { xs: "2.3rem", md: "4rem" },
               fontWeight: 500,
             }}
           >
