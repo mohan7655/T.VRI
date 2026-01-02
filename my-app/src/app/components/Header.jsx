@@ -13,7 +13,7 @@ const Header = () => {
           // src="/logo_small.gif"
           alt="Wheel"
           sx={{
-            // Use 'width' and 'height', not 'fontSize'
+            
             width: { xs: 75, md: 125 },
             height: { xs: 75, md: 125 },
           }}
@@ -29,7 +29,7 @@ const Header = () => {
               fontWeight: 500,
             }}
           >
-            Vipassana Research Institue
+            Vipassana Research Institute
           </Typography>
           <Typography
             variant="body1"
@@ -62,7 +62,7 @@ const Header = () => {
           src="/top.png" // This is the correct path in Next.js
           alt="top"
           sx={{
-            // Use 'width' and 'height', not 'fontSize'
+            
             width: { xs: 125, md: 250 },
             height: { xs: 24, md: 45 },
             color: "primary.main",
