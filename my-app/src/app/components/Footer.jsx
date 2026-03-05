@@ -38,7 +38,7 @@ const Footer = () => {
                 fontWeight: "bold",
               }}
             >
-              © 2025 VIPASSANA RESEARCH INSTITUTE
+              Old Student
             </Typography>
             <Typography
               variant="body1"
@@ -48,7 +48,7 @@ const Footer = () => {
                 fontWeight: "bold",
               }}
             >
-              All Rights Reserved
+              Concept Design
             </Typography>
           </Box>
           <Box
